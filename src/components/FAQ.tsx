@@ -79,9 +79,13 @@ const FAQItem: React.FC<{ faq: typeof faqs[0], index: number }> = ({ faq, index 
   );
 };
 
-export const FAQ: React.FC = () => {
+interface FAQProps {
+  className?: string;
+}
+
+export const FAQ: React.FC<FAQProps> = ({ className }) => {
   return (
-    <section id="faq" className="py-20 md:py-32 bg-[#F8F9FA]">
+    <section id="faq" className={`py-20 md:py-32 ${className || 'bg-[#F8F9FA]'}`}>
       <div className="max-w-4xl mx-auto px-6">
         
         <div className="text-center mb-12 md:mb-16">

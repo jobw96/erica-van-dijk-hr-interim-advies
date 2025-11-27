@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -24,11 +24,19 @@ import { PageTransition } from './components/PageTransition';
 
 const queryClient = new QueryClient();
 
-// Component to handle scrolling to anchor tags
-const HashScrollHandler = () => {
-  const {
-    hash
-  } = useLocation();
+// Component to handle scrolling to top on route change and anchor tags
+const ScrollHandler = () => {
+  const { pathname, hash } = useLocation();
+  
+  // Use useLayoutEffect to scroll BEFORE the browser paints
+  useLayoutEffect(() => {
+    if (!hash) {
+      // Scroll to top immediately on route change (no hash)
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+  
+  // Handle hash scrolling with useEffect (can be smooth)
   useEffect(() => {
     if (hash) {
       const id = hash.replace('#', '');
@@ -40,6 +48,7 @@ const HashScrollHandler = () => {
       }
     }
   }, [hash]);
+  
   return null;
 };
 
@@ -110,7 +119,7 @@ const AppRoutes: React.FC = () => {
 
 const AppContent: React.FC = () => {
   return <>
-    <HashScrollHandler />
+    <ScrollHandler />
     <Navbar />
     <Breadcrumbs />
     <AppRoutes />
