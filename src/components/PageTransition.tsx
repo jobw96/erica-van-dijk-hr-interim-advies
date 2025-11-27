@@ -8,7 +8,7 @@ interface PageTransitionProps {
 const variants = {
   initial: {
     opacity: 0,
-    y: 20,
+    y: 0, // Changed from 20 to 0 to prevent visible offset on page load
   },
   enter: {
     opacity: 1,
@@ -20,7 +20,7 @@ const variants = {
   },
   exit: {
     opacity: 0,
-    y: 20,
+    y: 0, // Changed from 20 to 0 for consistency
     transition: {
       duration: 0.3,
       ease: [0.61, 1, 0.88, 1],

@@ -88,9 +88,9 @@ All colors MUST be HSL.
     font-weight: 700;
   }
 
-  /* Smooth scrolling */
+  /* Instant scrolling for page navigation - smooth scroll removed to prevent visible scroll on page load */
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
   }
 
   /* Custom scrollbar */
