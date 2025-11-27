@@ -81,31 +81,6 @@ const ExperienceDetailPage: React.FC = () => {
 
 const ContactPageWrapper: React.FC = () => {
   return (
-    <PageTransition>
-      <ContactPage />
-    </PageTransition>
-  );
-};
-
-const AppRoutes: React.FC = () => {
-  const location = useLocation();
-
-  return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/experience" element={<ExperiencePage />} />
-        <Route path="/experience/:id" element={<ExperienceDetailPage />} />
-        <Route path="/contact" element={<ContactPageWrapper />} />
-      </Routes>
-    </AnimatePresence>
-  );
-};
-
-const AppContent: React.FC = () => {
-  return <>
-    <HashScrollHandler />
-    <Navbar />
     <Breadcrumbs />
     <AppRoutes />
     <Footer />
