@@ -1,113 +1,126 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Mail } from 'lucide-react';
+
 export const About: React.FC = () => {
-  return <section id="about" className="py-16 md:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12 md:mb-16">
-            <motion.span
-              initial={{ opacity: 0, scale: 0.96, y: 6 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
-              className="inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] font-medium tracking-[0.1em] uppercase text-sm rounded-[50px]"
-              style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
-            >
-              Over Mij
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-3xl md:text-4xl font-bold text-[#333333] mt-3"
-            >
-              Kennismaking
-            </motion.h2>
-         </div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="max-w-4xl mx-auto bg-white rounded-3xl p-6 md:p-12 shadow-sm flex flex-col md:flex-row items-center gap-8 md:gap-12"
-        >
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="w-full md:w-1/3 flex-shrink-0"
-            >
-                <motion.img whileHover={{
-            scale: 1.05
-          }} transition={{
-            duration: 0.5
-          }} alt="Erica van Dijk" className="rounded-2xl w-full aspect-square object-cover shadow-lg" src="/lovable-uploads/41e526fc-1f51-4c6d-a670-41b8434d6d1d.png" />
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="w-full md:w-2/3"
-            >
-                 <motion.h3 
-                   initial={{ opacity: 0, y: 10 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.5, delay: 0.6 }}
-                   className="text-2xl md:text-3xl font-bold text-[#333333] mb-2"
-                 >
-                   Erica van Dijk
-                 </motion.h3>
-                 <motion.span 
-                   initial={{ opacity: 0 }}
-                   whileInView={{ opacity: 1 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.5, delay: 0.7 }}
-                   className="text-[#8E170B] font-medium block mb-6 text-base md:text-lg"
-                 >
-                   HR Interim Manager & Adviseur
-                 </motion.span>
-                 
-                 <motion.p 
-                   initial={{ opacity: 0, y: 10 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.5, delay: 0.8 }}
-                   className="text-gray-600 leading-relaxed mb-6 text-base md:text-lg"
-                 >
-                    "Ik ben Erica van Dijk, een ervaren allround interim HR Manager met een pragmatische en betrouwbare aanpak. Als no-nonsense teamspeler en kritische huisvriend/coach voor managers, combineer ik creatieve probleemoplossing met een ondernemende geest. Met mijn verbindende poldermentaliteit en onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo duurzame oplossingen te realiseren."
-                 </motion.p>
-                 
-                 <motion.div 
-                   initial={{ opacity: 0, y: 10 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.5, delay: 0.9 }}
-                   className="flex gap-4 justify-center md:justify-start"
-                 >
-                    <motion.a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="bg-[#8E170B] text-white p-3 rounded-lg" whileHover={{
-              backgroundColor: '#701209',
-              scale: 1.05
-            }}>
-                      <Linkedin size={20} />
-                    </motion.a>
-                    <motion.a href="mailto:info@ericavandijk.nl" className="bg-gray-100 text-[#8E170B] p-3 rounded-lg" whileHover={{
-              backgroundColor: '#8E170B',
-              color: 'white',
-              scale: 1.05
-            }}>
-                      <Mail size={20} />
-                    </motion.a>
-                 </motion.div>
-            </motion.div>
-        </motion.div>
-
+  return (
+    <section id="about" className="py-20 md:py-32 bg-gray-50 overflow-hidden relative">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[#8E170B]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gray-200/50 rounded-full blur-3xl" />
       </div>
-    </section>;
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-16 md:mb-24">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-block py-2 px-6 bg-white border border-[#8E170B]/10 rounded-full text-[#8E170B] font-medium tracking-wider uppercase text-xs shadow-sm mb-4"
+          >
+            Over Mij
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-bold text-gray-900"
+          >
+            Persoonlijke Kennismaking
+          </motion.h2>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
+          {/* Image Section - Larger & Animated */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full md:w-1/2 relative"
+          >
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.4 }}
+              className="relative z-10 rounded-3xl overflow-hidden shadow-2xl"
+            >
+              <img
+                src="/lovable-uploads/41e526fc-1f51-4c6d-a670-41b8434d6d1d.png"
+                alt="Erica van Dijk"
+                className="w-full h-auto object-cover"
+              />
+              {/* Overlay gradient for depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
+            </motion.div>
+
+            {/* Decorative backdrop behind image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="absolute -top-6 -left-6 w-full h-full border-2 border-[#8E170B]/20 rounded-3xl -z-10"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="absolute -bottom-6 -right-6 w-full h-full bg-[#8E170B]/5 rounded-3xl -z-10"
+            />
+          </motion.div>
+
+          {/* Content Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            className="w-full md:w-1/2"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+              Erica van Dijk
+            </h3>
+            <p className="text-xl text-[#8E170B] font-medium mb-8">
+              HR Interim Manager & Adviseur
+            </p>
+
+            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <p>
+                "Ik ben een ervaren allround interim HR Manager met een <span className="font-semibold text-gray-900">pragmatische en betrouwbare aanpak</span>. Als no-nonsense teamspeler en kritische sparringpartner combineer ik creatieve probleemoplossing met een ondernemende geest."
+              </p>
+              <p>
+                Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo <span className="font-semibold text-gray-900">duurzame oplossingen</span> te realiseren.
+              </p>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <motion.a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 px-6 py-3 bg-[#0077b5] text-white rounded-xl font-medium shadow-lg shadow-blue-900/20 transition-colors hover:bg-[#006396]"
+              >
+                <Linkedin size={20} />
+                Connect op LinkedIn
+              </motion.a>
+
+              <motion.a
+                href="mailto:info@ericavandijk.nl"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-medium hover:border-[#8E170B] hover:text-[#8E170B] transition-colors"
+              >
+                <Mail size={20} />
+                Stuur een bericht
+              </motion.a>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
 };
