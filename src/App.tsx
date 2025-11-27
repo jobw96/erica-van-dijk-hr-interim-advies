@@ -21,7 +21,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from 'framer-motion';
 import { PageTransition } from './components/PageTransition';
-import { ScrollToTop } from './components/ScrollToTop';
 
 const queryClient = new QueryClient();
 
@@ -92,11 +91,7 @@ const AppRoutes: React.FC = () => {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait" onExitComplete={() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    }}>
+    <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage />} />
         <Route path="/experience" element={<ExperiencePage />} />
@@ -124,7 +119,6 @@ const App: React.FC = () => {
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToTop />
         <AppContent />
       </BrowserRouter>
     </TooltipProvider>
