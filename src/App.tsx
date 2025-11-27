@@ -19,21 +19,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-const queryClient = new QueryClient();
+import { AnimatePresence } from 'framer-motion';
+import { PageTransition } from './components/PageTransition';
 
-// Component to handle scrolling to top on route change
-const ScrollToTop = () => {
-  const {
-    pathname,
-    hash
-  } = useLocation();
-  useEffect(() => {
-    if (!hash) {
-      window.scrollTo(0, 0);
-    }
-  }, [pathname, hash]);
-  return null;
-};
+const queryClient = new QueryClient();
 
 // Component to handle scrolling to anchor tags
 const HashScrollHandler = () => {
@@ -54,7 +43,8 @@ const HashScrollHandler = () => {
   return null;
 };
 const HomePage: React.FC = () => {
-  return <>
+  return (
+    <PageTransition>
       <Hero />
       <About />
       <ClientLogos className="py-[40px] pb-[41px] pt-[11px] bg-primary-foreground" />
@@ -64,41 +54,72 @@ const HomePage: React.FC = () => {
       <Reviews />
       <FAQ className="bg-primary-foreground" />
       <Contact />
-    </>;
+    </PageTransition>
+  );
 };
 
 // For the standalone experience page
 const ExperiencePage: React.FC = () => {
-  return <div className="pt-20">
-            <ExperienceSection />
-            <Contact />
-        </div>;
+  return (
+    <PageTransition>
+      <div className="pt-20">
+        <ExperienceSection />
+        <Contact />
+      </div>
+    </PageTransition>
+  );
 };
-const AppContent: React.FC = () => {
-  return <>
-      <ScrollToTop />
-      <HashScrollHandler />
-      <Navbar />
-      <Breadcrumbs />
-      <Routes>
+
+const ExperienceDetailPage: React.FC = () => {
+  return (
+    <PageTransition>
+      <ExperienceDetail />
+    </PageTransition>
+  );
+};
+
+const ContactPageWrapper: React.FC = () => {
+  return (
+    <PageTransition>
+      <ContactPage />
+    </PageTransition>
+  );
+};
+
+const AppRoutes: React.FC = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage />} />
         <Route path="/experience" element={<ExperiencePage />} />
-        <Route path="/experience/:id" element={<ExperienceDetail />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/experience/:id" element={<ExperienceDetailPage />} />
+        <Route path="/contact" element={<ContactPageWrapper />} />
       </Routes>
-      <Footer />
-      <BackToTopButton />
-    </>;
+    </AnimatePresence>
+  );
+};
+
+const AppContent: React.FC = () => {
+  return <>
+    <HashScrollHandler />
+    <Navbar />
+    <Breadcrumbs />
+    <AppRoutes />
+    <Footer />
+    <BackToTopButton />
+  </>;
 };
 const App: React.FC = () => {
   return <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>;
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>;
 };
 export default App;
