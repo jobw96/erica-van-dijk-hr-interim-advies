@@ -5,24 +5,25 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { createPortal } from 'react-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import logo from '@/assets/logo.png';
-
-function useScroll(threshold = 0) {
-  const [scrolled, setScrolled] = React.useState(false);
-  React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > threshold);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [threshold]);
-  return scrolled;
-}
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
-  const scrolled = useScroll(50);
   const location = useLocation();
   const MotionLink = motion(Link);
+
+  // Use framer-motion's useScroll for smooth, continuous values
+  const { scrollY } = useScroll();
+
+  // Map scroll position to values for a continuous "Apple-like" feel
+  // 0 -> 50px scroll range
+  const navPadding = useTransform(scrollY, [0, 50], ["16px", "8px"]);
+  const navHeight = useTransform(scrollY, [0, 50], ["80px", "64px"]);
+  const logoHeight = useTransform(scrollY, [0, 50], ["48px", "40px"]);
+  const backgroundColor = useTransform(scrollY, [0, 50], ["rgba(255, 255, 255, 1)", "rgba(255, 255, 255, 0.95)"]);
+  const backdropFilter = useTransform(scrollY, [0, 50], ["blur(0px)", "blur(12px)"]);
+  const borderColor = useTransform(scrollY, [0, 50], ["rgba(229, 231, 235, 0)", "rgba(229, 231, 235, 1)"]);
 
   const links = [{
     label: "Home",
@@ -65,29 +66,17 @@ export function Navbar() {
   return <>
     <motion.nav
       style={{
-        backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 1)',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderColor: scrolled ? 'rgba(229, 231, 235, 0.5)' : 'rgba(229, 231, 235, 1)'
-      }}
-      animate={{
-        paddingTop: scrolled ? '6px' : '10px',
-        paddingBottom: scrolled ? '6px' : '10px'
-      }}
-      transition={{
-        duration: 0.3,
-        ease: "easeInOut"
+        backgroundColor,
+        backdropFilter,
+        borderColor,
+        paddingTop: navPadding,
+        paddingBottom: navPadding
       }}
       className='fixed top-0 left-0 right-0 z-50 border-b'
     >
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
-          animate={{
-            height: scrolled ? '56px' : '64px'
-          }}
-          transition={{
-            duration: 0.3,
-            ease: "easeInOut"
-          }}
+          style={{ height: navHeight }}
           className="flex items-center justify-between"
         >
           <div className="flex items-center">
@@ -97,13 +86,7 @@ export function Navbar() {
               <motion.img
                 src={logo}
                 alt="Erica van Dijk"
-                animate={{
-                  height: scrolled ? '40px' : '48px'
-                }}
-                transition={{
-                  duration: 0.3,
-                  ease: "easeInOut"
-                }}
+                style={{ height: logoHeight }}
               />
             </MotionLink>
 
