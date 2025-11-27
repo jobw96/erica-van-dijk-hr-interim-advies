@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -28,9 +28,17 @@ const queryClient = new QueryClient();
 const ScrollHandler = () => {
   const { pathname, hash } = useLocation();
   
+  // Use useLayoutEffect to scroll BEFORE the browser paints
+  useLayoutEffect(() => {
+    if (!hash) {
+      // Scroll to top immediately on route change (no hash)
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+  
+  // Handle hash scrolling with useEffect (can be smooth)
   useEffect(() => {
     if (hash) {
-      // Handle anchor scrolling
       const id = hash.replace('#', '');
       const element = document.getElementById(id);
       if (element) {
@@ -38,11 +46,8 @@ const ScrollHandler = () => {
           behavior: 'smooth'
         });
       }
-    } else {
-      // Scroll to top on route change
-      window.scrollTo(0, 0);
     }
-  }, [pathname, hash]);
+  }, [hash]);
   
   return null;
 };
