@@ -81,6 +81,37 @@ const ExperienceDetailPage: React.FC = () => {
 
 const ContactPageWrapper: React.FC = () => {
   return (
+    <PageTransition>
+      <ContactPage />
+    </PageTransition>
+  );
+};
+
+const AppRoutes: React.FC = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait" onExitComplete={() => {
+      // Scroll to top DURING the fade-out (when opacity is 0)
+      // This is invisible to the user
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }}>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/experience" element={<ExperiencePage />} />
+        <Route path="/experience/:id" element={<ExperienceDetailPage />} />
+        <Route path="/contact" element={<ContactPageWrapper />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
+const AppContent: React.FC = () => {
+  return <>
+    <HashScrollHandler />
+    <Navbar />
     <Breadcrumbs />
     <AppRoutes />
     <Footer />
