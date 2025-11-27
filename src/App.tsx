@@ -21,6 +21,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from 'framer-motion';
 import { PageTransition } from './components/PageTransition';
+import { ScrollToTop } from './components/ScrollToTop';
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ const HashScrollHandler = () => {
   }, [hash]);
   return null;
 };
+
 const HomePage: React.FC = () => {
   return (
     <PageTransition>
@@ -111,15 +113,18 @@ const AppContent: React.FC = () => {
     <BackToTopButton />
   </>;
 };
+
 const App: React.FC = () => {
   return <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>;
 };
+
 export default App;
