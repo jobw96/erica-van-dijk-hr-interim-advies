@@ -24,13 +24,13 @@ import { PageTransition } from './components/PageTransition';
 
 const queryClient = new QueryClient();
 
-// Component to handle scrolling to anchor tags
-const HashScrollHandler = () => {
-  const {
-    hash
-  } = useLocation();
+// Component to handle scrolling to top on route change and anchor tags
+const ScrollHandler = () => {
+  const { pathname, hash } = useLocation();
+  
   useEffect(() => {
     if (hash) {
+      // Handle anchor scrolling
       const id = hash.replace('#', '');
       const element = document.getElementById(id);
       if (element) {
@@ -38,8 +38,12 @@ const HashScrollHandler = () => {
           behavior: 'smooth'
         });
       }
+    } else {
+      // Scroll to top on route change
+      window.scrollTo(0, 0);
     }
-  }, [hash]);
+  }, [pathname, hash]);
+  
   return null;
 };
 
@@ -104,7 +108,7 @@ const AppRoutes: React.FC = () => {
 
 const AppContent: React.FC = () => {
   return <>
-    <HashScrollHandler />
+    <ScrollHandler />
     <Navbar />
     <Breadcrumbs />
     <AppRoutes />
