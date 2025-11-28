@@ -58,8 +58,8 @@ const cardHoverVariants = {
     boxShadow: "0 4px 20px rgba(0,0,0,0.02)"
   },
   hover: {
-    y: -12,
-    boxShadow: "0 30px 60px -15px rgba(142, 23, 11, 0.12)"
+    y: -5,
+    boxShadow: "0 20px 40px -10px rgba(142, 23, 11, 0.08)"
   }
 };
 

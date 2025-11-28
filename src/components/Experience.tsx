@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { experiences } from '../data/experiences';
+
 const containerVariants = {
   hidden: {
     opacity: 0
@@ -14,6 +15,7 @@ const containerVariants = {
     }
   }
 };
+
 const itemVariants = {
   hidden: {
     opacity: 0,
@@ -24,24 +26,26 @@ const itemVariants = {
     y: 0
   }
 };
+
 const cardVariants = {
   rest: {
     y: 0,
     boxShadow: '0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.1)'
   },
   hover: {
-    y: -8,
-    boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)'
+    y: -5,
+    boxShadow: '0 15px 20px -5px rgba(0,0,0,0.08), 0 8px 8px -5px rgba(0,0,0,0.03)'
   }
 };
+
 export const Experience: React.FC = () => {
   const MotionLink = motion(Link);
   return <section id="experience" className="py-20 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Header Section - LEFT aligned */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 md:mb-20 gap-4">
-          <div className="max-w-2xl text-left">
-            <motion.span initial={{
+    <div className="max-w-7xl mx-auto px-6">
+      {/* Header Section - LEFT aligned */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 md:mb-20 gap-4">
+        <div className="max-w-2xl text-left">
+          <motion.span initial={{
             opacity: 0,
             scale: 0.96,
             y: 6
@@ -55,19 +59,19 @@ export const Experience: React.FC = () => {
             duration: 0.45,
             ease: "easeOut"
           }} className="section-label inline-flex items-center h-[29px] px-6 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs">
-              CASES
-            </motion.span>
-            <motion.h2 initial={{
+            CASES
+          </motion.span>
+          <motion.h2 initial={{
             opacity: 0,
             y: 10
           }} whileInView={{
             opacity: 1,
             y: 0
           }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight">
-              Gerealiseerde HR-Projecten
-            </motion.h2>
-          </div>
-          <MotionLink to="/experience" className="hidden md:flex items-center gap-2 text-[#1F2937] font-satoshi-bold cursor-pointer tracking-wide" initial={{
+            Gerealiseerde HR-Projecten
+          </motion.h2>
+        </div>
+        <MotionLink to="/experience" className="hidden md:flex items-center gap-2 text-[#1F2937] font-satoshi-bold cursor-pointer tracking-wide" initial={{
           opacity: 0,
           x: -20
         }} whileInView={{
@@ -82,52 +86,52 @@ export const Experience: React.FC = () => {
           color: '#8E170B',
           x: 5
         }}>
-            <span>Bekijk alle</span>
-            <ArrowRight size={20} />
-          </MotionLink>
-        </div>
+          <span>Bekijk alle</span>
+          <ArrowRight size={20} />
+        </MotionLink>
+      </div>
 
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
+      <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
         once: true,
         margin: "-50px"
       }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {experiences.map(item => <MotionLink to={`/experience/${item.id}`} key={item.id} className="block h-full">
-              <motion.div variants={{
+        {experiences.map(item => <MotionLink to={`/experience/${item.id}`} key={item.id} className="block h-full">
+          <motion.div variants={{
             ...itemVariants,
             ...cardVariants
           }} whileHover="hover" className="bg-white rounded-2xl p-3 border border-gray-100 h-full flex flex-col">
-                {/* Image Container */}
-                <div className="h-56 md:h-64 overflow-hidden relative shrink-0 rounded-xl">
-                  <motion.img whileHover={{
+            {/* Image Container */}
+            <div className="h-56 md:h-64 overflow-hidden relative shrink-0 rounded-xl">
+              <motion.img whileHover={{
                 scale: 1.1
               }} transition={{
                 duration: 0.6
               }} src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            </div>
 
-                {/* Content */}
-                <div className="p-5 flex flex-col flex-grow">
-                  <div className="flex items-center gap-2 text-[#8E170B] text-sm font-satoshi-medium mb-3 tracking-wide">
-                    <Calendar size={16} />
-                    <span>{item.period}</span>
-                  </div>
-                  <h3 className="text-xl font-satoshi-bold text-gray-900 mb-2 line-clamp-2 tracking-tight">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-3 line-clamp-2 flex-grow font-satoshi-regular tracking-wide">
-                    {item.shortDescription}
-                  </p>
-                  <div className="flex items-center gap-2 text-[#8E170B] font-satoshi-medium text-sm mt-auto tracking-wide">
-                    <span>Lees meer</span>
-                    <ArrowRight size={16} />
-                  </div>
-                </div>
-              </motion.div>
-            </MotionLink>)}
-        </motion.div>
+            {/* Content */}
+            <div className="p-5 flex flex-col flex-grow">
+              <div className="flex items-center gap-2 text-[#8E170B] text-sm font-satoshi-medium mb-3 tracking-wide">
+                <Calendar size={16} />
+                <span>{item.period}</span>
+              </div>
+              <h3 className="text-xl font-satoshi-bold text-gray-900 mb-2 line-clamp-2 tracking-tight">
+                {item.title}
+              </h3>
+              <p className="text-gray-600 text-sm mb-3 line-clamp-2 flex-grow font-satoshi-regular tracking-wide">
+                {item.shortDescription}
+              </p>
+              <div className="flex items-center gap-2 text-[#8E170B] font-satoshi-medium text-sm mt-auto tracking-wide">
+                <span>Lees meer</span>
+                <ArrowRight size={16} />
+              </div>
+            </div>
+          </motion.div>
+        </MotionLink>)}
+      </motion.div>
 
-        <MotionLink to="/experience" className="md:hidden flex items-center justify-center gap-2 text-[#8E170B] font-satoshi-bold cursor-pointer mt-12 tracking-wide" initial={{
+      <MotionLink to="/experience" className="md:hidden flex items-center justify-center gap-2 text-[#8E170B] font-satoshi-bold cursor-pointer mt-12 tracking-wide" initial={{
         opacity: 0,
         y: 20
       }} whileInView={{
@@ -141,9 +145,9 @@ export const Experience: React.FC = () => {
       }} whileHover={{
         x: 5
       }}>
-          <span>Bekijk alle</span>
-          <ArrowRight size={20} />
-        </MotionLink>
-      </div>
-    </section>;
+        <span>Bekijk alle</span>
+        <ArrowRight size={20} />
+      </MotionLink>
+    </div>
+  </section>;
 };
