@@ -89,7 +89,7 @@ export const Reviews: React.FC = () => {
               className="h-full w-full rounded-2xl overflow-hidden relative"
             >
               <img
-                src="/review-photo.png"
+                src="/review-photo-new.jpg"
                 alt="Client working"
                 className="w-full h-full object-cover"
               />
@@ -106,9 +106,6 @@ export const Reviews: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="h-full bg-[#E0E7FF] rounded-2xl p-8 md:p-12 flex flex-col justify-between relative"
             >
-              {/* Logo Top Right (Optional/Placeholder based on screenshot) */}
-              {/* <div className="absolute top-8 right-8">...</div> */}
-
               <p className="text-gray-800 font-satoshi-regular text-lg leading-relaxed mb-8">
                 "{reviews[currentIndex].text}"
               </p>
