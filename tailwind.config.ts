@@ -64,8 +64,17 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        'heading': ['Inter', 'sans-serif'],
-        'body': ['Poppins', 'sans-serif'],
+        'satoshi': ['Satoshi', 'system-ui', 'sans-serif'],
+        'heading': ['Satoshi', 'system-ui', 'sans-serif'],
+        'body': ['Satoshi', 'system-ui', 'sans-serif'],
+      },
+      letterSpacing: {
+        'tighter': '-0.04em',
+        'tight': '-0.02em',
+        'normal': '0',
+        'wide': '0.01em',
+        'wider': '0.02em',
+        'widest': '0.08em',
       },
       keyframes: {
         "accordion-down": {

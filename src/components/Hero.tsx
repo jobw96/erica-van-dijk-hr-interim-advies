@@ -53,7 +53,7 @@ export const Hero: React.FC = () => {
             duration: 0.5,
             delay: 0,
             ease: "easeOut"
-          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1]">
+          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-satoshi-black text-white leading-[1.1] tracking-tighter">
             HR Interim
           </motion.h1>
           <motion.h1 initial={{
@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
             duration: 0.5,
             delay: 0.1,
             ease: "easeOut"
-          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1]">
+          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-satoshi-black text-white leading-[1.1] tracking-tighter">
             & Advies
           </motion.h1>
 
@@ -95,7 +95,7 @@ export const Hero: React.FC = () => {
               scale: 0.96
             }} transition={{
               duration: 0.2
-            }} className="bg-white text-[#8E170B] px-8 py-4 rounded-lg font-medium text-base md:text-lg shadow-lg w-full sm:w-auto whitespace-nowrap">
+            }} className="bg-white text-[#8E170B] px-8 py-4 rounded-lg font-satoshi-medium text-base md:text-lg shadow-lg w-full sm:w-auto whitespace-nowrap tracking-wide">
               Neem contact
             </motion.button>
           </Link>
@@ -108,7 +108,7 @@ export const Hero: React.FC = () => {
               scale: 0.96
             }} transition={{
               duration: 0.2
-            }} className="border-2 border-white/80 text-white px-8 py-4 rounded-lg font-medium text-base md:text-lg w-full sm:w-auto backdrop-blur-sm whitespace-nowrap">
+            }} className="border-2 border-white/80 text-white px-8 py-4 rounded-lg font-satoshi-medium text-base md:text-lg w-full sm:w-auto backdrop-blur-sm whitespace-nowrap tracking-wide">
               Ervaringen
             </motion.button>
           </Link>

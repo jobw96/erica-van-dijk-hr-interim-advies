@@ -18,7 +18,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-block py-2 px-6 bg-white border border-[#8E170B]/10 rounded-full text-[#8E170B] font-medium tracking-wider uppercase text-xs shadow-sm mb-4"
+            className="section-label inline-block py-2 px-6 bg-white border border-[#8E170B]/10 rounded-full text-[#8E170B] shadow-sm mb-4"
           >
             Over Mij
           </motion.span>
@@ -27,7 +27,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900"
+            className="text-4xl md:text-5xl font-satoshi-black text-gray-900 tracking-tight"
           >
             Persoonlijke Kennismaking
           </motion.h2>
@@ -79,19 +79,19 @@ export const About: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="w-full md:w-1/2"
           >
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <h3 className="text-3xl md:text-4xl font-satoshi-black text-gray-900 mb-2 tracking-tight">
               Erica van Dijk
             </h3>
-            <p className="text-xl text-[#8E170B] font-medium mb-8">
+            <p className="text-xl text-[#8E170B] font-satoshi-medium mb-8">
               HR Interim Manager & Adviseur
             </p>
 
-            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+            <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-satoshi-regular tracking-wide">
               <p>
-                "Ik ben een ervaren allround interim HR Manager met een <span className="font-semibold text-gray-900">pragmatische en betrouwbare aanpak</span>. Als no-nonsense teamspeler en kritische sparringpartner combineer ik creatieve probleemoplossing met een ondernemende geest."
+                "Ik ben een ervaren allround interim HR Manager met een <span className="font-satoshi-medium text-gray-900">pragmatische en betrouwbare aanpak</span>. Als no-nonsense teamspeler en kritische sparringpartner combineer ik creatieve probleemoplossing met een ondernemende geest."
               </p>
               <p>
-                Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo <span className="font-semibold text-gray-900">duurzame oplossingen</span> te realiseren.
+                Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo <span className="font-satoshi-medium text-gray-900">duurzame oplossingen</span> te realiseren.
               </p>
             </div>
 
@@ -102,7 +102,7 @@ export const About: React.FC = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-6 py-3 bg-[#0077b5] text-white rounded-xl font-medium shadow-lg shadow-blue-900/20 transition-colors hover:bg-[#006396]"
+                className="flex items-center gap-2 px-6 py-3 bg-[#0077b5] text-white rounded-xl font-satoshi-medium shadow-lg shadow-blue-900/20 transition-colors hover:bg-[#006396] tracking-wide"
               >
                 <Linkedin size={20} />
                 Connect op LinkedIn
@@ -112,7 +112,7 @@ export const About: React.FC = () => {
                 href="mailto:info@ericavandijk.nl"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-medium hover:border-[#8E170B] hover:text-[#8E170B] transition-colors"
+                className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-satoshi-medium hover:border-[#8E170B] hover:text-[#8E170B] transition-colors tracking-wide"
               >
                 <Mail size={20} />
                 Stuur een bericht

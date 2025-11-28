@@ -27,8 +27,8 @@ export const ExperienceDetail: React.FC = () => {
   if (!experience) {
     return <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Ervaring niet gevonden</h2>
-          <MotionLink to="/experience" className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-6 py-3 rounded-lg font-bold" whileHover={{
+          <h2 className="text-3xl font-satoshi-black text-gray-800 mb-4 tracking-tight">Ervaring niet gevonden</h2>
+          <MotionLink to="/experience" className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-6 py-3 rounded-lg font-satoshi-bold tracking-wide" whileHover={{
           backgroundColor: '#701209'
         }}>
             <ArrowLeft size={20} /> Terug naar overzicht
@@ -66,7 +66,7 @@ export const ExperienceDetail: React.FC = () => {
             }} animate={{
               opacity: 1,
               y: 0
-            }} className="inline-block bg-[#8E170B] text-white text-sm font-bold px-4 py-2 rounded-full mb-4 uppercase tracking-wide">
+            }} className="section-label inline-block bg-[#8E170B] text-white px-4 py-2 rounded-full mb-4">
                     {experience.period}
                   </motion.span>
                   <motion.h1 initial={{
@@ -77,7 +77,7 @@ export const ExperienceDetail: React.FC = () => {
               y: 0
             }} transition={{
               delay: 0.1
-            }} className="text-4xl md:text-6xl font-bold text-white mb-3">
+            }} className="text-4xl md:text-6xl font-satoshi-black text-white mb-3 tracking-tighter">
                     {experience.title}
                   </motion.h1>
                   <motion.p initial={{
@@ -88,7 +88,7 @@ export const ExperienceDetail: React.FC = () => {
               y: 0
             }} transition={{
               delay: 0.2
-            }} className="text-xl md:text-2xl text-gray-200 font-medium">
+            }} className="text-xl md:text-2xl text-gray-200 font-satoshi-medium tracking-wide">
                     {experience.role}
                   </motion.p>
               </motion.div>
@@ -110,36 +110,32 @@ export const ExperienceDetail: React.FC = () => {
 
           {/* Main Content with Clear Sections */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 pb-4 border-b-2 border-gray-200">
+            <h2 className="text-2xl md:text-3xl font-satoshi-black text-gray-900 mb-8 pb-4 border-b-2 border-gray-200 tracking-tight">
               Over deze opdracht
             </h2>
             
             <div className="space-y-6">
               {experience.fullDescription.map((paragraph, index) => {
-              // Check if paragraph starts with ** (bold heading)
               const isBoldHeading = paragraph.startsWith('**') && paragraph.includes('**', 2);
               if (isBoldHeading) {
-                // Extract heading text between ** **
                 const headingMatch = paragraph.match(/\*\*(.*?)\*\*/);
                 const heading = headingMatch ? headingMatch[1] : '';
                 const content = paragraph.replace(/\*\*.*?\*\*/, '').trim();
                 return <div key={index} className="space-y-3">
-                      <h3 className="text-lg font-bold text-[#8E170B]">
+                      <h3 className="text-lg font-satoshi-bold text-[#8E170B] tracking-tight">
                         {heading}
                       </h3>
-                      {content && <p className="text-gray-700 leading-relaxed">
+                      {content && <p className="text-gray-700 leading-relaxed font-satoshi-regular tracking-wide">
                           {content}
                         </p>}
                     </div>;
               }
 
-              // Empty paragraph acts as spacer
               if (paragraph.trim() === '') {
                 return <div key={index} className="h-2"></div>;
               }
 
-              // Regular paragraph
-              return <p key={index} className="text-gray-700 leading-relaxed text-lg">
+              return <p key={index} className="text-gray-700 leading-relaxed text-lg font-satoshi-regular tracking-wide">
                     {paragraph}
                   </p>;
             })}
@@ -148,7 +144,7 @@ export const ExperienceDetail: React.FC = () => {
 
           {/* Related Projects */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Andere projecten</h3>
+            <h3 className="text-2xl font-satoshi-black text-gray-900 mb-8 tracking-tight">Andere projecten</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {experiences.filter(e => e.id !== id).map(exp => <Link key={exp.id} to={`/experience/${exp.id}`}>
                     <motion.div whileHover={{
@@ -158,9 +154,9 @@ export const ExperienceDetail: React.FC = () => {
                         <img src={exp.image} alt={exp.title} className="w-full h-full object-cover" />
                       </div>
                       <div className="p-6">
-                        <span className="text-xs font-bold text-[#8E170B] uppercase tracking-wide">{exp.period}</span>
-                        <h4 className="font-bold text-lg text-gray-900 mb-2 mt-2">{exp.title}</h4>
-                        <p className="text-sm text-gray-600">{exp.role}</p>
+                        <span className="section-label text-[#8E170B]">{exp.period}</span>
+                        <h4 className="font-satoshi-bold text-lg text-gray-900 mb-2 mt-2 tracking-tight">{exp.title}</h4>
+                        <p className="text-sm text-gray-600 font-satoshi-regular tracking-wide">{exp.role}</p>
                       </div>
                     </motion.div>
                   </Link>)}

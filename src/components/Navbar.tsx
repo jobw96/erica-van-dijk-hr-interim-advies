@@ -94,7 +94,7 @@ export function Navbar() {
                   duration: 0.2,
                   ease: "easeOut"
                 }}
-                className="text-base font-normal text-gray-700 relative"
+                className="text-base font-satoshi-medium text-gray-700 relative tracking-wide"
               >
                 {link.label}
                 <motion.div
@@ -108,7 +108,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <MotionLink to="/contact" className="hidden lg:block bg-[#8E170B] text-white px-6 py-2.5 rounded-lg font-semibold text-sm" whileHover={{
+            <MotionLink to="/contact" className="hidden lg:block bg-[#8E170B] text-white px-6 py-2.5 rounded-lg font-satoshi-bold text-sm tracking-wide" whileHover={{
               backgroundColor: '#701209',
               scale: 1.02
             }} whileTap={{
@@ -194,7 +194,7 @@ export function Navbar() {
                         whileHover={{ x: 4, color: '#8E170B' }}
                         whileTap={{ scale: 0.98 }}
                         className={cn(
-                          "block px-4 py-3 rounded-lg text-lg font-medium transition-colors",
+                          "block px-4 py-3 rounded-lg text-lg font-satoshi-medium transition-colors tracking-wide",
                           location.pathname === link.href || (link.href.startsWith('/#') && location.pathname === '/')
                             ? "bg-[#8E170B]/5 text-[#8E170B]"
                             : "text-gray-700 hover:bg-gray-50"
@@ -218,7 +218,7 @@ export function Navbar() {
                   <motion.button
                     whileHover={{ scale: 1.02, backgroundColor: '#701209' }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-[#8E170B] text-white font-bold text-lg py-4 rounded-lg shadow-lg"
+                    className="w-full bg-[#8E170B] text-white font-satoshi-bold text-lg py-4 rounded-lg shadow-lg tracking-wide"
                   >
                     Plan Consult
                   </motion.button>
