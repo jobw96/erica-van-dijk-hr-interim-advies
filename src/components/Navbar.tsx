@@ -70,13 +70,13 @@ export function Navbar() {
     }} transition={{
       duration: 0.3
     }} className='fixed top-0 left-0 right-0 z-50 border-b'>
-      <div className="max-w-7xl mx-auto px-6 py-[10px]">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6 py-[6px]">
+        <div className="flex items-center justify-between h-12">
           <div className="flex items-center">
             <MotionLink to="/" className="flex items-center gap-3 z-50 relative" whileHover={{
               opacity: 0.8
             }}>
-              <img src={logo} alt="Erica van Dijk" className="h-12" />
+              <img src={logo} alt="Erica van Dijk" className="h-9" />
             </MotionLink>
 
             <div className="hidden md:block mx-8 h-8 w-px bg-gray-300"></div>
