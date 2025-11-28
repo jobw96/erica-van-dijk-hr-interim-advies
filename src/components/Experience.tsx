@@ -44,11 +44,11 @@ export const Experience: React.FC = () => {
                 <motion.span
                   initial={{ opacity: 0, scale: 0.96, y: 6 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
+                  whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(139, 30, 46, 0.12)' }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
-                  style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
+                  className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8B1E2E] rounded-[50px] mb-4"
+                  style={{ boxShadow: '0 4px 20px rgba(139, 30, 46, 0.08)' }}
                 >
                     Portfolio
                 </motion.span>
@@ -58,11 +58,11 @@ export const Experience: React.FC = () => {
           }} whileInView={{
             opacity: 1,
             y: 0
-          }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight">
+          }} className="text-3xl md:text-5xl font-ginto-bold text-[#333333] tracking-wide">
                     Recente Ervaring
                 </motion.h2>
             </div>
-            <MotionLink to="/experience" className="hidden md:flex items-center gap-2 text-[#1F2937] font-satoshi-bold cursor-pointer tracking-wide" initial={{
+            <MotionLink to="/experience" className="hidden md:flex items-center gap-2 text-[#333333] font-ginto-bold cursor-pointer tracking-wide" initial={{
           opacity: 0,
           x: -20
         }} whileInView={{
@@ -74,7 +74,7 @@ export const Experience: React.FC = () => {
           duration: 0.5,
           delay: 0.2
         }} whileHover={{
-          color: '#8E170B',
+          color: '#8B1E2E',
           x: 5
         }}>
                 
@@ -103,17 +103,17 @@ export const Experience: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-5 flex flex-col flex-grow">
-                    <div className="flex items-center gap-2 text-[#8E170B] text-sm font-satoshi-medium mb-3 tracking-wide">
+                    <div className="flex items-center gap-2 text-[#8B1E2E] text-sm font-ginto-regular mb-3 tracking-wide">
                       <Calendar size={16} />
                       <span>{item.period}</span>
                     </div>
-                    <h3 className="text-xl font-satoshi-bold text-gray-900 mb-2 line-clamp-2 tracking-tight">
+                    <h3 className="text-xl font-ginto-bold text-[#333333] mb-2 line-clamp-2 tracking-wide">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2 flex-grow font-satoshi-regular tracking-wide">
+                    <p className="text-[#666666] text-sm mb-3 line-clamp-2 flex-grow font-ginto-regular tracking-wide">
                       {item.shortDescription}
                     </p>
-                    <div className="flex items-center gap-2 text-[#8E170B] font-satoshi-medium text-sm mt-auto tracking-wide">
+                    <div className="flex items-center gap-2 text-[#8B1E2E] font-ginto-regular text-sm mt-auto tracking-wide">
                       <span>Lees meer</span>
                       <ArrowRight size={16} />
                     </div>
@@ -122,7 +122,7 @@ export const Experience: React.FC = () => {
             </MotionLink>)}
         </motion.div>
 
-        <MotionLink to="/experience" className="md:hidden flex items-center justify-center gap-2 text-[#8E170B] font-satoshi-bold cursor-pointer mt-12 tracking-wide" initial={{
+        <MotionLink to="/experience" className="md:hidden flex items-center justify-center gap-2 text-[#8B1E2E] font-ginto-bold cursor-pointer mt-12 tracking-wide" initial={{
         opacity: 0,
         y: 20
       }} whileInView={{

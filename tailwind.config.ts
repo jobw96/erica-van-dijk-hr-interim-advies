@@ -64,16 +64,16 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        'satoshi': ['Satoshi', 'system-ui', 'sans-serif'],
-        'heading': ['Satoshi', 'system-ui', 'sans-serif'],
-        'body': ['Satoshi', 'system-ui', 'sans-serif'],
+        'ginto': ['"Work Sans"', '"GT America"', '"Neue Haas Grotesk"', '"Helvetica Neue"', 'system-ui', 'sans-serif'],
+        'heading': ['"Work Sans"', '"GT America"', '"Neue Haas Grotesk"', '"Helvetica Neue"', 'system-ui', 'sans-serif'],
+        'body': ['"Work Sans"', '"GT America"', '"Neue Haas Grotesk"', '"Helvetica Neue"', 'system-ui', 'sans-serif'],
       },
       letterSpacing: {
         'tighter': '-0.04em',
         'tight': '-0.02em',
         'normal': '0',
-        'wide': '0.01em',
-        'wider': '0.02em',
+        'wide': '0.02em',
+        'wider': '0.04em',
         'widest': '0.08em',
       },
       keyframes: {

@@ -48,7 +48,7 @@ const FAQItem: React.FC<{ faq: typeof faqs[0], index: number }> = ({ faq, index 
         className="w-full py-6 flex items-center justify-between text-left group"
       >
         <motion.span
-            className="text-lg font-satoshi-bold text-gray-900 pr-8 group-hover:text-[#8E170B] transition-colors tracking-tight"
+            className="text-lg font-ginto-bold text-[#333333] pr-8 group-hover:text-[#8B1E2E] transition-colors tracking-wide"
         >
             {faq.question}
         </motion.span>
@@ -69,7 +69,7 @@ const FAQItem: React.FC<{ faq: typeof faqs[0], index: number }> = ({ faq, index 
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <p className="pb-6 text-gray-600 leading-relaxed pr-12 font-satoshi-regular tracking-wide">
+            <p className="pb-6 text-[#666666] leading-relaxed pr-12 font-ginto-regular tracking-wide">
               {faq.answer}
             </p>
           </motion.div>
@@ -92,11 +92,11 @@ export const FAQ: React.FC<FAQProps> = ({ className }) => {
             <motion.span
                 initial={{ opacity: 0, scale: 0.96, y: 6 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
+                whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(139, 30, 46, 0.12)' }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, ease: "easeOut" }}
-                className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
-                style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
+                className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8B1E2E] rounded-[50px] mb-4"
+                style={{ boxShadow: '0 4px 20px rgba(139, 30, 46, 0.08)' }}
             >
                 Veelgestelde Vragen
             </motion.span>
@@ -104,7 +104,7 @@ export const FAQ: React.FC<FAQProps> = ({ className }) => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight"
+                className="text-3xl md:text-5xl font-ginto-bold text-[#333333] tracking-wide"
             >
                 Heeft u vragen?
             </motion.h2>

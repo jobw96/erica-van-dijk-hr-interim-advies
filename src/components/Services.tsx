@@ -55,20 +55,20 @@ const cardHoverVariants = {
   },
   hover: {
     y: -12,
-    boxShadow: "0 30px 60px -15px rgba(142, 23, 11, 0.12)"
+    boxShadow: "0 30px 60px -15px rgba(139, 30, 46, 0.12)"
   }
 };
 const iconBgVariants = {
   rest: {
-    backgroundColor: 'rgba(142, 23, 11, 0.05)'
+    backgroundColor: 'rgba(139, 30, 46, 0.05)'
   },
   hover: {
-    backgroundColor: '#8E170B'
+    backgroundColor: '#8B1E2E'
   }
 };
 const iconVariants = {
   rest: {
-    color: '#8E170B'
+    color: '#8B1E2E'
   },
   hover: {
     color: 'white'
@@ -79,7 +79,7 @@ const arrowContainerVariants = {
     borderColor: 'rgb(243 244 246)'
   },
   hover: {
-    borderColor: '#8E170B'
+    borderColor: '#8B1E2E'
   }
 };
 const arrowVariants = {
@@ -87,15 +87,15 @@ const arrowVariants = {
     color: 'rgb(209 213 219)'
   },
   hover: {
-    color: '#8E170B'
+    color: '#8B1E2E'
   }
 };
 const titleVariants = {
   rest: {
-    color: '#1F2937'
+    color: '#333333'
   },
   hover: {
-    color: '#8E170B'
+    color: '#8B1E2E'
   }
 };
 const gradientVariants = {
@@ -116,11 +116,11 @@ export const Services: React.FC = () => {
             <motion.span
               initial={{ opacity: 0, scale: 0.96, y: 6 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
+              whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(139, 30, 46, 0.12)' }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
-              style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
+              className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8B1E2E] rounded-[50px] mb-4"
+              style={{ boxShadow: '0 4px 20px rgba(139, 30, 46, 0.08)' }}
             >
                 Mijn Diensten
             </motion.span>
@@ -132,7 +132,7 @@ export const Services: React.FC = () => {
           y: 0
         }} viewport={{
           once: true
-        }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] mb-6 tracking-tight">
+        }} className="text-3xl md:text-5xl font-ginto-bold text-[#333333] mb-6 tracking-wide">
                 Expertise waar u op kunt bouwen
             </motion.h2>
             <motion.p initial={{
@@ -145,7 +145,7 @@ export const Services: React.FC = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="text-lg text-gray-600 leading-relaxed font-satoshi-regular tracking-wide">
+        }} className="text-lg text-[#666666] leading-relaxed font-ginto-regular tracking-wide">
                 Van interim management tot strategisch advies. Ik bied op maat gemaakte HR-oplossingen die aansluiten bij uw organisatie.
             </motion.p>
         </div>
@@ -160,7 +160,7 @@ export const Services: React.FC = () => {
           return <motion.div key={service.title} variants={itemVariants} initial="rest" whileHover="hover" animate="rest" className="relative group h-full">
                 <motion.div variants={cardHoverVariants} className="bg-white rounded-2xl p-8 border border-gray-100 h-full flex flex-col relative overflow-hidden min-h-[320px]">
                   {/* Gradient Overlay on Hover */}
-                  <motion.div variants={gradientVariants} className="absolute inset-0 bg-gradient-to-br from-[#8E170B]/5 to-transparent pointer-events-none" />
+                  <motion.div variants={gradientVariants} className="absolute inset-0 bg-gradient-to-br from-[#8B1E2E]/5 to-transparent pointer-events-none" />
 
                   {/* Icon */}
                   <motion.div variants={iconBgVariants} className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 relative z-10">
@@ -170,10 +170,10 @@ export const Services: React.FC = () => {
                   </motion.div>
 
                   {/* Content */}
-                  <motion.h3 variants={titleVariants} className="text-xl font-satoshi-bold mb-3 relative z-10 tracking-tight">
+                  <motion.h3 variants={titleVariants} className="text-xl font-ginto-bold mb-3 relative z-10 tracking-wide">
                     {service.title}
                   </motion.h3>
-                  <p className="text-gray-600 leading-relaxed flex-grow relative z-10 font-satoshi-regular tracking-wide">
+                  <p className="text-[#666666] leading-relaxed flex-grow relative z-10 font-ginto-regular tracking-wide">
                     {service.description}
                   </p>
 

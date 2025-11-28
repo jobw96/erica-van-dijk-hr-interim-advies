@@ -17,8 +17,8 @@ export const About: React.FC = () => {
       }} transition={{
         duration: 0.5
       }} className="flex items-center gap-3 mb-8">
-          <div className="h-px w-8 bg-[#1F2937]" />
-          <span className="text-sm font-satoshi-medium uppercase tracking-wider text-[#1F2937]">
+          <div className="h-px w-8 bg-[#333333]" />
+          <span className="text-sm font-ginto-regular uppercase tracking-wider text-[#333333]">
             Over Mij
           </span>
         </motion.div>
@@ -53,10 +53,10 @@ export const About: React.FC = () => {
           duration: 0.6,
           delay: 0.1
         }}>
-            <h2 className="text-4xl lg:text-5xl leading-tight text-[#1F2937] mb-6 font-satoshi-black tracking-tight">
+            <h2 className="text-4xl lg:text-5xl leading-tight text-[#333333] mb-6 font-ginto-bold tracking-wide">
               Persoonlijke Kennismaking met Erica van Dijk
             </h2>
-            <p className="text-xl text-[#52525B] leading-relaxed font-satoshi-regular">Als ervaren allround interim HR Manager combineer ik een pragmatische en betrouwbare aanpak met creatieve probleemoplossing. Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden realiseer ik duurzame oplossingen. Met meer dan 20 jaar ervaring in HR-management help ik organisaties met strategische en operationele HR-vraagstukken.</p>
+            <p className="text-xl text-[#666666] leading-relaxed font-ginto-regular">Als ervaren allround interim HR Manager combineer ik een pragmatische en betrouwbare aanpak met creatieve probleemoplossing. Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden realiseer ik duurzame oplossingen. Met meer dan 20 jaar ervaring in HR-management help ik organisaties met strategische en operationele HR-vraagstukken.</p>
           </motion.div>
         </div>
 
@@ -107,9 +107,9 @@ export const About: React.FC = () => {
           duration: 0.6,
           delay: 0.4
         }} className="md:col-span-2 flex items-stretch">
-            <Link to="/contact" className="w-full h-full min-h-[200px] md:min-h-0 bg-[#1F2937] text-white rounded-[2rem] flex flex-col items-center justify-center gap-3 hover:bg-[#374151] transition-colors p-6 text-center shadow-xl group">
-              <span className="text-lg font-satoshi-medium text-white">Neem Contact</span>
-              <ArrowRight className="text-[#8E170B] group-hover:translate-x-1 transition-transform" size={24} />
+            <Link to="/contact" className="w-full h-full min-h-[200px] md:min-h-0 bg-[#333333] text-white rounded-[2rem] flex flex-col items-center justify-center gap-3 hover:bg-[#444444] transition-colors p-6 text-center shadow-xl group">
+              <span className="text-lg font-ginto-regular text-white">Neem Contact</span>
+              <ArrowRight className="text-[#8B1E2E] group-hover:translate-x-1 transition-transform" size={24} />
             </Link>
           </motion.div>
         </div>

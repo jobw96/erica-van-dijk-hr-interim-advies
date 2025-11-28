@@ -9,64 +9,64 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 0 0% 20%; /* #333333 */
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 0 0% 20%; /* #333333 */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 0 0% 20%; /* #333333 */
 
-    --primary: 7 78% 31%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 351 65% 33%; /* #8B1E2E - accent red */
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary-foreground: 0 0% 20%; /* #333333 */
 
     --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 0 0% 40%; /* #666666 */
 
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 351 65% 33%; /* #8B1E2E - accent red */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 222 47% 11%;
+    --ring: 351 65% 33%; /* #8B1E2E */
 
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 11%;
+    --foreground: 0 0% 100%;
 
-    --card: 222 47% 11%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 351 65% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 17%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 217 33% 17%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 351 65% 45%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 213 27% 84%;
+    --border: 0 0% 17%;
+    --input: 0 0% 17%;
+    --ring: 351 65% 45%;
   }
 }
 
@@ -77,8 +77,9 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Satoshi', system-ui, sans-serif;
+    font-family: 'Work Sans', 'GT America', 'Neue Haas Grotesk', 'Helvetica Neue', system-ui, sans-serif;
     font-weight: 400;
+    color: hsl(0 0% 20%); /* #333333 */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -86,43 +87,64 @@ All colors MUST be HSL.
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Satoshi', system-ui, sans-serif;
-    font-weight: 900;
-    letter-spacing: -0.02em;
+    font-family: 'Work Sans', 'GT America', 'Neue Haas Grotesk', 'Helvetica Neue', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
     line-height: 1.1;
+    color: hsl(0 0% 20%); /* #333333 */
   }
 
   h1 {
-    letter-spacing: -0.04em;
+    letter-spacing: 0.02em;
     line-height: 1.1;
   }
 
   h2 {
-    letter-spacing: -0.03em;
+    letter-spacing: 0.02em;
     line-height: 1.15;
   }
 
   h3 {
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
     line-height: 1.2;
+  }
+
+  p {
+    color: hsl(0 0% 20%); /* #333333 */
   }
 
   /* Section labels / pill labels */
   .section-label {
-    font-family: 'Satoshi', system-ui, sans-serif;
-    font-weight: 500;
+    font-family: 'Work Sans', 'GT America', 'Neue Haas Grotesk', 'Helvetica Neue', system-ui, sans-serif;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 0.75rem;
-    color: hsl(var(--muted-foreground));
+    color: hsl(0 0% 40%); /* #666666 */
   }
 
-  /* Subheadlines and intro text */
+  /* Subheadlines and intro text - italic style */
   .subheadline {
-    font-family: 'Satoshi', system-ui, sans-serif;
+    font-family: 'Work Sans', 'GT America', 'Neue Haas Grotesk', 'Helvetica Neue', system-ui, sans-serif;
     font-weight: 500;
+    font-style: italic;
     letter-spacing: 0.01em;
     line-height: 1.5;
+    color: hsl(0 0% 20%); /* #333333 */
+  }
+
+  /* Muted/secondary text */
+  .text-muted, .text-muted-foreground {
+    color: hsl(0 0% 40%) !important; /* #666666 */
+  }
+
+  /* Links and accents */
+  a {
+    color: hsl(351 65% 33%); /* #8B1E2E */
+  }
+
+  a:hover {
+    color: hsl(351 65% 28%);
   }
 
   /* Apple-like smooth scrolling */
@@ -145,29 +167,47 @@ All colors MUST be HSL.
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #8E170B;
+    background: hsl(351 65% 33%); /* #8B1E2E */
   }
 }
 
-/* Font weight utilities for Satoshi */
+/* Font weight utilities */
 @layer utilities {
-  .font-satoshi-regular {
-    font-family: 'Satoshi', system-ui, sans-serif;
+  .font-ginto-regular {
+    font-family: 'Work Sans', 'GT America', 'Neue Haas Grotesk', 'Helvetica Neue', system-ui, sans-serif;
     font-weight: 400;
   }
 
-  .font-satoshi-medium {
-    font-family: 'Satoshi', system-ui, sans-serif;
+  .font-ginto-medium {
+    font-family: 'Work Sans', 'GT America', 'Neue Haas Grotesk', 'Helvetica Neue', system-ui, sans-serif;
     font-weight: 500;
   }
 
-  .font-satoshi-bold {
-    font-family: 'Satoshi', system-ui, sans-serif;
+  .font-ginto-bold {
+    font-family: 'Work Sans', 'GT America', 'Neue Haas Grotesk', 'Helvetica Neue', system-ui, sans-serif;
     font-weight: 700;
   }
 
-  .font-satoshi-black {
-    font-family: 'Satoshi', system-ui, sans-serif;
-    font-weight: 900;
+  .font-ginto-italic {
+    font-family: 'Work Sans', 'GT America', 'Neue Haas Grotesk', 'Helvetica Neue', system-ui, sans-serif;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  /* Text color utilities */
+  .text-body {
+    color: hsl(0 0% 20%); /* #333333 */
+  }
+
+  .text-subtle {
+    color: hsl(0 0% 40%); /* #666666 */
+  }
+
+  .text-accent {
+    color: hsl(351 65% 33%); /* #8B1E2E */
+  }
+
+  .text-on-dark {
+    color: hsl(0 0% 100%); /* #FFFFFF */
   }
 }
