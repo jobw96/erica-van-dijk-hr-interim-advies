@@ -105,7 +105,7 @@ export const Portfolio: React.FC = () => {
                 <motion.a href={video.videoUrl} target="_blank" rel="noopener noreferrer" whileHover={{
               x: 5,
               backgroundColor: '#701209'
-            }} className="bg-[#8E170B] text-white text-base font-satoshi-bold px-8 py-4 rounded-lg shadow-lg shadow-[#8E170B]/20 inline-flex items-center gap-2 cursor-pointer tracking-wide">
+            }} className="bg-[#8E170B] text-white text-base font-satoshi-bold px-8 py-4 rounded-xl shadow-lg shadow-[#8E170B]/20 inline-flex items-center gap-2 cursor-pointer tracking-wide">
                     Bekijk video
                 </motion.a>
               </motion.div>

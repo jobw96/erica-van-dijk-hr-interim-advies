@@ -46,7 +46,7 @@ export const About: React.FC = () => {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4 }}
-              className="relative z-10 rounded-3xl overflow-hidden shadow-2xl"
+              className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
             >
               <img
                 src="/lovable-uploads/41e526fc-1f51-4c6d-a670-41b8434d6d1d.png"
@@ -61,13 +61,13 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="absolute -top-6 -left-6 w-full h-full border-2 border-[#8E170B]/20 rounded-3xl -z-10"
+              className="absolute -top-6 -left-6 w-full h-full border border-[#8E170B]/20 rounded-2xl -z-10"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="absolute -bottom-6 -right-6 w-full h-full bg-[#8E170B]/5 rounded-3xl -z-10"
+              className="absolute -bottom-6 -right-6 w-full h-full bg-[#8E170B]/5 rounded-2xl -z-10"
             />
           </motion.div>
 

@@ -187,7 +187,7 @@ export const Services: React.FC = () => {
               </p>
 
               {/* Arrow Icon */}
-              <motion.div variants={arrowContainerVariants} className="mt-6 w-10 h-10 rounded-full border-2 flex items-center justify-center relative z-10">
+              <motion.div variants={arrowContainerVariants} className="mt-6 w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center relative z-10">
                 <motion.div variants={arrowVariants}>
                   <ArrowRight size={20} />
                 </motion.div>
