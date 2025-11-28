@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 import heroDesktop from '@/assets/hero-desktop.jpg';
 import heroMobile from '@/assets/hero-mobile.jpg';
 
@@ -53,7 +54,7 @@ export const Hero: React.FC = () => {
             duration: 0.5,
             delay: 0,
             ease: "easeOut"
-          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1]">
+          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-white leading-[1.1]">
             HR Interim
           </motion.h1>
           <motion.h1 initial={{
@@ -66,7 +67,7 @@ export const Hero: React.FC = () => {
             duration: 0.5,
             delay: 0.1,
             ease: "easeOut"
-          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1]">
+          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium text-white leading-[1.1]">
             & Advies
           </motion.h1>
 
@@ -87,31 +88,16 @@ export const Hero: React.FC = () => {
           delay: 0.5,
           ease: "easeOut"
         }} className="flex flex-col sm:flex-row gap-4">
-          <Link to="/contact" className="inline-flex">
-            <motion.button whileHover={{
-              scale: 1.06,
-              boxShadow: "0 10px 30px rgba(255, 255, 255, 0.3)"
-            }} whileTap={{
-              scale: 0.96
-            }} transition={{
-              duration: 0.2
-            }} className="bg-white text-[#8E170B] px-8 py-4 rounded-lg font-medium text-base md:text-lg shadow-lg w-full sm:w-auto whitespace-nowrap">
+          <Button asChild size="lg" className="bg-white text-[#8E170B] hover:bg-gray-100 hover:text-[#8E170B] border-none shadow-lg hover:shadow-xl">
+            <Link to="/contact">
               Neem contact
-            </motion.button>
-          </Link>
-          <Link to="/experience" className="inline-flex">
-            <motion.button whileHover={{
-              scale: 1.06,
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-              boxShadow: "0 10px 30px rgba(255, 255, 255, 0.2)"
-            }} whileTap={{
-              scale: 0.96
-            }} transition={{
-              duration: 0.2
-            }} className="border-2 border-white/80 text-white px-8 py-4 rounded-lg font-medium text-base md:text-lg w-full sm:w-auto backdrop-blur-sm whitespace-nowrap">
+            </Link>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="border-2 border-white/80 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm bg-transparent">
+            <Link to="/experience">
               Ervaringen
-            </motion.button>
-          </Link>
+            </Link>
+          </Button>
         </motion.div>
       </div>
     </div>

@@ -27,7 +27,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900"
+            className="text-4xl md:text-5xl font-medium text-gray-900"
           >
             Persoonlijke Kennismaking
           </motion.h2>
@@ -79,19 +79,19 @@ export const About: React.FC = () => {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             className="w-full md:w-1/2"
           >
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <h3 className="text-3xl md:text-4xl font-medium text-gray-900 mb-2">
               Erica van Dijk
             </h3>
-            <p className="text-xl text-[#8E170B] font-medium mb-8">
+            <p className="text-xl text-[#8E170B] font-normal mb-8">
               HR Interim Manager & Adviseur
             </p>
 
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
-                "Ik ben een ervaren allround interim HR Manager met een <span className="font-semibold text-gray-900">pragmatische en betrouwbare aanpak</span>. Als no-nonsense teamspeler en kritische sparringpartner combineer ik creatieve probleemoplossing met een ondernemende geest."
+                "Ik ben een ervaren allround interim HR Manager met een <span className="font-medium text-gray-900">pragmatische en betrouwbare aanpak</span>. Als no-nonsense teamspeler en kritische sparringpartner combineer ik creatieve probleemoplossing met een ondernemende geest."
               </p>
               <p>
-                Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo <span className="font-semibold text-gray-900">duurzame oplossingen</span> te realiseren.
+                Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo <span className="font-medium text-gray-900">duurzame oplossingen</span> te realiseren.
               </p>
             </div>
 
