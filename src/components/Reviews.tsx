@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
-import { SectionBadge } from './ui/SectionBadge';
 const reviews = [{
   text: "Als feedback op jouw inzet voor Airframe kreeg ik te horen 'a perfect cast'. Vliegtuigonderhoud is een complexe wereld, je hebt je die snel eigen gemaakt. Met de ervaring die je meebracht op vlak van medezeggenschap en bonden wist je heel snel en heel natuurlijk vertrouwen te winnen en heb je een paar stevige dossiers opgelost. Je bent een vakvrouw, professional en heel fijn om mee samen te werken. Vanaf dag 1 paste je naadloos in ons team, je hebt je weg gezocht in onze organisatie en op een hele fijne manier contacten gelegd. Je bent een teamplayer en sparringpartner. Het was top om met jou in een team te zitten.",
   author: "Astrid Elzinga",
@@ -33,7 +32,9 @@ export const Reviews: React.FC = () => {
           }} transition={{
             duration: 0.6
           }}>
-              <p className="text-xs font-satoshi-bold text-gray-500 uppercase tracking-widest mb-4">TESTIMONIALS</p>
+              <span className="inline-flex items-center h-[29px] px-6 bg-[#fff5f8] text-[#8E170B] font-satoshi-medium tracking-[0.1em] uppercase text-xs rounded-[50px] mb-4">
+                Testimonials
+              </span>
               <h2 className="text-4xl md:text-5xl font-satoshi-black text-gray-900 mb-6 leading-tight tracking-tight">
                 Feedback van onze partners
               </h2>
