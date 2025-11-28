@@ -12,13 +12,16 @@ export const About: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-16 md:mb-24">
+        {/* Header Section - RIGHT aligned */}
+        <div className="text-right mb-16 md:mb-24">
           <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.96, y: 6 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="section-label inline-block py-2 px-6 bg-white border border-[#8E170B]/10 rounded-full text-[#8E170B] shadow-sm mb-4"
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="section-label inline-flex items-center h-[34px] px-7 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs"
+            style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
           >
             Over Mij
           </motion.span>

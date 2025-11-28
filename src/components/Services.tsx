@@ -122,15 +122,15 @@ export const Services: React.FC = () => {
   return <section id="services" className="py-20 md:py-32 bg-white relative">
     <div className="max-w-7xl mx-auto px-6">
 
-      {/* Header Section */}
-      <div className="text-center mb-16 md:mb-20 max-w-3xl mx-auto">
+      {/* Header Section - LEFT aligned */}
+      <div className="text-left mb-16 md:mb-20 max-w-3xl">
         <motion.span
           initial={{ opacity: 0, scale: 0.96, y: 6 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
           viewport={{ once: true }}
           transition={{ duration: 0.45, ease: "easeOut" }}
-          className="inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] font-medium tracking-[0.1em] uppercase text-sm rounded-[50px] mb-4"
+          className="inline-flex items-center h-[34px] px-7 bg-[#fff5f8] text-[#8E170B] font-satoshi-medium tracking-[0.1em] uppercase text-xs rounded-[50px] mb-4"
           style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
         >
           Mijn Diensten
@@ -143,7 +143,7 @@ export const Services: React.FC = () => {
           y: 0
         }} viewport={{
           once: true
-        }} className="text-3xl md:text-5xl font-medium text-[#1F2937] mb-6">
+        }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] mb-6 tracking-tight">
           Expertise waar u op kunt bouwen
         </motion.h2>
         <motion.p initial={{
@@ -156,7 +156,7 @@ export const Services: React.FC = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="text-lg text-gray-600 leading-relaxed">
+        }} className="text-lg text-gray-600 leading-relaxed font-satoshi-regular tracking-wide">
           Van interim management tot strategisch advies. Ik bied op maat gemaakte HR-oplossingen die aansluiten bij uw organisatie.
         </motion.p>
       </div>
