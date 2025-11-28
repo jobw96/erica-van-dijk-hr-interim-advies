@@ -6,7 +6,6 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo from '@/assets/logo.png';
 
 function useScroll(threshold = 0) {
   const [scrolled, setScrolled] = React.useState(false);
@@ -23,6 +22,12 @@ export function Navbar() {
   const scrolled = useScroll(50);
   const location = useLocation();
   const MotionLink = motion(Link);
+
+  // Check if we're on homepage
+  const isHomepage = location.pathname === '/';
+
+  // Determine if header should be transparent
+  const isTransparent = isHomepage && !scrolled;
 
   const links = [{
     label: "Home",
@@ -64,9 +69,9 @@ export function Navbar() {
 
   return <>
     <motion.nav style={{
-      backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.95)' : 'rgba(255, 255, 255, 1)',
-      backdropFilter: scrolled ? 'blur(16px)' : 'none',
-      borderColor: scrolled ? 'rgba(229, 231, 235, 0.5)' : 'rgba(229, 231, 235, 1)'
+      backgroundColor: isTransparent ? 'transparent' : 'rgba(255, 255, 255, 0.95)',
+      backdropFilter: isTransparent ? 'none' : 'blur(16px)',
+      borderColor: isTransparent ? 'transparent' : 'rgba(229, 231, 235, 0.5)'
     }} transition={{
       duration: 0.3
     }} className='fixed top-0 left-0 right-0 z-50 border-b'>
@@ -76,10 +81,17 @@ export function Navbar() {
             <MotionLink to="/" className="flex items-center gap-3 z-50 relative" whileHover={{
               opacity: 0.8
             }}>
-              <img src={logo} alt="Erica van Dijk" className="h-9" />
+              <img
+                src={isTransparent ? "/logo-white.png" : "/logo-dark.png"}
+                alt="Erica van Dijk"
+                className="h-9 transition-opacity duration-300"
+              />
             </MotionLink>
 
-            <div className="hidden md:block mx-6 h-6 w-px bg-gray-300"></div>
+            <div className={cn(
+              "hidden md:block mx-6 h-6 w-px transition-colors duration-300",
+              isTransparent ? "bg-white/30" : "bg-gray-300"
+            )}></div>
 
             <nav className="hidden lg:flex items-center gap-6">
               {links.map(link => <MotionLink
@@ -94,7 +106,10 @@ export function Navbar() {
                   duration: 0.2,
                   ease: "easeOut"
                 }}
-                className="text-[13px] font-normal text-gray-700 relative"
+                className={cn(
+                  "text-[13px] font-normal relative transition-colors duration-300",
+                  isTransparent ? "text-white" : "text-gray-700"
+                )}
               >
                 {link.label}
                 <motion.div
@@ -117,7 +132,16 @@ export function Navbar() {
               Plan Consult
             </MotionLink>
 
-            <button onClick={() => setOpen(!open)} className="lg:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition-colors z-50 relative" aria-label="Toggle menu">
+            <button
+              onClick={() => setOpen(!open)}
+              className={cn(
+                "lg:hidden p-2 rounded-lg transition-all duration-300 z-50 relative",
+                isTransparent
+                  ? "text-white hover:bg-white/10"
+                  : "text-gray-900 hover:bg-gray-100"
+              )}
+              aria-label="Toggle menu"
+            >
               {open ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -153,7 +177,7 @@ export function Navbar() {
             >
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-100">
-                <img src={logo} alt="Erica van Dijk" className="h-10" />
+                <img src="/logo-dark.png" alt="Erica van Dijk" className="h-10" />
                 <motion.button
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
