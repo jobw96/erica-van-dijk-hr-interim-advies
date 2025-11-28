@@ -51,7 +51,7 @@ export const Portfolio: React.FC = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="text-3xl md:text-5xl text-[#1F2937] font-satoshi-black tracking-tight font-medium text-left">
+        }} className="text-3xl text-[#1F2937] font-satoshi-black tracking-tight font-medium text-left md:text-5xl">
                 Mijn werk in beeld
             </motion.h2>
         </div>

@@ -142,7 +142,7 @@ export const Services: React.FC = () => {
           y: 0
         }} viewport={{
           once: true
-        }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] mb-6 tracking-tight font-medium">
+        }} className="text-3xl font-satoshi-black text-[#1F2937] mb-6 tracking-tight font-medium md:text-5xl">
                 Expertise waar u op kunt bouwen
             </motion.h2>
             <motion.p initial={{

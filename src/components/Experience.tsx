@@ -68,7 +68,7 @@ export const Experience: React.FC = () => {
           }} whileInView={{
             opacity: 1,
             y: 0
-          }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight font-medium">
+          }} className="text-3xl font-satoshi-black text-[#1F2937] tracking-tight font-medium md:text-5xl">
                     Recente Ervaring
                 </motion.h2>
             </div>
