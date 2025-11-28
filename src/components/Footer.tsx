@@ -19,7 +19,7 @@ const socialArrowVariants = {
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#F8F9FA] text-black pt-16 md:pt-24 pb-10 px-6 border-t border-gray-200">
+    <footer className="bg-[#F8F9FA] text-[#333333] pt-16 md:pt-24 pb-10 px-6 border-t border-gray-200">
       <div className="max-w-7xl mx-auto">
         
         {/* Top Section: CTA & Main Grid */}
@@ -28,15 +28,15 @@ export const Footer: React.FC = () => {
           {/* Left: CTA */}
           <div className="lg:col-span-5">
              <img src={logo} alt="Erica van Dijk" className="h-12 mb-6" />
-             <h2 className="text-2xl md:text-4xl font-satoshi-black text-black mb-4 leading-tight tracking-tight">
+             <h2 className="text-2xl md:text-4xl font-ginto-bold text-[#333333] mb-4 leading-tight tracking-wide">
                Klaar voor verandering?
              </h2>
-             <p className="text-gray-600 text-base mb-6 max-w-md font-satoshi-regular tracking-wide">
+             <p className="text-[#666666] text-base mb-6 max-w-md font-ginto-regular tracking-wide">
                Laten we samenwerken aan duurzame HR-oplossingen voor uw organisatie.
              </p>
              <MotionLink
                to="/contact"
-               className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-6 py-3 rounded-md font-satoshi-bold text-base tracking-wide"
+               className="inline-flex items-center gap-2 bg-[#8B1E2E] text-white px-6 py-3 rounded-md font-ginto-bold text-base tracking-wide"
                whileHover={{ backgroundColor: '#701209', scale: 1.02 }}
              >
                Plan een gesprek
@@ -51,10 +51,10 @@ export const Footer: React.FC = () => {
              
              {/* Contact Info */}
              <div>
-                <h3 className="font-satoshi-bold text-sm uppercase text-gray-500 mb-3 tracking-wider">Contact</h3>
-                <div className="space-y-2 text-gray-600 font-satoshi-regular text-sm">
+                <h3 className="font-ginto-bold text-sm uppercase text-[#666666] mb-3 tracking-wider">Contact</h3>
+                <div className="space-y-2 text-[#333333] font-ginto-regular text-sm">
                   <div className="flex items-start gap-2">
-                    <MapPin size={16} className="text-[#8E170B] shrink-0 mt-0.5" />
+                    <MapPin size={16} className="text-[#8B1E2E] shrink-0 mt-0.5" />
                     <span className="leading-relaxed tracking-wide">
                       Erica van Dijk<br />
                       Hoofdstraat 123<br />
@@ -63,17 +63,17 @@ export const Footer: React.FC = () => {
                   </div>
                   
                   <div className="flex items-center gap-2">
-                    <Mail size={16} className="text-[#8E170B] shrink-0" />
-                    <MotionA href="mailto:info@ericavandijk.nl" whileHover={{ color: '#8E170B' }}>info@ericavandijk.nl</MotionA>
+                    <Mail size={16} className="text-[#8B1E2E] shrink-0" />
+                    <MotionA href="mailto:info@ericavandijk.nl" whileHover={{ color: '#8B1E2E' }}>info@ericavandijk.nl</MotionA>
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <Phone size={16} className="text-[#8E170B] shrink-0" />
-                    <MotionA href="tel:0625317680" whileHover={{ color: '#8E170B' }}>06 253 176 80</MotionA>
+                    <Phone size={16} className="text-[#8B1E2E] shrink-0" />
+                    <MotionA href="tel:0625317680" whileHover={{ color: '#8B1E2E' }}>06 253 176 80</MotionA>
                   </div>
                </div>
 
-               <div className="text-xs text-gray-400 mt-3 font-satoshi-regular tracking-wide">
+               <div className="text-xs text-[#666666] mt-3 font-ginto-regular tracking-wide">
                  <p>KVK: 12345678</p>
                  <p>BTW: NL001234567B01</p>
                </div>
@@ -81,22 +81,22 @@ export const Footer: React.FC = () => {
 
             {/* Navigation */}
             <div>
-               <h3 className="font-satoshi-bold text-sm uppercase text-gray-500 mb-3 tracking-wider">Navigatie</h3>
+               <h3 className="font-ginto-bold text-sm uppercase text-[#666666] mb-3 tracking-wider">Navigatie</h3>
                <div className="flex flex-col gap-2 text-sm">
-                  <MotionLink to="/" whileHover={{ color: '#8E170B' }} className="text-gray-600 font-satoshi-medium tracking-wide">Home</MotionLink>
-                  <MotionLink to="/experience" whileHover={{ color: '#8E170B' }} className="text-gray-600 font-satoshi-medium tracking-wide">Ervaring & Projecten</MotionLink>
-                  <MotionLink to="/contact" whileHover={{ color: '#8E170B' }} className="text-gray-600 font-satoshi-medium tracking-wide">Contact</MotionLink>
+                  <MotionLink to="/" whileHover={{ color: '#8B1E2E' }} className="text-[#333333] font-ginto-regular tracking-wide">Home</MotionLink>
+                  <MotionLink to="/experience" whileHover={{ color: '#8B1E2E' }} className="text-[#333333] font-ginto-regular tracking-wide">Ervaring & Projecten</MotionLink>
+                  <MotionLink to="/contact" whileHover={{ color: '#8B1E2E' }} className="text-[#333333] font-ginto-regular tracking-wide">Contact</MotionLink>
                </div>
             </div>
 
             {/* Social */}
             <div>
-               <h3 className="font-satoshi-bold text-sm uppercase text-gray-500 mb-3 tracking-wider">Volg mij</h3>
+               <h3 className="font-ginto-bold text-sm uppercase text-[#666666] mb-3 tracking-wider">Volg mij</h3>
                <MotionA 
                  href="https://linkedin.com" 
                  target="_blank" 
                  rel="noopener noreferrer"
-                 className="inline-flex items-center gap-2 text-gray-600 font-satoshi-medium tracking-wide text-sm"
+                 className="inline-flex items-center gap-2 text-[#333333] font-ginto-regular tracking-wide text-sm"
                  initial="rest"
                  whileHover="hover"
                  animate="rest"
@@ -113,13 +113,13 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Legal & Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-gray-200 text-gray-500 text-xs gap-3 text-center md:text-left font-satoshi-regular tracking-wide">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-gray-200 text-[#666666] text-xs gap-3 text-center md:text-left font-ginto-regular tracking-wide">
           <p>© {new Date().getFullYear()} Erica van Dijk. Alle rechten voorbehouden.</p>
           <div className="flex items-center gap-4">
-            <MotionLink to="#" whileHover={{ color: '#8E170B' }}>
+            <MotionLink to="#" whileHover={{ color: '#8B1E2E' }}>
                 Privacyverklaring
             </MotionLink>
-            <MotionLink to="#" whileHover={{ color: '#8E170B' }}>
+            <MotionLink to="#" whileHover={{ color: '#8B1E2E' }}>
                 Algemene Voorwaarden
             </MotionLink>
           </div>

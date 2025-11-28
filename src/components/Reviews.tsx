@@ -18,11 +18,11 @@ export const Reviews: React.FC = () => {
             <motion.span
                 initial={{ opacity: 0, scale: 0.96, y: 6 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
+                whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(139, 30, 46, 0.12)' }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, ease: "easeOut" }}
-                className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
-                style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
+                className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8B1E2E] rounded-[50px] mb-4"
+                style={{ boxShadow: '0 4px 20px rgba(139, 30, 46, 0.08)' }}
             >
                 Reviews
             </motion.span>
@@ -30,7 +30,7 @@ export const Reviews: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight"
+                className="text-3xl md:text-5xl font-ginto-bold text-[#333333] tracking-wide"
             >
                 Wat klanten zeggen
             </motion.h2>
@@ -44,7 +44,7 @@ export const Reviews: React.FC = () => {
             className="bg-[#F8F9FA] p-8 md:p-16 rounded-3xl text-center shadow-lg border border-white"
         >
             <div className="flex justify-center mb-6 md:mb-8">
-                 <div className="bg-[#8E170B] p-3 rounded-full">
+                 <div className="bg-[#8B1E2E] p-3 rounded-full">
                     <Quote className="text-white w-6 h-6 md:w-8 md:h-8 fill-current" />
                  </div>
             </div>
@@ -53,12 +53,12 @@ export const Reviews: React.FC = () => {
                     <Star key={i} size={20} fill="currentColor" strokeWidth={0} />
                 ))}
             </div>
-            <p className="text-lg md:text-2xl text-gray-800 font-satoshi-medium leading-relaxed mb-8 md:mb-10 tracking-wide">
+            <p className="text-lg md:text-2xl text-[#333333] font-ginto-italic leading-relaxed mb-8 md:mb-10 tracking-wide">
                 "{review.text}"
             </p>
             <div>
-                <p className="font-satoshi-bold text-lg text-gray-900">{review.author}</p>
-                <p className="text-sm text-gray-500 mt-1 font-satoshi-regular tracking-wide">{review.role}</p>
+                <p className="font-ginto-bold text-lg text-[#333333]">{review.author}</p>
+                <p className="text-sm text-[#666666] mt-1 font-ginto-regular tracking-wide">{review.role}</p>
             </div>
         </motion.div>
 
