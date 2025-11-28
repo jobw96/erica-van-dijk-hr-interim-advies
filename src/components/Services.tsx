@@ -122,8 +122,8 @@ export const Services: React.FC = () => {
   return <section id="services" className="py-20 md:py-32 bg-white relative">
     <div className="max-w-7xl mx-auto px-6">
 
-      {/* Header Section - LEFT aligned */}
-      <div className="text-left mb-16 md:mb-20 max-w-3xl">
+      {/* Header Section - RIGHT aligned */}
+      <div className="text-right mb-16 md:mb-20 max-w-3xl ml-auto">
         <motion.span
           initial={{ opacity: 0, scale: 0.96, y: 6 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}

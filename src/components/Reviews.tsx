@@ -10,8 +10,8 @@ export const Reviews: React.FC = () => {
   return <section id="reviews" className="py-20 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6">
         
-        {/* Header Section - LEFT aligned */}
-        <div className="text-left mb-12 md:mb-16">
+        {/* Header Section - RIGHT aligned */}
+        <div className="text-right mb-12 md:mb-16">
             <motion.span initial={{
           opacity: 0,
           scale: 0.96,
