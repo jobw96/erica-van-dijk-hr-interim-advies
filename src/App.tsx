@@ -22,13 +22,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from 'framer-motion';
 import { PageTransition } from './components/PageTransition';
-
 const queryClient = new QueryClient();
 
 // Component to handle scrolling to top on route change and anchor tags
 const ScrollHandler = () => {
-  const { pathname, hash } = useLocation();
-  
+  const {
+    pathname,
+    hash
+  } = useLocation();
+
   // Use useLayoutEffect to scroll BEFORE the browser paints
   useLayoutEffect(() => {
     if (!hash) {
@@ -36,7 +38,7 @@ const ScrollHandler = () => {
       window.scrollTo(0, 0);
     }
   }, [pathname, hash]);
-  
+
   // Handle hash scrolling with useEffect (can be smooth)
   useEffect(() => {
     if (hash) {
@@ -49,13 +51,10 @@ const ScrollHandler = () => {
       }
     }
   }, [hash]);
-  
   return null;
 };
-
 const HomePage: React.FC = () => {
-  return (
-    <PageTransition>
+  return <PageTransition>
       <Hero />
       <About />
       <ClientLogos className="py-[40px] pb-[41px] pt-[11px] bg-primary-foreground" />
@@ -65,59 +64,49 @@ const HomePage: React.FC = () => {
       <Reviews />
       <FAQ className="bg-primary-foreground" />
       <Contact />
-    </PageTransition>
-  );
+    </PageTransition>;
 };
 
 // For the standalone experience page
 const ExperiencePage: React.FC = () => {
-  return (
-    <PageTransition>
+  return <PageTransition>
       <div className="pt-20">
         <ExperienceSection />
         <Contact />
       </div>
-    </PageTransition>
-  );
+    </PageTransition>;
 };
-
 const ExperienceDetailPage: React.FC = () => {
-  return (
-    <PageTransition>
+  return <PageTransition>
       <ExperienceDetail />
-    </PageTransition>
-  );
+    </PageTransition>;
 };
-
 const ContactPageWrapper: React.FC = () => {
-  return (
-    <PageTransition>
+  return <PageTransition>
       <ContactPage />
-    </PageTransition>
-  );
+    </PageTransition>;
 };
-
 const AppRoutes: React.FC = () => {
   const location = useLocation();
-
-  return (
-    <AnimatePresence mode="wait" onExitComplete={() => {
-      // Scroll to top DURING the fade-out (when opacity is 0)
-      // This is invisible to the user
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    }}>
+  return <AnimatePresence mode="wait" onExitComplete={() => {
+    // Scroll to top DURING the fade-out (when opacity is 0)
+    // This is invisible to the user
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant'
+    });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }}>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage />} />
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/experience/:id" element={<ExperienceDetailPage />} />
         <Route path="/contact" element={<ContactPageWrapper />} />
       </Routes>
-    </AnimatePresence>
-  );
+    </AnimatePresence>;
 };
-
 const AppContent: React.FC = () => {
   return <>
     <ScrollHandler />
@@ -129,7 +118,6 @@ const AppContent: React.FC = () => {
     <BackToTopButton />
   </>;
 };
-
 const App: React.FC = () => {
   return <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -141,5 +129,4 @@ const App: React.FC = () => {
     </TooltipProvider>
   </QueryClientProvider>;
 };
-
 export default App;
