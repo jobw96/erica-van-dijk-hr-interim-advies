@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Users, Target, TrendingUp, FileText, MessageSquare, ShieldCheck, ArrowRight } from 'lucide-react';
+
 const services = [{
   title: "Mensgericht beleid voor blijvend succes",
   description: "Ik zet mij in om organisaties te versterken door middel van mensgericht HR-beleid. Met mijn expertise ondersteun ik het aantrekken, behouden en ontwikkelen van talent om duurzame groei en succes te bevorderen.",
@@ -27,6 +28,7 @@ const services = [{
   description: "Ik creëer een inspirerende werkomgeving waarin talent floreert en bedrijfsdoelen worden behaald.",
   icon: ShieldCheck
 }];
+
 const containerVariants = {
   hidden: {
     opacity: 0
@@ -38,6 +40,7 @@ const containerVariants = {
     }
   }
 };
+
 const itemVariants = {
   hidden: {
     opacity: 0,
@@ -48,6 +51,7 @@ const itemVariants = {
     y: 0
   }
 };
+
 const cardHoverVariants = {
   rest: {
     y: 0,
@@ -58,6 +62,7 @@ const cardHoverVariants = {
     boxShadow: "0 30px 60px -15px rgba(142, 23, 11, 0.12)"
   }
 };
+
 const iconBgVariants = {
   rest: {
     backgroundColor: 'rgba(142, 23, 11, 0.05)'
@@ -66,6 +71,7 @@ const iconBgVariants = {
     backgroundColor: '#8E170B'
   }
 };
+
 const iconVariants = {
   rest: {
     color: '#8E170B'
@@ -74,6 +80,7 @@ const iconVariants = {
     color: 'white'
   }
 };
+
 const arrowContainerVariants = {
   rest: {
     borderColor: 'rgb(243 244 246)'
@@ -82,6 +89,7 @@ const arrowContainerVariants = {
     borderColor: '#8E170B'
   }
 };
+
 const arrowVariants = {
   rest: {
     color: 'rgb(209 213 219)'
@@ -90,6 +98,7 @@ const arrowVariants = {
     color: '#8E170B'
   }
 };
+
 const titleVariants = {
   rest: {
     color: '#1F2937'
@@ -98,6 +107,7 @@ const titleVariants = {
     color: '#8E170B'
   }
 };
+
 const gradientVariants = {
   rest: {
     opacity: 0
@@ -106,6 +116,7 @@ const gradientVariants = {
     opacity: 1
   }
 };
+
 export const Services: React.FC = () => {
   const MotionLink = motion(Link);
   return <section id="services" className="py-20 md:py-32 bg-white relative">

@@ -15,6 +15,7 @@ import { Footer } from './components/Footer';
 import { Breadcrumbs } from './components/Breadcrumbs';
 import { ContactPage } from './components/ContactPage';
 import { BackToTopButton } from './components/BackToTopButton';
+import { ScrollProgress } from './components/ui/scroll-progress';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -121,6 +122,7 @@ const AppContent: React.FC = () => {
   return <>
     <ScrollHandler />
     <Navbar />
+    <ScrollProgress />
     <Breadcrumbs />
     <AppRoutes />
     <Footer />
