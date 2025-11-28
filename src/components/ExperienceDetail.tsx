@@ -37,12 +37,7 @@ export const ExperienceDetail: React.FC = () => {
       </div>;
   }
   return <div className="bg-white min-h-screen">
-      {/* Back Navigation */}
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        
-      </div>
-
-      {/* Hero Section */}
+      {/* Hero Section - connects directly to header */}
       <div className="relative h-[400px] md:h-[500px] mb-16">
          <div className="absolute inset-0">
             <img src={experience.image} alt={experience.title} className="w-full h-full object-cover" />
