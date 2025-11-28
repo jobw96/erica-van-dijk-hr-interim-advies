@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import heroDesktop from '@/assets/hero-desktop.jpg';
 import heroMobile from '@/assets/hero-mobile.jpg';
-
 export const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const {
@@ -14,7 +13,6 @@ export const Hero: React.FC = () => {
   });
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
-
   return <section ref={heroRef} id="home" className="relative w-full h-screen min-h-[100dvh] flex items-center overflow-hidden bg-white">
     {/* Background Image with Parallax - NO OVERLAY, FULLY CLEAR */}
     <motion.div style={{
@@ -53,7 +51,7 @@ export const Hero: React.FC = () => {
             duration: 0.5,
             delay: 0,
             ease: "easeOut"
-          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-satoshi-black text-white leading-[1.1] tracking-tighter">
+          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-satoshi-black text-white leading-[1.1] tracking-tighter font-semibold">
             HR Interim
           </motion.h1>
           <motion.h1 initial={{
@@ -66,7 +64,7 @@ export const Hero: React.FC = () => {
             duration: 0.5,
             delay: 0.1,
             ease: "easeOut"
-          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-satoshi-black text-white leading-[1.1] tracking-tighter">
+          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-satoshi-black text-white leading-[1.1] tracking-tighter font-normal">
             & Advies
           </motion.h1>
 

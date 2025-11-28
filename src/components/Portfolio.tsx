@@ -20,15 +20,25 @@ export const Portfolio: React.FC = () => {
   return <section id="portfolio" className="py-20 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center mb-16 md:mb-24 text-center">
-            <motion.span
-              initial={{ opacity: 0, scale: 0.96, y: 6 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
-              className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
-              style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
-            >
+            <motion.span initial={{
+          opacity: 0,
+          scale: 0.96,
+          y: 6
+        }} whileInView={{
+          opacity: 1,
+          scale: 1,
+          y: 0
+        }} whileHover={{
+          scale: 1.02,
+          boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)'
+        }} viewport={{
+          once: true
+        }} transition={{
+          duration: 0.45,
+          ease: "easeOut"
+        }} className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4" style={{
+          boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)'
+        }}>
               VIDEOS
             </motion.span>
             <motion.h2 initial={{
@@ -41,7 +51,7 @@ export const Portfolio: React.FC = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="text-3xl md:text-5xl text-[#1F2937] font-satoshi-black tracking-tight">
+        }} className="text-3xl md:text-5xl text-[#1F2937] font-satoshi-black tracking-tight font-medium text-left">
                 Mijn werk in beeld
             </motion.h2>
         </div>
@@ -92,8 +102,8 @@ export const Portfolio: React.FC = () => {
             delay: 0.2
           }}>
                 <span className="section-label text-[#8E170B] mb-3 block">{video.date}</span>
-                <h3 className="text-3xl md:text-4xl font-satoshi-black text-gray-900 mb-6 leading-tight tracking-tight">{video.title}</h3>
-                <p className="text-gray-500 text-lg leading-relaxed mb-8 font-satoshi-regular tracking-wide">
+                <h3 className="text-3xl md:text-4xl font-satoshi-black text-gray-900 mb-6 leading-tight tracking-tight font-normal">{video.title}</h3>
+                <p className="text-gray-500 leading-relaxed mb-8 font-satoshi-regular tracking-wide text-base">
                     Bekijk hoe ik te werk ga en wat ik voor organisaties heb kunnen betekenen in deze uitgebreide videoreportage.
                 </p>
                 <motion.a href={video.videoUrl} target="_blank" rel="noopener noreferrer" whileHover={{

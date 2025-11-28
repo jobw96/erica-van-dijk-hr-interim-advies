@@ -41,15 +41,25 @@ export const Experience: React.FC = () => {
         
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 md:mb-20 gap-4">
             <div className="max-w-2xl">
-                <motion.span
-                  initial={{ opacity: 0, scale: 0.96, y: 6 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
-                  style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
-                >
+                <motion.span initial={{
+            opacity: 0,
+            scale: 0.96,
+            y: 6
+          }} whileInView={{
+            opacity: 1,
+            scale: 1,
+            y: 0
+          }} whileHover={{
+            scale: 1.02,
+            boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)'
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.45,
+            ease: "easeOut"
+          }} className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4" style={{
+            boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)'
+          }}>
                     Portfolio
                 </motion.span>
                 <motion.h2 initial={{
@@ -58,7 +68,7 @@ export const Experience: React.FC = () => {
           }} whileInView={{
             opacity: 1,
             y: 0
-          }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight">
+          }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight font-medium">
                     Recente Ervaring
                 </motion.h2>
             </div>
@@ -107,7 +117,7 @@ export const Experience: React.FC = () => {
                       <Calendar size={16} />
                       <span>{item.period}</span>
                     </div>
-                    <h3 className="text-xl font-satoshi-bold text-gray-900 mb-2 line-clamp-2 tracking-tight">
+                    <h3 className="text-xl font-satoshi-bold text-gray-900 mb-2 line-clamp-2 tracking-tight font-normal">
                       {item.title}
                     </h3>
                     <p className="text-gray-600 text-sm mb-3 line-clamp-2 flex-grow font-satoshi-regular tracking-wide">
