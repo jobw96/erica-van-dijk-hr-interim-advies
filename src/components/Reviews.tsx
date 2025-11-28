@@ -1,82 +1,138 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
-const review = {
-  text: "Als feedback op jouw inzet voor Airframe kreeg ik te horen 'a perfect cast'. Vliegtuigonderhoud is een complexe wereld, je hebt je die snel eigen gemaakt. Met de ervaring die je meebracht op vlak van medezeggenschap en bonden wist je heel snel en heel natuurlijk vertrouwen te winnen en heb je een paar stevige dossiers opgelost. Je bent een vakvrouw, professional en heel fijn om mee samen te werken. Vanaf dag 1 paste je naadloos in ons team, je hebt je weg gezocht in onze organisatie en op een hele fijne manier contacten gelegd. Je bent een teamplayer en sparringpartner. Het was top om met jou in een team te zitten.",
-  author: "Astrid Elzinga",
-  role: "LinkedIn"
-};
+import { ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
+import { SectionBadge } from './ui/SectionBadge';
+
+const reviews = [
+  {
+    text: "Als feedback op jouw inzet voor Airframe kreeg ik te horen 'a perfect cast'. Vliegtuigonderhoud is een complexe wereld, je hebt je die snel eigen gemaakt. Met de ervaring die je meebracht op vlak van medezeggenschap en bonden wist je heel snel en heel natuurlijk vertrouwen te winnen en heb je een paar stevige dossiers opgelost. Je bent een vakvrouw, professional en heel fijn om mee samen te werken. Vanaf dag 1 paste je naadloos in ons team, je hebt je weg gezocht in onze organisatie en op een hele fijne manier contacten gelegd. Je bent een teamplayer en sparringpartner. Het was top om met jou in een team te zitten.",
+    author: "Astrid Elzinga",
+    role: "via LinkedIn"
+  }
+];
+
 export const Reviews: React.FC = () => {
-  return <section id="reviews" className="py-20 md:py-32 bg-white relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6">
-        
-        {/* Header Section - RIGHT aligned */}
-        <div className="text-right mb-12 md:mb-16">
-            <motion.span initial={{
-          opacity: 0,
-          scale: 0.96,
-          y: 6
-        }} whileInView={{
-          opacity: 1,
-          scale: 1,
-          y: 0
-        }} whileHover={{
-          scale: 1.02,
-          boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)'
-        }} viewport={{
-          once: true
-        }} transition={{
-          duration: 0.45,
-          ease: "easeOut"
-        }} className="section-label inline-flex items-center h-[34px] px-7 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs" style={{
-          boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)'
-        }}>
-                Reviews
-            </motion.span>
-            <motion.h2 initial={{
-          opacity: 0,
-          y: 20
-        }} whileInView={{
-          opacity: 1,
-          y: 0
-        }} viewport={{
-          once: true
-        }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight">
-                Wat klanten zeggen
-            </motion.h2>
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextReview = () => {
+    setCurrentIndex((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevReview = () => {
+    setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
+  return (
+    <section id="reviews" className="py-20 md:py-32 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+          {/* Left Column: Text & Nav */}
+          <div className="lg:col-span-4 flex flex-col justify-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-xs font-satoshi-bold text-gray-500 uppercase tracking-widest mb-4">
+                TESTIMONIALS
+              </p>
+              <h2 className="text-4xl md:text-5xl font-satoshi-black text-gray-900 mb-6 leading-tight tracking-tight">
+                What they say about Us?
+              </h2>
+              <p className="text-gray-500 font-satoshi-regular text-sm leading-relaxed mb-8 max-w-xs">
+                Here's what they shared about their experience working with our team.
+              </p>
+
+              {/* Yellow Button */}
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-[#E8F34C] text-black font-satoshi-bold text-xs uppercase px-8 py-4 rounded-lg tracking-wider mb-12 hover:bg-[#dce640] transition-colors shadow-sm"
+              >
+                ABOUT US
+              </motion.button>
+
+              {/* Navigation Arrows */}
+              <div className="flex gap-4">
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={prevReview}
+                  disabled={reviews.length <= 1}
+                  className="w-12 h-12 rounded-xl bg-[#F9F9F9] flex items-center justify-center text-gray-800 hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <ChevronLeft size={20} />
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={nextReview}
+                  disabled={reviews.length <= 1}
+                  className="w-12 h-12 rounded-xl bg-[#F9F9F9] flex items-center justify-center text-gray-800 hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <ChevronRight size={20} />
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Middle Column: Photo */}
+          <div className="lg:col-span-3 h-full min-h-[400px] lg:min-h-[500px]">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="h-full w-full rounded-2xl overflow-hidden relative"
+            >
+              <img
+                src="/review-photo.png"
+                alt="Client working"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </div>
+
+          {/* Right Column: Review Card */}
+          <div className="lg:col-span-5 h-full min-h-[400px] lg:min-h-[500px]">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="h-full bg-[#E0E7FF] rounded-2xl p-8 md:p-12 flex flex-col justify-between relative"
+            >
+              {/* Logo Top Right (Optional/Placeholder based on screenshot) */}
+              {/* <div className="absolute top-8 right-8">...</div> */}
+
+              <p className="text-gray-800 font-satoshi-regular text-lg leading-relaxed mb-8">
+                "{reviews[currentIndex].text}"
+              </p>
+
+              <div className="flex items-center gap-4 mt-auto">
+                {/* LinkedIn Avatar */}
+                <div className="w-12 h-12 rounded-full bg-[#0077b5] flex items-center justify-center flex-shrink-0 text-white">
+                  <Linkedin size={24} fill="currentColor" strokeWidth={0} />
+                </div>
+
+                <div>
+                  <p className="font-satoshi-bold text-gray-900 text-base">
+                    {reviews[currentIndex].author}
+                  </p>
+                  <p className="text-sm text-gray-500 font-satoshi-regular">
+                    {reviews[currentIndex].role}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
         </div>
-
-        <motion.div initial={{
-        opacity: 0,
-        scale: 0.95,
-        y: 20
-      }} whileInView={{
-        opacity: 1,
-        scale: 1,
-        y: 0
-      }} viewport={{
-        once: true
-      }} transition={{
-        duration: 0.6,
-        ease: "easeOut"
-      }} className="bg-[#F8F9FA] p-8 md:p-16 rounded-3xl text-center shadow-lg border border-white">
-            <div className="flex justify-center mb-6 md:mb-8">
-                 <div className="bg-[#8E170B] p-3 rounded-full">
-                    <Quote className="text-white w-6 h-6 md:w-8 md:h-8 fill-current" />
-                 </div>
-            </div>
-            <div className="flex gap-1 justify-center mb-6 md:mb-8 text-[#92400E]">
-                {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="currentColor" strokeWidth={0} />)}
-            </div>
-            <p className="text-lg md:text-2xl text-gray-800 font-satoshi-medium leading-relaxed mb-8 md:mb-10 tracking-wide">
-                "{review.text}"
-            </p>
-            <div>
-                <p className="font-satoshi-bold text-lg text-gray-900">{review.author}</p>
-                <p className="text-sm text-gray-500 mt-1 font-satoshi-regular tracking-wide">{review.role}</p>
-            </div>
-        </motion.div>
-
       </div>
-    </section>;
+    </section>
+  );
 };
