@@ -116,3 +116,26 @@ All colors MUST be HSL.
     background: #8E170B;
   }
 }
+
+/* Font weight utilities for Satoshi - fallback to system fonts */
+@layer utilities {
+  .font-satoshi-regular {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+  }
+
+  .font-satoshi-medium {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+
+  .font-satoshi-bold {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  .font-satoshi-black {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+}
