@@ -89,26 +89,24 @@ export const Hero: React.FC = () => {
         }} className="flex flex-col sm:flex-row gap-4">
           <Link to="/contact" className="inline-flex">
             <motion.button whileHover={{
-              scale: 1.06,
-              boxShadow: "0 10px 30px rgba(255, 255, 255, 0.3)"
+              scale: 1.03
             }} whileTap={{
-              scale: 0.96
+              scale: 0.97
             }} transition={{
               duration: 0.2
-            }} className="bg-white text-[#8E170B] px-8 py-4 rounded-lg font-satoshi-medium text-base md:text-lg shadow-lg w-full sm:w-auto whitespace-nowrap tracking-wide">
+            }} className="bg-white text-[#8E170B] px-6 py-3 rounded-md font-satoshi-medium text-sm md:text-base shadow-md w-full sm:w-auto whitespace-nowrap tracking-wide">
               Neem contact
             </motion.button>
           </Link>
           <Link to="/experience" className="inline-flex">
             <motion.button whileHover={{
-              scale: 1.06,
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-              boxShadow: "0 10px 30px rgba(255, 255, 255, 0.2)"
+              scale: 1.03,
+              backgroundColor: "rgba(255, 255, 255, 0.1)"
             }} whileTap={{
-              scale: 0.96
+              scale: 0.97
             }} transition={{
               duration: 0.2
-            }} className="border-2 border-white/80 text-white px-8 py-4 rounded-lg font-satoshi-medium text-base md:text-lg w-full sm:w-auto backdrop-blur-sm whitespace-nowrap tracking-wide">
+            }} className="border-2 border-white/80 text-white px-6 py-3 rounded-md font-satoshi-medium text-sm md:text-base w-full sm:w-auto backdrop-blur-sm whitespace-nowrap tracking-wide">
               Ervaringen
             </motion.button>
           </Link>
