@@ -99,7 +99,7 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="rounded-3xl p-8 md:p-12"
+            className="rounded-2xl p-8 md:p-12"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -108,7 +108,7 @@ export const Contact: React.FC = () => {
                   <input
                     type="text"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-100 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular"
                     value={formState.name}
                     onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                   />
@@ -117,7 +117,7 @@ export const Contact: React.FC = () => {
                   <label className="text-sm font-satoshi-medium text-gray-700 ml-1 tracking-wide">Telefoon</label>
                   <input
                     type="tel"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-100 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular"
                     value={formState.phone}
                     onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                   />
@@ -129,7 +129,7 @@ export const Contact: React.FC = () => {
                 <input
                   type="email"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-100 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular"
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                 />
@@ -140,7 +140,7 @@ export const Contact: React.FC = () => {
                 <textarea
                   required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none resize-none bg-white font-satoshi-regular"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-100 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none resize-none bg-white font-satoshi-regular"
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                 />
@@ -150,7 +150,7 @@ export const Contact: React.FC = () => {
                 type="submit"
                 whileHover={{ scale: 1.02, backgroundColor: '#701209' }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#8E170B] text-white font-satoshi-bold text-lg py-4 rounded-lg shadow-lg tracking-wide"
+                className="w-full bg-[#8E170B] text-white font-satoshi-bold text-lg py-4 rounded-xl shadow-lg tracking-wide"
               >
                 Verstuur Bericht
               </motion.button>
