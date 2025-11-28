@@ -19,8 +19,8 @@ const videos: VideoItem[] = [{
 export const Portfolio: React.FC = () => {
   return <section id="portfolio" className="py-20 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Header Section - LEFT aligned */}
-        <div className="flex flex-col items-start mb-16 md:mb-24 text-left">
+        {/* Header Section - RIGHT aligned */}
+        <div className="flex flex-col items-end mb-16 md:mb-24 text-right">
             <motion.span initial={{
           opacity: 0,
           scale: 0.96,

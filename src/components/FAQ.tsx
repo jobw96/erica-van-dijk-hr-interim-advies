@@ -82,11 +82,11 @@ interface FAQProps {
 export const FAQ: React.FC<FAQProps> = ({
   className
 }) => {
-  return <section id="faq" className={`py-20 md:py-32 ${className || 'bg-[#F8F9FA]'}`}>
-      <div className="max-w-4xl mx-auto px-6">
+  return <section id="faq" className={`py-20 md:py-32 ${className || 'bg-white'}`}>
+      <div className="max-w-7xl mx-auto px-6">
         
-        {/* Header Section - RIGHT aligned */}
-        <div className="text-right mb-12 md:mb-16">
+        {/* Header Section - LEFT aligned */}
+        <div className="text-left mb-12 md:mb-16">
             <motion.span initial={{
           opacity: 0,
           scale: 0.96,
@@ -121,7 +121,7 @@ export const FAQ: React.FC<FAQProps> = ({
             </motion.h2>
         </div>
 
-        <div className="bg-white rounded-3xl p-6 md:p-12 shadow-sm">
+        <div className="max-w-4xl">
           {faqs.map((faq, index) => <FAQItem key={index} faq={faq} index={index} />)}
         </div>
 
