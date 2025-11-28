@@ -28,15 +28,15 @@ export const Footer: React.FC = () => {
           {/* Left: CTA */}
           <div className="lg:col-span-6">
              <img src={logo} alt="Erica van Dijk" className="h-16 mb-8" />
-             <h2 className="text-3xl md:text-5xl font-extrabold text-black mb-6 leading-tight">
+             <h2 className="text-3xl md:text-5xl font-satoshi-black text-black mb-6 leading-tight tracking-tight">
                Klaar voor verandering?
              </h2>
-             <p className="text-gray-600 text-lg mb-8 max-w-lg">
+             <p className="text-gray-600 text-lg mb-8 max-w-lg font-satoshi-regular tracking-wide">
                Laten we samenwerken aan duurzame HR-oplossingen voor uw organisatie.
              </p>
              <MotionLink
                to="/contact"
-               className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-8 py-4 rounded-lg font-bold text-lg"
+               className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-8 py-4 rounded-lg font-satoshi-bold text-lg tracking-wide"
                whileHover={{ backgroundColor: '#701209', scale: 1.02 }}
              >
                Plan een gesprek
@@ -51,11 +51,11 @@ export const Footer: React.FC = () => {
              
              {/* Contact Info */}
              <div>
-                <h3 className="font-bold text-lg text-black mb-4">Contact</h3>
-                <div className="space-y-3 text-gray-600">
+                <h3 className="font-satoshi-bold text-lg text-black mb-4">Contact</h3>
+                <div className="space-y-3 text-gray-600 font-satoshi-regular">
                   <div className="flex items-center gap-3">
                     <MapPin size={18} className="text-[#8E170B] shrink-0" />
-                    <span className="text-sm leading-relaxed">
+                    <span className="text-sm leading-relaxed tracking-wide">
                       Erica van Dijk<br />
                       Hoofdstraat 123<br />
                       1234 AB Amsterdam
@@ -73,7 +73,7 @@ export const Footer: React.FC = () => {
                   </div>
                </div>
 
-               <div className="text-sm text-gray-400 mt-2">
+               <div className="text-sm text-gray-400 mt-2 font-satoshi-regular tracking-wide">
                  <p>KVK: 12345678</p>
                  <p>BTW: NL001234567B01</p>
                </div>
@@ -84,22 +84,22 @@ export const Footer: React.FC = () => {
                
                {/* Site Links */}
                <div>
-                   <h3 className="font-bold text-lg text-black mb-4">Navigatie</h3>
+                   <h3 className="font-satoshi-bold text-lg text-black mb-4">Navigatie</h3>
                    <div className="flex flex-col gap-3">
-                      <MotionLink to="/" whileHover={{ color: '#8E170B' }} className="text-gray-600 font-medium">Home</MotionLink>
-                      <MotionLink to="/experience" whileHover={{ color: '#8E170B' }} className="text-gray-600 font-medium">Ervaring & Projecten</MotionLink>
-                      <MotionLink to="/contact" whileHover={{ color: '#8E170B' }} className="text-gray-600 font-medium">Contact</MotionLink>
+                      <MotionLink to="/" whileHover={{ color: '#8E170B' }} className="text-gray-600 font-satoshi-medium tracking-wide">Home</MotionLink>
+                      <MotionLink to="/experience" whileHover={{ color: '#8E170B' }} className="text-gray-600 font-satoshi-medium tracking-wide">Ervaring & Projecten</MotionLink>
+                      <MotionLink to="/contact" whileHover={{ color: '#8E170B' }} className="text-gray-600 font-satoshi-medium tracking-wide">Contact</MotionLink>
                    </div>
                </div>
 
                {/* Social */}
                <div>
-                   <h3 className="font-bold text-lg text-black mb-4">Volg mij</h3>
+                   <h3 className="font-satoshi-bold text-lg text-black mb-4">Volg mij</h3>
                    <MotionA 
                      href="https://linkedin.com" 
                      target="_blank" 
                      rel="noopener noreferrer"
-                     className="inline-flex items-center gap-2 text-gray-600 font-medium"
+                     className="inline-flex items-center gap-2 text-gray-600 font-satoshi-medium tracking-wide"
                      initial="rest"
                      whileHover="hover"
                      animate="rest"
@@ -117,7 +117,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar: Legal & Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200 text-gray-500 text-sm gap-4 text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-200 text-gray-500 text-sm gap-4 text-center md:text-left font-satoshi-regular tracking-wide">
           <p>© {new Date().getFullYear()} Erica van Dijk. Alle rechten voorbehouden.</p>
           <div className="flex items-center gap-6">
             <MotionLink to="#" whileHover={{ color: '#8E170B' }} className="flex items-center gap-1.5">

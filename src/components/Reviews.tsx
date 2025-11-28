@@ -21,7 +21,7 @@ export const Reviews: React.FC = () => {
                 whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, ease: "easeOut" }}
-                className="inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] font-medium tracking-[0.1em] uppercase text-sm rounded-[50px] mb-4"
+                className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
                 style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
             >
                 Reviews
@@ -30,7 +30,7 @@ export const Reviews: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-3xl md:text-5xl font-extrabold text-[#1F2937]"
+                className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight"
             >
                 Wat klanten zeggen
             </motion.h2>
@@ -53,12 +53,12 @@ export const Reviews: React.FC = () => {
                     <Star key={i} size={20} fill="currentColor" strokeWidth={0} />
                 ))}
             </div>
-            <p className="text-lg md:text-2xl text-gray-800 font-medium leading-relaxed mb-8 md:mb-10">
+            <p className="text-lg md:text-2xl text-gray-800 font-satoshi-medium leading-relaxed mb-8 md:mb-10 tracking-wide">
                 "{review.text}"
             </p>
             <div>
-                <p className="font-bold text-lg text-gray-900">{review.author}</p>
-                <p className="text-sm text-gray-500 mt-1">{review.role}</p>
+                <p className="font-satoshi-bold text-lg text-gray-900">{review.author}</p>
+                <p className="text-sm text-gray-500 mt-1 font-satoshi-regular tracking-wide">{review.role}</p>
             </div>
         </motion.div>
 

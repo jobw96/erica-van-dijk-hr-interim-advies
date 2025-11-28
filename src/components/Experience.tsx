@@ -47,7 +47,7 @@ export const Experience: React.FC = () => {
                   whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, ease: "easeOut" }}
-                  className="inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] font-medium tracking-[0.1em] uppercase text-sm rounded-[50px] mb-4"
+                  className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
                   style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
                 >
                     Portfolio
@@ -58,11 +58,11 @@ export const Experience: React.FC = () => {
           }} whileInView={{
             opacity: 1,
             y: 0
-          }} className="text-3xl md:text-5xl font-extrabold text-[#1F2937]">
+          }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight">
                     Recente Ervaring
                 </motion.h2>
             </div>
-            <MotionLink to="/experience" className="hidden md:flex items-center gap-2 text-[#1F2937] font-bold cursor-pointer" initial={{
+            <MotionLink to="/experience" className="hidden md:flex items-center gap-2 text-[#1F2937] font-satoshi-bold cursor-pointer tracking-wide" initial={{
           opacity: 0,
           x: -20
         }} whileInView={{
@@ -103,17 +103,17 @@ export const Experience: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-5 flex flex-col flex-grow">
-                    <div className="flex items-center gap-2 text-[#8E170B] text-sm font-medium mb-3">
+                    <div className="flex items-center gap-2 text-[#8E170B] text-sm font-satoshi-medium mb-3 tracking-wide">
                       <Calendar size={16} />
                       <span>{item.period}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2">
+                    <h3 className="text-xl font-satoshi-bold text-gray-900 mb-2 line-clamp-2 tracking-tight">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2 flex-grow">
+                    <p className="text-gray-600 text-sm mb-3 line-clamp-2 flex-grow font-satoshi-regular tracking-wide">
                       {item.shortDescription}
                     </p>
-                    <div className="flex items-center gap-2 text-[#8E170B] font-semibold text-sm mt-auto">
+                    <div className="flex items-center gap-2 text-[#8E170B] font-satoshi-medium text-sm mt-auto tracking-wide">
                       <span>Lees meer</span>
                       <ArrowRight size={16} />
                     </div>
@@ -122,7 +122,7 @@ export const Experience: React.FC = () => {
             </MotionLink>)}
         </motion.div>
 
-        <MotionLink to="/experience" className="md:hidden flex items-center justify-center gap-2 text-[#8E170B] font-bold cursor-pointer mt-12" initial={{
+        <MotionLink to="/experience" className="md:hidden flex items-center justify-center gap-2 text-[#8E170B] font-satoshi-bold cursor-pointer mt-12 tracking-wide" initial={{
         opacity: 0,
         y: 20
       }} whileInView={{

@@ -26,7 +26,7 @@ export const Portfolio: React.FC = () => {
               whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] font-medium tracking-[0.1em] uppercase text-sm rounded-[50px] mb-4"
+              className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
               style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
             >
               VIDEOS
@@ -41,7 +41,7 @@ export const Portfolio: React.FC = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="text-3xl md:text-5xl text-[#1F2937] font-bold">
+        }} className="text-3xl md:text-5xl text-[#1F2937] font-satoshi-black tracking-tight">
                 Mijn werk in beeld
             </motion.h2>
         </div>
@@ -91,15 +91,15 @@ export const Portfolio: React.FC = () => {
             duration: 0.8,
             delay: 0.2
           }}>
-                <span className="text-[#8E170B] font-bold text-sm tracking-wider uppercase mb-3 block">{video.date}</span>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">{video.title}</h3>
-                <p className="text-gray-500 text-lg leading-relaxed mb-8">
+                <span className="section-label text-[#8E170B] mb-3 block">{video.date}</span>
+                <h3 className="text-3xl md:text-4xl font-satoshi-black text-gray-900 mb-6 leading-tight tracking-tight">{video.title}</h3>
+                <p className="text-gray-500 text-lg leading-relaxed mb-8 font-satoshi-regular tracking-wide">
                     Bekijk hoe ik te werk ga en wat ik voor organisaties heb kunnen betekenen in deze uitgebreide videoreportage.
                 </p>
                 <motion.a href={video.videoUrl} target="_blank" rel="noopener noreferrer" whileHover={{
               x: 5,
               backgroundColor: '#701209'
-            }} className="bg-[#8E170B] text-white text-base font-bold px-8 py-4 rounded-lg shadow-lg shadow-[#8E170B]/20 inline-flex items-center gap-2 cursor-pointer">
+            }} className="bg-[#8E170B] text-white text-base font-satoshi-bold px-8 py-4 rounded-lg shadow-lg shadow-[#8E170B]/20 inline-flex items-center gap-2 cursor-pointer tracking-wide">
                     Bekijk video
                 </motion.a>
               </motion.div>
