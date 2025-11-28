@@ -88,31 +88,29 @@ export const About: React.FC = () => {
 
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-satoshi-regular tracking-wide">
               <p>
-                "Ik ben een ervaren allround interim HR Manager met een{' '}
-                <span className="font-satoshi-medium text-gray-900">pragmatische en betrouwbare aanpak</span>.
+                "Ik ben een ervaren allround interim HR Manager met een pragmatische en betrouwbare aanpak.
                 Als no-nonsense teamspeler en kritische sparringpartner combineer ik creatieve probleemoplossing met een ondernemende geest."
               </p>
               <p>
-                Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo{' '}
-                <span className="font-satoshi-medium text-gray-900">duurzame oplossingen</span> te realiseren.
+                Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo duurzame oplossingen te realiseren.
               </p>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <motion.a
-                href="https://linkedin.com"
+                href="https://nl.linkedin.com/in/erica-van-dijk-a713506"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-6 py-3 bg-[#0077b5] text-white rounded-xl font-satoshi-medium shadow-lg shadow-blue-900/20 transition-colors hover:bg-[#006396] tracking-wide"
+                className="flex items-center gap-2 px-6 py-3 bg-[#8E170B] text-white rounded-xl font-satoshi-medium shadow-lg shadow-red-900/20 transition-colors hover:bg-[#701209] tracking-wide"
               >
                 <Linkedin size={20} />
                 Connect op LinkedIn
               </motion.a>
 
               <motion.a
-                href="mailto:info@ericavandijk.nl"
+                href="#contact"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-satoshi-medium hover:border-[#8E170B] hover:text-[#8E170B] transition-colors tracking-wide"
