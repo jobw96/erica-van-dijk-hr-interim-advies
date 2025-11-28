@@ -22,7 +22,7 @@ export const Breadcrumbs: React.FC = () => {
     contact: 'Contact'
   };
   
-  return <div className="bg-white border-b border-gray-100 sticky top-[84px] z-40 backdrop-blur-sm">
+  return <div className="bg-white border-b border-gray-100 sticky top-[60px] z-40 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-6 py-3">
         <nav className="flex items-center gap-2 text-sm flex-wrap">
           <MotionLink to="/" className="flex items-center text-gray-500 hover:text-[#8E170B] transition-colors" whileHover={{
