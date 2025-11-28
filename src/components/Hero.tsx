@@ -64,7 +64,7 @@ export const Hero: React.FC = () => {
             duration: 0.5,
             delay: 0.1,
             ease: "easeOut"
-          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-satoshi-black text-white leading-[1.1] tracking-tighter font-normal">
+          }} className="text-5xl md:text-6xl lg:text-7xl font-satoshi-black text-white leading-[1.1] tracking-tighter font-normal xl:text-7xl">
             & Advies
           </motion.h1>
 

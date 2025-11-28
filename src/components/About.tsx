@@ -35,7 +35,7 @@ export const About: React.FC = () => {
         }} transition={{
           duration: 0.5,
           delay: 0.1
-        }} className="text-4xl md:text-5xl font-satoshi-black text-gray-900 tracking-tight font-medium">
+        }} className="text-4xl md:text-5xl font-satoshi-black text-gray-900 tracking-tight font-normal">
             Persoonlijke Kennismaking
           </motion.h2>
         </div>
