@@ -94,7 +94,7 @@ export function Navbar() {
                   duration: 0.2,
                   ease: "easeOut"
                 }}
-                className="text-base font-satoshi-medium text-gray-700 relative tracking-wide"
+                className="text-sm font-satoshi-regular text-gray-700 relative tracking-wide"
               >
                 {link.label}
                 <motion.div
@@ -108,7 +108,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <MotionLink to="/contact" className="hidden lg:block bg-[#8E170B] text-white px-6 py-2.5 rounded-lg font-satoshi-bold text-sm tracking-wide" whileHover={{
+            <MotionLink to="/contact" className="hidden lg:block bg-[#8E170B] text-white px-5 py-2 rounded-lg font-satoshi-medium text-xs tracking-wide" whileHover={{
               backgroundColor: '#701209',
               scale: 1.02
             }} whileTap={{
