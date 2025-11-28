@@ -108,7 +108,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4">
-            <MotionLink to="/contact" className="hidden lg:block bg-[#8E170B] text-white px-5 py-2 rounded-lg font-satoshi-medium text-xs tracking-wide" whileHover={{
+            <MotionLink to="/contact" className="hidden lg:block bg-[#8E170B] text-white px-5 py-2 rounded-md font-satoshi-medium text-xs tracking-wide" whileHover={{
               backgroundColor: '#701209',
               scale: 1.02
             }} whileTap={{
