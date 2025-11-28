@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
           delay: 0.5,
           ease: "easeOut"
         }} className="flex flex-col sm:flex-row gap-4">
-          <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 300 }}>
+          <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2, ease: "easeOut" }}>
             <Button asChild className="h-11 px-7 text-base bg-white text-[#8E170B] hover:bg-gray-100 hover:text-[#8E170B] border border-white shadow-lg hover:shadow-xl rounded-xl">
               <Link to="/contact">
                 Neem contact
@@ -93,7 +93,7 @@ export const Hero: React.FC = () => {
             </Button>
           </motion.div>
 
-          <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 300 }}>
+          <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2, ease: "easeOut" }}>
             <Button asChild variant="outline" className="h-11 px-7 text-base border border-white/80 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm bg-transparent rounded-xl">
               <Link to="/experience">
                 Ervaringen

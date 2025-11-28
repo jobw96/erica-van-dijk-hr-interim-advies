@@ -33,21 +33,20 @@ export const BackToTopButton: React.FC = () => {
         <motion.button
           onClick={scrollToTop}
           initial={{ opacity: 0, y: 20, scale: 0.8 }}
-          animate={{ 
-            opacity: 1, 
-            y: 0, 
+          animate={{
+            opacity: 1,
+            y: 0,
             scale: 1,
           }}
           exit={{ opacity: 0, y: 20, scale: 0.8 }}
-          whileHover={{ 
-            scale: 1.05, 
+          whileHover={{
+            scale: 1.05,
             backgroundColor: "#701209",
           }}
           whileTap={{ scale: 0.95 }}
-          transition={{ 
-            type: "spring",
-            stiffness: 300,
-            damping: 25
+          transition={{
+            duration: 0.2,
+            ease: "easeOut"
           }}
           className="fixed bottom-8 right-8 bg-[#8E170B] text-white p-3 rounded-md shadow-lg z-50 hover:shadow-xl transition-shadow"
           aria-label="Terug naar boven"
