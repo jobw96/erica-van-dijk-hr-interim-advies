@@ -17,11 +17,9 @@ export const About: React.FC = () => {
           <motion.span
             initial={{ opacity: 0, scale: 0.96, y: 6 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="section-label inline-flex items-center h-[34px] px-7 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs"
-            style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
+            className="section-label inline-flex items-center h-[29px] px-6 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs"
           >
             Over Mij
           </motion.span>
@@ -48,7 +46,7 @@ export const About: React.FC = () => {
             <motion.div
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4 }}
-              className="relative z-10 rounded-3xl overflow-hidden shadow-2xl"
+              className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
             >
               <img
                 src="/lovable-uploads/41e526fc-1f51-4c6d-a670-41b8434d6d1d.png"
@@ -63,13 +61,13 @@ export const About: React.FC = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="absolute -top-6 -left-6 w-full h-full border-2 border-[#8E170B]/20 rounded-3xl -z-10"
+              className="absolute -top-6 -left-6 w-full h-full border border-[#8E170B]/20 rounded-2xl -z-10"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="absolute -bottom-6 -right-6 w-full h-full bg-[#8E170B]/5 rounded-3xl -z-10"
+              className="absolute -bottom-6 -right-6 w-full h-full bg-[#8E170B]/5 rounded-2xl -z-10"
             />
           </motion.div>
 
@@ -90,31 +88,29 @@ export const About: React.FC = () => {
 
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed font-satoshi-regular tracking-wide">
               <p>
-                "Ik ben een ervaren allround interim HR Manager met een{' '}
-                <span className="font-satoshi-medium text-gray-900">pragmatische en betrouwbare aanpak</span>.
+                "Ik ben een ervaren allround interim HR Manager met een pragmatische en betrouwbare aanpak.
                 Als no-nonsense teamspeler en kritische sparringpartner combineer ik creatieve probleemoplossing met een ondernemende geest."
               </p>
               <p>
-                Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo{' '}
-                <span className="font-satoshi-medium text-gray-900">duurzame oplossingen</span> te realiseren.
+                Met mijn verbindende poldermentaliteit en sterke onderhandelingsvaardigheden houd ik oog voor diverse belangen en arbeidsverhoudingen, om zo duurzame oplossingen te realiseren.
               </p>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-4">
               <motion.a
-                href="https://linkedin.com"
+                href="https://nl.linkedin.com/in/erica-van-dijk-a713506"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-6 py-3 bg-[#0077b5] text-white rounded-xl font-satoshi-medium shadow-lg shadow-blue-900/20 transition-colors hover:bg-[#006396] tracking-wide"
+                className="flex items-center gap-2 px-6 py-3 bg-[#8E170B] text-white rounded-xl font-satoshi-medium shadow-lg shadow-red-900/20 transition-colors hover:bg-[#701209] tracking-wide"
               >
                 <Linkedin size={20} />
                 Connect op LinkedIn
               </motion.a>
 
               <motion.a
-                href="mailto:info@ericavandijk.nl"
+                href="#contact"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-satoshi-medium hover:border-[#8E170B] hover:text-[#8E170B] transition-colors tracking-wide"
