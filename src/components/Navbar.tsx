@@ -94,7 +94,7 @@ export function Navbar() {
       }}
       transition={{
         duration: 0.5,
-        ease: [0.25, 0.46, 0.45, 0.94] // Custom cubic-bezier for smooth easing
+        ease: [0.25, 0.46, 0.45, 0.94]
       }}
       className='fixed top-0 left-0 right-0 z-50 border-b'
     >
@@ -113,7 +113,7 @@ export function Navbar() {
               }}
             >
               <motion.img
-                key={isTransparent ? 'white' : 'dark'} // Force re-render on change
+                key={isTransparent ? 'white' : 'dark'}
                 src={isTransparent ? "/logo-white.png" : "/logo-dark.png"}
                 alt="Erica van Dijk"
                 className="h-9"
@@ -177,45 +177,82 @@ export function Navbar() {
                       }}
                     />
                   </MotionLink>
-              }}
-                  whileHover={{
-                    scale: 1.05,
-                    backgroundColor: isTransparent ? 'rgba(255, 255, 255, 0.1)' : 'rgba(243, 244, 246, 1)'
-                  }}
-                  whileTap={{
-                    scale: 0.95
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: [0.25, 0.46, 0.45, 0.94]
-                  }}
-                  className="lg:hidden p-2 rounded-lg z-50 relative"
-                  aria-label="Toggle menu"
+                </motion.div>
+              ))}
+            </nav>
+          </div>
+
+          <div className="flex items-center gap-3">
+            <MotionLink
+              to="/contact"
+              className="hidden lg:block"
             >
-                  <AnimatePresence mode="wait">
-                    {open ? (
-                      <motion.div
-                        key="close"
-                        initial={{ rotate: -90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: 90, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <X size={28} />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="menu"
-                        initial={{ rotate: 90, opacity: 0 }}
-                        animate={{ rotate: 0, opacity: 1 }}
-                        exit={{ rotate: -90, opacity: 0 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <Menu size={28} />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.button>
+              <motion.div
+                animate={{
+                  backgroundColor: isTransparent ? 'transparent' : '#8E170B',
+                  borderColor: isTransparent ? '#ffffff' : '#8E170B',
+                  color: isTransparent ? '#ffffff' : '#ffffff'
+                }}
+                whileHover={{
+                  backgroundColor: isTransparent ? 'rgba(255, 255, 255, 0.1)' : '#701209',
+                  scale: 1.02
+                }}
+                whileTap={{
+                  scale: 0.98
+                }}
+                transition={{
+                  duration: 0.3,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                className="px-6 py-2.5 border rounded-[50px] font-medium text-sm"
+              >
+                Contact
+              </motion.div>
+            </MotionLink>
+
+            <motion.button
+              onClick={() => setOpen(!open)}
+              animate={{
+                color: isTransparent ? '#ffffff' : '#111827'
+              }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: isTransparent ? 'rgba(255, 255, 255, 0.1)' : 'rgba(243, 244, 246, 1)'
+              }}
+              whileTap={{
+                scale: 0.95
+              }}
+              transition={{
+                duration: 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              className="lg:hidden p-2 rounded-lg z-50 relative"
+              aria-label="Toggle menu"
+            >
+              <AnimatePresence mode="wait">
+                {open ? (
+                  <motion.div
+                    key="close"
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <X size={28} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="menu"
+                    initial={{ rotate: 90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Menu size={28} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.button>
           </div>
         </div>
       </div>
