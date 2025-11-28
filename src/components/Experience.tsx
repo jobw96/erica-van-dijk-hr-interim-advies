@@ -40,11 +40,9 @@ export const Experience: React.FC = () => {
             <motion.span
               initial={{ opacity: 0, scale: 0.96, y: 6 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="section-label inline-flex items-center h-[34px] px-7 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs"
-              style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
+              className="section-label inline-flex items-center h-[29px] px-6 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs"
             >
               Portfolio
             </motion.span>
