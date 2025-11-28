@@ -85,7 +85,8 @@ export const FAQ: React.FC<FAQProps> = ({
   return <section id="faq" className={`py-20 md:py-32 ${className || 'bg-[#F8F9FA]'}`}>
       <div className="max-w-4xl mx-auto px-6">
         
-        <div className="text-center mb-12 md:mb-16">
+        {/* Header Section - RIGHT aligned */}
+        <div className="text-right mb-12 md:mb-16">
             <motion.span initial={{
           opacity: 0,
           scale: 0.96,
@@ -102,7 +103,7 @@ export const FAQ: React.FC<FAQProps> = ({
         }} transition={{
           duration: 0.45,
           ease: "easeOut"
-        }} className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4" style={{
+        }} className="section-label inline-flex items-center h-[34px] px-7 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs" style={{
           boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)'
         }}>
                 Veelgestelde Vragen
@@ -115,7 +116,7 @@ export const FAQ: React.FC<FAQProps> = ({
           y: 0
         }} viewport={{
           once: true
-        }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight font-medium">
+        }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight">
                 Heeft u vragen?
             </motion.h2>
         </div>

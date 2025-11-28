@@ -19,7 +19,8 @@ const videos: VideoItem[] = [{
 export const Portfolio: React.FC = () => {
   return <section id="portfolio" className="py-20 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col items-center mb-16 md:mb-24 text-center">
+        {/* Header Section - LEFT aligned */}
+        <div className="flex flex-col items-start mb-16 md:mb-24 text-left">
             <motion.span initial={{
           opacity: 0,
           scale: 0.96,
@@ -36,10 +37,10 @@ export const Portfolio: React.FC = () => {
         }} transition={{
           duration: 0.45,
           ease: "easeOut"
-        }} className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4" style={{
+        }} className="section-label inline-flex items-center h-[34px] px-7 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs" style={{
           boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)'
         }}>
-              VIDEOS
+              Videos
             </motion.span>
             <motion.h2 initial={{
           opacity: 0,
@@ -51,7 +52,7 @@ export const Portfolio: React.FC = () => {
           once: true
         }} transition={{
           delay: 0.1
-        }} className="text-3xl text-[#1F2937] font-satoshi-black tracking-tight font-medium text-left md:text-5xl">
+        }} className="text-3xl md:text-5xl text-[#1F2937] font-satoshi-black tracking-tight">
                 Mijn werk in beeld
             </motion.h2>
         </div>

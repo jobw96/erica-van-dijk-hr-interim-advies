@@ -34,15 +34,28 @@ export const Experience: React.FC = () => {
   return (
     <section id="experience" className="py-20 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 md:mb-20 gap-4">
-          <div className="max-w-2xl">
+        {/* Header Section - RIGHT aligned */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-4">
+          <MotionLink
+            to="/experience"
+            className="hidden md:flex items-center gap-2 text-[#1F2937] font-satoshi-bold cursor-pointer tracking-wide order-2 md:order-1"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            whileHover={{ color: '#8E170B', x: -5 }}
+          >
+            <ArrowRight size={20} className="rotate-180" />
+            <span>Bekijk alle</span>
+          </MotionLink>
+          <div className="max-w-2xl text-right order-1 md:order-2 md:ml-auto">
             <motion.span
               initial={{ opacity: 0, scale: 0.96, y: 6 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(142, 23, 11, 0.12)' }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, ease: "easeOut" }}
-              className="section-label inline-flex items-center h-[42px] px-9 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4"
+              className="section-label inline-flex items-center h-[34px] px-7 bg-[#fff5f8] text-[#8E170B] rounded-[50px] mb-4 font-satoshi-medium tracking-[0.1em] uppercase text-xs"
               style={{ boxShadow: '0 4px 20px rgba(142, 23, 11, 0.08)' }}
             >
               Portfolio
@@ -55,18 +68,6 @@ export const Experience: React.FC = () => {
               Recente Ervaring
             </motion.h2>
           </div>
-          <MotionLink
-            to="/experience"
-            className="hidden md:flex items-center gap-2 text-[#1F2937] font-satoshi-bold cursor-pointer tracking-wide"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            whileHover={{ color: '#8E170B', x: 5 }}
-          >
-            <span>Bekijk alle</span>
-            <ArrowRight size={20} />
-          </MotionLink>
         </div>
 
         <motion.div
