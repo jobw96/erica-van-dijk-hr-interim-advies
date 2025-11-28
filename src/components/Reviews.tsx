@@ -46,14 +46,17 @@ export const Reviews: React.FC = () => {
                 Here's what they shared about their experience working with our team.
               </p>
 
-              {/* Yellow Button */}
-              <motion.button
+              {/* Accent Button */}
+              <motion.a
+                href="https://nl.linkedin.com/in/erica-van-dijk-a713506"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#E8F34C] text-black font-satoshi-bold text-xs uppercase px-8 py-4 rounded-lg tracking-wider mb-12 hover:bg-[#dce640] transition-colors shadow-sm"
+                className="inline-block bg-[#8E170B] text-white font-satoshi-bold text-xs uppercase px-8 py-4 rounded-lg tracking-wider mb-12 hover:bg-[#701209] transition-colors shadow-sm"
               >
-                ABOUT US
-              </motion.button>
+                Bekijk
+              </motion.a>
 
               {/* Navigation Arrows */}
               <div className="flex gap-4">
@@ -79,8 +82,8 @@ export const Reviews: React.FC = () => {
             </motion.div>
           </div>
 
-          {/* Middle Column: Photo */}
-          <div className="lg:col-span-3 h-full min-h-[400px] lg:min-h-[500px]">
+          {/* Middle Column: Photo - Hidden on Mobile */}
+          <div className="hidden lg:block lg:col-span-3 h-full min-h-[400px] lg:min-h-[500px]">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
