@@ -20,7 +20,10 @@ export const Hero: React.FC = () => {
       y: imageY,
       scale: imageScale
     }} className="absolute inset-0 z-0 will-change-transform">
-      <img src="/hero-new.jpg" alt="Erica van Dijk - HR Professional" className="w-full h-full object-cover object-center" />
+      <picture>
+        <source media="(min-width: 768px)" srcSet="/hero-desktop-new.png" />
+        <img src="/hero-mobile-new.png" alt="Erica van Dijk - HR Professional" className="w-full h-full object-cover object-center" />
+      </picture>
     </motion.div>
 
     {/* Main Content Container */}
