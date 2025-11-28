@@ -89,24 +89,24 @@ export const Hero: React.FC = () => {
         }} className="flex flex-col sm:flex-row gap-4">
           <Link to="/contact" className="inline-flex">
             <motion.button whileHover={{
-              scale: 1.03
+              scale: 1.02
             }} whileTap={{
-              scale: 0.97
+              scale: 0.98
             }} transition={{
               duration: 0.2
-            }} className="bg-white text-[#8E170B] px-6 py-3 rounded-md font-satoshi-medium text-sm md:text-base shadow-md w-full sm:w-auto whitespace-nowrap tracking-wide">
+            }} className="bg-white text-[#8E170B] px-5 py-2.5 rounded-md font-satoshi-medium text-sm shadow-md w-full sm:w-auto whitespace-nowrap tracking-wide">
               Neem contact
             </motion.button>
           </Link>
           <Link to="/experience" className="inline-flex">
             <motion.button whileHover={{
-              scale: 1.03,
+              scale: 1.02,
               backgroundColor: "rgba(255, 255, 255, 0.1)"
             }} whileTap={{
-              scale: 0.97
+              scale: 0.98
             }} transition={{
               duration: 0.2
-            }} className="border-2 border-white/80 text-white px-6 py-3 rounded-md font-satoshi-medium text-sm md:text-base w-full sm:w-auto backdrop-blur-sm whitespace-nowrap tracking-wide">
+            }} className="border border-white/80 text-white px-5 py-2.5 rounded-md font-satoshi-medium text-sm w-full sm:w-auto backdrop-blur-sm whitespace-nowrap tracking-wide">
               Ervaringen
             </motion.button>
           </Link>
