@@ -331,8 +331,8 @@ export function Navbar() {
               }} transition={{
                 duration: 0.2,
                 ease: [0.25, 0.46, 0.45, 0.94]
-              }} className="w-full bg-[#8E170B] text-white font-medium text-lg py-4 rounded-lg shadow-lg">
-                    Plan Consult
+              }} className="w-full bg-[#8E170B] text-white font-medium text-lg rounded-lg shadow-lg py-[17px]">
+                    ​Contact
                   </motion.button>
                 </MotionLink>
               </motion.div>
