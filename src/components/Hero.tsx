@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { TypingText } from '@/components/ui/typing-text';
+import { GradualSpacing } from '@/components/ui/gradual-spacing';
 
 export const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -52,10 +52,14 @@ export const Hero: React.FC = () => {
           </motion.h1>
           <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-[1.1] min-h-[1.1em]">
             {showAdvies ? (
-              <TypingText 
+              <GradualSpacing 
                 text="& Advies" 
-                delay={0.065}
-                cursor={false}
+                duration={0.5}
+                delayMultiple={0.06}
+                framerProps={{
+                  hidden: { opacity: 0, x: -12 },
+                  visible: { opacity: 1, x: 0 },
+                }}
                 onComplete={() => setShowButtons(true)}
               />
             ) : (
