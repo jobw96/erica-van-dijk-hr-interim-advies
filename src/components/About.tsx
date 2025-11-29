@@ -1,14 +1,24 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Linkedin, Mail } from 'lucide-react';
 
 export const About: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const imageY = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const decorY = useTransform(scrollYProgress, [0, 1], [80, -80]);
+
   return (
-    <section id="about" className="py-20 md:py-32 bg-gray-50 overflow-hidden relative">
+    <section ref={sectionRef} id="about" className="py-20 md:py-32 bg-gray-50 overflow-hidden relative">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[#8E170B]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gray-200/50 rounded-full blur-3xl" />
+        <motion.div style={{ y: decorY }} className="absolute top-1/4 -left-64 w-96 h-96 bg-[#8E170B]/5 rounded-full blur-3xl" />
+        <motion.div style={{ y: useTransform(scrollYProgress, [0, 1], [-40, 40]) }} className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gray-200/50 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -41,6 +51,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            style={{ y: imageY }}
             className="w-full md:w-1/2 relative"
           >
             <motion.div
@@ -77,6 +88,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+            style={{ y: contentY }}
             className="w-full md:w-1/2"
           >
             <h3 className="text-3xl md:text-4xl font-satoshi-black text-gray-900 mb-2 tracking-tight">

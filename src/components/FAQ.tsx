@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Plus } from 'lucide-react';
 const faqs = [{
   question: "Wat is interim HR?",
@@ -82,11 +82,20 @@ interface FAQProps {
 export const FAQ: React.FC<FAQProps> = ({
   className
 }) => {
-  return <section id="faq" className={`py-20 md:py-32 ${className || 'bg-white'}`}>
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const headerY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [40, -20]);
+
+  return <section ref={sectionRef} id="faq" className={`py-20 md:py-32 ${className || 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Header Section - LEFT aligned */}
-        <div className="text-left mb-12 md:mb-16">
+        <motion.div style={{ y: headerY }} className="text-left mb-12 md:mb-16">
             <motion.span initial={{
           opacity: 0,
           scale: 0.96,
@@ -114,11 +123,11 @@ export const FAQ: React.FC<FAQProps> = ({
         }} className="text-3xl md:text-5xl font-satoshi-black text-[#1F2937] tracking-tight">
                 Heeft u vragen?
             </motion.h2>
-        </div>
+        </motion.div>
 
-        <div className="max-w-4xl">
+        <motion.div style={{ y: contentY }} className="max-w-4xl">
           {faqs.map((faq, index) => <FAQItem key={index} faq={faq} index={index} />)}
-        </div>
+        </motion.div>
 
       </div>
     </section>;

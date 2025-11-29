@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { experiences } from '../data/experiences';
@@ -40,10 +40,19 @@ const cardVariants = {
 
 export const Experience: React.FC = () => {
   const MotionLink = motion(Link);
-  return <section id="experience" className="py-20 md:py-32 bg-white">
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const headerY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [50, -20]);
+
+  return <section ref={sectionRef} id="experience" className="py-20 md:py-32 bg-white">
     <div className="max-w-7xl mx-auto px-6">
       {/* Header Section - LEFT aligned */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 md:mb-20 gap-4">
+      <motion.div style={{ y: headerY }} className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 md:mb-20 gap-4">
         <div className="max-w-2xl text-left">
           <motion.span initial={{
             opacity: 0,
@@ -89,9 +98,9 @@ export const Experience: React.FC = () => {
           <span>Bekijk alle</span>
           <ArrowRight size={20} />
         </MotionLink>
-      </div>
+      </motion.div>
 
-      <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
+      <motion.div style={{ y: gridY }} variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
         once: true,
         margin: "-50px"
       }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
