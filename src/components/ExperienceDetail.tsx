@@ -25,7 +25,7 @@ export const ExperienceDetail: React.FC = () => {
     window.scrollTo(0, 0);
   }, [id]);
   if (!experience) {
-    return <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+    return <div className="min-h-screen flex flex-col items-center justify-center bg-white">
       <div className="text-center">
         <h2 className="text-3xl font-satoshi-black text-gray-800 mb-4 tracking-tight">Ervaring niet gevonden</h2>
         <MotionLink to="/experience" className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-6 py-3 rounded-lg font-satoshi-bold tracking-wide" whileHover={{

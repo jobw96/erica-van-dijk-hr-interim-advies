@@ -17,7 +17,7 @@ const logos = [{
   name: "KLM",
   image: klmlogo
 }];
-export const ClientLogos: React.FC<{ className?: string }> = ({ className = "py-12 md:py-16 bg-gray-50" }) => {
+export const ClientLogos: React.FC<{ className?: string }> = ({ className = "py-12 md:py-16 bg-white" }) => {
   return <section className={`${className} overflow-hidden`}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div initial={{
@@ -34,10 +34,10 @@ export const ClientLogos: React.FC<{ className?: string }> = ({ className = "py-
         
         <div className="relative">
           {/* Left fade gradient */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           
           {/* Right fade gradient */}
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
           
           <div className="flex gap-12 md:gap-16">
             {/* First set of logos */}
