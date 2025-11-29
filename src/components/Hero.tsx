@@ -7,6 +7,7 @@ import { TypingText } from '@/components/ui/typing-text';
 export const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const [showAdvies, setShowAdvies] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
   const {
     scrollYProgress
   } = useScroll({
@@ -49,29 +50,27 @@ export const Hero: React.FC = () => {
           >
             HR Interim
           </motion.h1>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-[1.1]">
-            {showAdvies && (
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-[1.1] min-h-[1.1em]">
+            {showAdvies ? (
               <TypingText 
                 text="& Advies" 
-                delay={0.08}
+                delay={0.04}
                 cursor={false}
+                onComplete={() => setShowButtons(true)}
               />
+            ) : (
+              <span className="invisible">& Advies</span>
             )}
           </h1>
         </div>
 
         {/* CTA Buttons - Spring Animation */}
-        <motion.div initial={{
-          opacity: 0,
-          scale: 0.9
-        }} animate={{
-          opacity: 1,
-          scale: 1
-        }} transition={{
-          duration: 0.4,
-          delay: 0.9,
-          ease: "easeOut"
-        }} className="flex flex-col sm:flex-row gap-4">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={showButtons ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+          transition={{ duration: 0.4, ease: "easeOut" }} 
+          className="flex flex-col sm:flex-row gap-4"
+        >
           <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2, ease: "easeOut" }}>
             <Button asChild className="h-11 px-7 text-base bg-white text-[#8E170B] hover:bg-gray-100 hover:text-[#8E170B] border border-white shadow-lg hover:shadow-xl rounded-xl">
               <Link to="/contact">
