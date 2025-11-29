@@ -33,6 +33,12 @@ export const ClientLogos: React.FC<{ className?: string }> = ({ className = "py-
         </motion.div>
         
         <div className="relative">
+          {/* Left fade gradient */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+          
+          {/* Right fade gradient */}
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
+          
           <div className="flex gap-12 md:gap-16">
             {/* First set of logos */}
             <motion.div className="flex gap-12 md:gap-16 shrink-0" animate={{
@@ -45,7 +51,7 @@ export const ClientLogos: React.FC<{ className?: string }> = ({ className = "py-
               ease: "linear"
             }
           }}>
-              {logos.map(logo => <div key={`first-${logo.name}`} className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+              {logos.map(logo => <div key={`first-${logo.name}`} className="flex items-center justify-center grayscale-[30%] hover:grayscale-0 transition-all duration-300">
                   <img src={logo.image} alt={logo.name} className="h-12 w-auto object-contain" />
                 </div>)}
             </motion.div>
@@ -61,7 +67,7 @@ export const ClientLogos: React.FC<{ className?: string }> = ({ className = "py-
               ease: "linear"
             }
           }}>
-              {logos.map(logo => <div key={`second-${logo.name}`} className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+              {logos.map(logo => <div key={`second-${logo.name}`} className="flex items-center justify-center grayscale-[30%] hover:grayscale-0 transition-all duration-300">
                   <img src={logo.image} alt={logo.name} className="h-12 w-auto object-contain" />
                 </div>)}
             </motion.div>
@@ -77,7 +83,7 @@ export const ClientLogos: React.FC<{ className?: string }> = ({ className = "py-
               ease: "linear"
             }
           }}>
-              {logos.map(logo => <div key={`third-${logo.name}`} className="flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300">
+              {logos.map(logo => <div key={`third-${logo.name}`} className="flex items-center justify-center grayscale-[30%] hover:grayscale-0 transition-all duration-300">
                   <img src={logo.image} alt={logo.name} className="h-12 w-auto object-contain" />
                 </div>)}
             </motion.div>
