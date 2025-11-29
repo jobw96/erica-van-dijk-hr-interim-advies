@@ -1,10 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { TypingText } from '@/components/ui/typing-text';
 
 export const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [showAdvies, setShowAdvies] = useState(false);
   const {
     scrollYProgress
   } = useScroll({
@@ -38,33 +40,24 @@ export const Hero: React.FC = () => {
 
         {/* Headline - Staggered Animation */}
         <div className="space-y-1 md:space-y-2">
-          <motion.h1 initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.2,
-            ease: [0.22, 1, 0.36, 1]
-          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1]">
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            onAnimationComplete={() => setShowAdvies(true)}
+            className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1]"
+          >
             HR Interim
           </motion.h1>
-          <motion.h1 initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.6,
-            delay: 0.5,
-            ease: [0.22, 1, 0.36, 1]
-          }} className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-[1.1]">
-            & Advies
-          </motion.h1>
-
+          <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-[1.1]">
+            {showAdvies && (
+              <TypingText 
+                text="& Advies" 
+                delay={0.08}
+                cursor={false}
+              />
+            )}
+          </h1>
         </div>
 
         {/* CTA Buttons - Spring Animation */}
