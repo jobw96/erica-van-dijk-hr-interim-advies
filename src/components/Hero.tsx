@@ -16,10 +16,16 @@ export const Hero: React.FC = () => {
 
   return <section ref={heroRef} id="home" className="relative w-full h-screen min-h-[100dvh] flex items-center overflow-hidden bg-white">
     {/* Background Image with Parallax */}
-    <motion.div style={{
-      y: imageY,
-      scale: imageScale
-    }} className="absolute inset-0 z-0 will-change-transform">
+    <motion.div 
+      initial={{ scale: 1.1 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+      style={{
+        y: imageY,
+        scale: imageScale
+      }} 
+      className="absolute inset-0 z-0 will-change-transform"
+    >
       <picture>
         <source media="(min-width: 768px)" srcSet="/hero-desktop-new.png" />
         <img src="/hero-mobile-new.png" alt="Erica van Dijk - HR Professional" className="w-full h-full object-cover object-center" />
