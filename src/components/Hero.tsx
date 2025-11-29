@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
             {showAdvies ? (
               <TypingText 
                 text="& Advies" 
-                delay={0.04}
+                delay={0.065}
                 cursor={false}
                 onComplete={() => setShowButtons(true)}
               />
@@ -64,23 +64,37 @@ export const Hero: React.FC = () => {
           </h1>
         </div>
 
-        {/* CTA Buttons - Spring Animation */}
+        {/* CTA Buttons */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={showButtons ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.4, ease: "easeOut" }} 
+          initial={{ opacity: 0, y: 20 }}
+          animate={showButtons ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ 
+            duration: 0.8, 
+            ease: [0.22, 1, 0.36, 1],
+            staggerChildren: 0.12
+          }} 
           className="flex flex-col sm:flex-row gap-4"
         >
-          <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2, ease: "easeOut" }}>
-            <Button asChild className="h-11 px-7 text-base bg-white text-[#8E170B] hover:bg-gray-100 hover:text-[#8E170B] border border-white shadow-lg hover:shadow-xl rounded-xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            animate={showButtons ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -3 }} 
+          >
+            <Button asChild className="h-11 px-7 text-base bg-white text-[#8E170B] hover:bg-gray-100 hover:text-[#8E170B] border border-white shadow-lg hover:shadow-xl rounded-xl transition-all duration-300">
               <Link to="/contact">
                 Neem contact
               </Link>
             </Button>
           </motion.div>
 
-          <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.2, ease: "easeOut" }}>
-            <Button asChild variant="outline" className="h-11 px-7 text-base border border-white/80 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm bg-transparent rounded-xl">
+          <motion.div 
+            initial={{ opacity: 0, y: 16 }}
+            animate={showButtons ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+            transition={{ duration: 0.6, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -3 }}
+          >
+            <Button asChild variant="outline" className="h-11 px-7 text-base border border-white/80 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm bg-transparent rounded-xl transition-all duration-300">
               <Link to="/experience">
                 Ervaringen
               </Link>
