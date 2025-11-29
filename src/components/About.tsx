@@ -55,7 +55,7 @@ export const About: React.FC = () => {
             className="w-full md:w-1/2 relative"
           >
             <motion.div
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.02, y: -5, boxShadow: '0 30px 60px -15px rgba(0,0,0,0.25)' }}
               transition={{ duration: 0.4 }}
               className="relative z-10 rounded-2xl overflow-hidden shadow-2xl"
             >
