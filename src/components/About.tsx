@@ -19,11 +19,6 @@ export const About: React.FC<AboutProps> = ({ className }) => {
 
   return (
     <section ref={sectionRef} id="about" className={`py-20 md:py-32 bg-white overflow-hidden relative ${className || ''}`}>
-      {/* Decorative background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <motion.div style={{ y: decorY }} className="absolute top-1/4 -left-64 w-96 h-96 bg-[#8E170B]/5 rounded-full blur-3xl" />
-        <motion.div style={{ y: useTransform(scrollYProgress, [0, 1], [-40, 40]) }} className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gray-200/50 rounded-full blur-3xl" />
-      </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header Section - LEFT aligned */}
