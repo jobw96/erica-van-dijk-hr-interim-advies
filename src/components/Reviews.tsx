@@ -89,15 +89,12 @@ export const Reviews: React.FC = () => {
           }} whileInView={{
             opacity: 1,
             scale: 1
-          }} whileHover={{
-            y: -5,
-            boxShadow: '0 15px 30px -10px rgba(0,0,0,0.1)'
           }} viewport={{
             once: true
           }} transition={{
             duration: 0.6,
             delay: 0.2
-          }} className="h-full w-full rounded-2xl overflow-hidden relative cursor-default">
+          }} className="h-full w-full rounded-2xl overflow-hidden relative">
               <img src="/review-photo-new.jpg" alt="Client working" className="w-full h-full object-cover" />
             </motion.div>
           </motion.div>
@@ -110,15 +107,12 @@ export const Reviews: React.FC = () => {
           }} whileInView={{
             opacity: 1,
             x: 0
-          }} whileHover={{
-            y: -5,
-            boxShadow: '0 15px 30px -10px rgba(0,0,0,0.1)'
           }} viewport={{
             once: true
           }} transition={{
             duration: 0.6,
             delay: 0.4
-          }} className="h-full bg-[#E0E7FF] rounded-2xl p-8 md:p-12 flex flex-col justify-between relative cursor-default">
+          }} className="h-full bg-[#E0E7FF] rounded-2xl p-8 md:p-12 flex flex-col justify-between relative">
               <p className="text-gray-800 font-satoshi-regular text-lg leading-relaxed mb-8">
                 "{reviews[currentIndex].text}"
               </p>
