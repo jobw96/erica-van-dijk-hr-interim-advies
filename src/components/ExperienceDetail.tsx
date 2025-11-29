@@ -40,7 +40,7 @@ export const ExperienceDetail: React.FC = () => {
     {/* Hero Section - connects directly to header */}
     <div className="relative h-[400px] md:h-[500px] mb-16">
       <div className="absolute inset-0">
-        <img src={experience.image} alt={experience.title} className="w-full h-full object-cover" />
+        <img src={experience.image} alt={experience.title} className="w-full h-full object-cover object-top" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
       </div>
 
