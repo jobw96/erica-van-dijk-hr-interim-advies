@@ -76,7 +76,16 @@ export const Portfolio: React.FC = () => {
             duration: 0.8,
             ease: "easeOut"
           }}>
-                 <motion.a href={video.videoUrl} target="_blank" rel="noopener noreferrer" whileHover="hover" initial="rest" className="block overflow-hidden rounded-2xl shadow-2xl aspect-video relative group cursor-pointer">
+                 <motion.a href={video.videoUrl} target="_blank" rel="noopener noreferrer" whileHover="hover" initial="rest" className="block overflow-hidden rounded-2xl shadow-2xl aspect-video relative group cursor-pointer" variants={{
+                rest: {
+                  y: 0,
+                  boxShadow: '0 25px 50px -12px rgba(0,0,0,0.25)'
+                },
+                hover: {
+                  y: -5,
+                  boxShadow: '0 30px 60px -15px rgba(0,0,0,0.3)'
+                }
+              }}>
                     <motion.img src={video.placeholderUrl} alt={video.title} className="w-full h-full object-cover" variants={{
                 rest: {
                   scale: 1
