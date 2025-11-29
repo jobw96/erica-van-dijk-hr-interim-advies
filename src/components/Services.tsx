@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Users, Target, TrendingUp, FileText, MessageSquare, ShieldCheck, ArrowRight } from 'lucide-react';
 
@@ -127,11 +127,20 @@ const gradientVariants = {
 
 export const Services: React.FC = () => {
   const MotionLink = motion(Link);
-  return <section id="services" className="py-20 md:py-32 bg-white relative">
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const headerY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [60, -30]);
+
+  return <section ref={sectionRef} id="services" className="py-20 md:py-32 bg-white relative">
     <div className="max-w-7xl mx-auto px-6">
 
       {/* Header Section - RIGHT aligned */}
-      <div className="text-right mb-16 md:mb-20 max-w-3xl ml-auto">
+      <motion.div style={{ y: headerY }} className="text-right mb-16 md:mb-20 max-w-3xl ml-auto">
         <motion.span
           initial={{ opacity: 0, scale: 0.96, y: 6 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -165,10 +174,10 @@ export const Services: React.FC = () => {
         }} className="text-lg text-gray-600 leading-relaxed font-satoshi-regular tracking-wide">
           Van interim management tot strategisch advies. Ik bied op maat gemaakte HR-oplossingen die aansluiten bij uw organisatie.
         </motion.p>
-      </div>
+      </motion.div>
 
       {/* Services Grid */}
-      <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
+      <motion.div style={{ y: gridY }} variants={containerVariants} initial="hidden" whileInView="visible" viewport={{
         once: true,
         margin: "-100px"
       }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 const iconBgVariants = {
@@ -20,6 +20,15 @@ export const Contact: React.FC = () => {
     message: ''
   });
 
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const leftY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const rightY = useTransform(scrollYProgress, [0, 1], [60, -30]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formState);
@@ -27,7 +36,7 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="pt-8 md:pt-12 pb-20 md:pb-32 bg-white relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="pt-8 md:pt-12 pb-20 md:pb-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Left Side: Contact Info */}
@@ -36,6 +45,7 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            style={{ y: leftY }}
           >
             <motion.span
               initial={{ opacity: 0, scale: 0.96, y: 6 }}
@@ -99,6 +109,7 @@ export const Contact: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
+            style={{ y: rightY }}
             className="rounded-2xl p-8 md:p-12"
           >
             <form onSubmit={handleSubmit} className="space-y-6">

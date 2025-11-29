@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { VideoItem } from '../types';
 import bungeLodersImg from '@/assets/Erica_Bunge_Loders.png';
 import proMotorImg from '@/assets/Erica_Pro_motor_winnaar.jpg';
@@ -17,10 +17,18 @@ const videos: VideoItem[] = [{
   videoUrl: "https://www.youtube.com/watch?v=ThRttnzsUfQ"
 }];
 export const Portfolio: React.FC = () => {
-  return <section id="portfolio" className="py-20 md:py-32 bg-white relative overflow-hidden">
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const headerY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+
+  return <section ref={sectionRef} id="portfolio" className="py-20 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Header Section - RIGHT aligned */}
-        <div className="flex flex-col items-end mb-16 md:mb-24 text-right">
+        <motion.div style={{ y: headerY }} className="flex flex-col items-end mb-16 md:mb-24 text-right">
             <motion.span initial={{
           opacity: 0,
           scale: 0.96,
@@ -50,7 +58,7 @@ export const Portfolio: React.FC = () => {
         }} className="text-3xl md:text-5xl text-[#1F2937] font-satoshi-black tracking-tight">
                 Mijn werk in beeld
             </motion.h2>
-        </div>
+        </motion.div>
 
         <div className="space-y-20 md:space-y-32">
           {videos.map((video, index) => <div key={index} className={`flex flex-col lg:flex-row gap-10 lg:gap-20 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>

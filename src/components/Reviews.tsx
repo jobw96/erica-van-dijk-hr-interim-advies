@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Linkedin } from 'lucide-react';
 const reviews = [{
   text: "Als feedback op jouw inzet voor Airframe kreeg ik te horen 'a perfect cast'. Vliegtuigonderhoud is een complexe wereld, je hebt je die snel eigen gemaakt. Met de ervaring die je meebracht op vlak van medezeggenschap en bonden wist je heel snel en heel natuurlijk vertrouwen te winnen en heb je een paar stevige dossiers opgelost. Je bent een vakvrouw, professional en heel fijn om mee samen te werken. Vanaf dag 1 paste je naadloos in ons team, je hebt je weg gezocht in onze organisatie en op een hele fijne manier contacten gelegd. Je bent een teamplayer en sparringpartner. Het was top om met jou in een team te zitten.",
@@ -8,19 +8,29 @@ const reviews = [{
 }];
 export const Reviews: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+  
+  const leftY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+  const middleY = useTransform(scrollYProgress, [0, 1], [60, -60]);
+  const rightY = useTransform(scrollYProgress, [0, 1], [30, -30]);
+
   const nextReview = () => {
     setCurrentIndex(prev => (prev + 1) % reviews.length);
   };
   const prevReview = () => {
     setCurrentIndex(prev => (prev - 1 + reviews.length) % reviews.length);
   };
-  return <section id="reviews" className="py-20 md:py-32 bg-white relative overflow-hidden">
+  return <section ref={sectionRef} id="reviews" className="py-20 md:py-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
           {/* Left Column: Text & Nav */}
-          <div className="lg:col-span-4 flex flex-col justify-center">
+          <motion.div style={{ y: leftY }} className="lg:col-span-4 flex flex-col justify-center">
             <motion.div initial={{
             opacity: 0,
             x: -20
@@ -69,10 +79,10 @@ export const Reviews: React.FC = () => {
                 </motion.button>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Middle Column: Photo - Hidden on Mobile */}
-          <div className="hidden lg:block lg:col-span-3 h-full min-h-[400px] lg:min-h-[500px]">
+          <motion.div style={{ y: middleY }} className="hidden lg:block lg:col-span-3 h-full min-h-[400px] lg:min-h-[500px]">
             <motion.div initial={{
             opacity: 0,
             scale: 0.95
@@ -87,10 +97,10 @@ export const Reviews: React.FC = () => {
           }} className="h-full w-full rounded-2xl overflow-hidden relative">
               <img src="/review-photo-new.jpg" alt="Client working" className="w-full h-full object-cover" />
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Review Card */}
-          <div className="lg:col-span-5 h-full min-h-[400px] lg:min-h-[500px]">
+          <motion.div style={{ y: rightY }} className="lg:col-span-5 h-full min-h-[400px] lg:min-h-[500px]">
             <motion.div key={currentIndex} initial={{
             opacity: 0,
             x: 20
@@ -123,7 +133,7 @@ export const Reviews: React.FC = () => {
                 </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
