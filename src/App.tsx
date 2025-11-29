@@ -56,7 +56,7 @@ const ScrollHandler = () => {
 const HomePage: React.FC = () => {
   return <PageTransition>
       <Hero />
-      <About />
+      <About className="bg-primary-foreground" />
       <ClientLogos className="py-[40px] pb-[41px] pt-[11px] bg-primary-foreground" />
       <Services />
       <Portfolio />
