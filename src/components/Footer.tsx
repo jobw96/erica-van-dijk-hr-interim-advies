@@ -53,44 +53,10 @@ export const Footer: React.FC = () => {
           {/* Right: Info Grid */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
              
-             {/* Contact Info */}
+             {/* Links */}
              <div>
-                <h3 className="font-satoshi-bold text-sm uppercase text-gray-500 mb-3 tracking-wider">Contact</h3>
-                <div className="space-y-2 text-gray-600 font-satoshi-regular text-sm">
-                  <div className="flex items-start gap-2">
-                    <MapPin size={16} className="text-[#8E170B] shrink-0 mt-0.5" />
-                    <span className="leading-relaxed tracking-wide">
-                      Erica van Dijk<br />
-                      Hoofdstraat 123<br />
-                      1234 AB Amsterdam
-                    </span>
-                  </div>
-                  
-                  <div className="flex items-center gap-2">
-                    <Mail size={16} className="text-[#8E170B] shrink-0" />
-                    <MotionA href="mailto:info@ericavandijk.nl" whileHover={{
-                  color: '#8E170B'
-                }}>info@ericavandijk.nl</MotionA>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <Phone size={16} className="text-[#8E170B] shrink-0" />
-                    <MotionA href="tel:0625317680" whileHover={{
-                  color: '#8E170B'
-                }}>06 253 176 80</MotionA>
-                  </div>
-               </div>
-
-               <div className="text-xs text-gray-400 mt-3 font-satoshi-regular tracking-wide">
-                 <p>KVK: 12345678</p>
-                 <p>BTW: NL001234567B01</p>
-               </div>
-            </div>
-
-            {/* Navigation */}
-            <div>
-               <h3 className="font-satoshi-bold text-sm uppercase text-gray-500 mb-3 tracking-wider">Navigatie</h3>
-               <div className="flex flex-col gap-2 text-sm">
+                <h3 className="font-satoshi-bold text-base text-black mb-4 tracking-wide">Links</h3>
+                <div className="flex flex-col gap-3 text-sm">
                   <MotionLink to="/" whileHover={{
                 color: '#8E170B'
               }} className="text-gray-600 font-satoshi-medium tracking-wide font-normal">Home</MotionLink>
@@ -100,18 +66,32 @@ export const Footer: React.FC = () => {
                   <MotionLink to="/contact" whileHover={{
                 color: '#8E170B'
               }} className="text-gray-600 font-satoshi-medium tracking-wide font-normal">Contact</MotionLink>
+                  <MotionLink to="/#reviews" whileHover={{
+                color: '#8E170B'
+              }} className="text-gray-600 font-satoshi-medium tracking-wide font-normal">Reviews</MotionLink>
                </div>
             </div>
 
-            {/* Social */}
+            {/* Informatie */}
             <div>
-               <h3 className="font-satoshi-bold text-sm uppercase text-gray-500 mb-3 tracking-wider">Volg mij</h3>
-               <MotionA href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-gray-600 font-satoshi-medium tracking-wide text-sm" initial="rest" whileHover="hover" animate="rest">
-                 <Linkedin size={18} />
+               <h3 className="font-satoshi-bold text-base text-black mb-4 tracking-wide">Informatie</h3>
+               <div className="flex flex-col gap-3 text-gray-600 font-satoshi-regular text-sm">
+                  <span className="tracking-wide">KVK: 83757880</span>
+                  <MotionA href="mailto:info@ericavandijk.nl" whileHover={{
+                  color: '#8E170B'
+                }} className="tracking-wide">info@ericavandijk.nl</MotionA>
+                  <MotionA href="tel:0625317680" whileHover={{
+                  color: '#8E170B'
+                }} className="tracking-wide">06 253 176 80</MotionA>
+               </div>
+            </div>
+
+            {/* Bereik mij */}
+            <div>
+               <h3 className="font-satoshi-bold text-base text-black mb-4 tracking-wide">Bereik mij</h3>
+               <MotionA href="https://nl.linkedin.com/in/erica-van-dijk-a713506" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-gray-600 font-satoshi-medium tracking-wide text-sm" initial="rest" whileHover="hover" animate="rest">
+                 <Linkedin size={18} className="text-[#8E170B]" />
                  <span className="font-normal">LinkedIn</span>
-                 <motion.div variants={socialArrowVariants}>
-                   <ArrowUpRight size={12} />
-                 </motion.div>
                </MotionA>
             </div>
 
