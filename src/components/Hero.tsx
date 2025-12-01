@@ -17,16 +17,16 @@ export const Hero: React.FC = () => {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
-  return <section ref={heroRef} id="home" className="relative w-full h-screen min-h-[100dvh] flex items-center overflow-hidden bg-white">
+  return <section ref={heroRef} id="home" className="relative w-full min-h-[100dvh] flex items-center overflow-hidden bg-white">
     {/* Background Image with Parallax */}
-    <motion.div 
+    <motion.div
       initial={{ scale: 1.1 }}
       animate={{ scale: 1 }}
       transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
       style={{
         y: imageY,
         scale: imageScale
-      }} 
+      }}
       className="absolute inset-0 z-0 will-change-transform"
     >
       <picture>
@@ -41,9 +41,9 @@ export const Hero: React.FC = () => {
 
         {/* Headline - Staggered Animation */}
         <div className="space-y-1 md:space-y-2">
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             onAnimationComplete={() => setShowAdvies(true)}
             className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-[1.1]"
@@ -52,8 +52,8 @@ export const Hero: React.FC = () => {
           </motion.h1>
           <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-[1.1] min-h-[1.1em]">
             {showAdvies ? (
-              <GradualSpacing 
-                text="& Advies" 
+              <GradualSpacing
+                text="& Advies"
                 duration={0.5}
                 delayMultiple={0.06}
                 framerProps={{
@@ -69,21 +69,21 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* CTA Buttons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={showButtons ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ 
-            duration: 0.8, 
+          transition={{
+            duration: 0.8,
             ease: [0.22, 1, 0.36, 1],
             staggerChildren: 0.12
-          }} 
+          }}
           className="flex flex-col sm:flex-row gap-4"
         >
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={showButtons ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={{ y: -3 }} 
+            whileHover={{ y: -3 }}
           >
             <Button asChild className="h-11 px-7 text-base bg-white text-[#8E170B] hover:bg-gray-100 hover:text-[#8E170B] border border-white shadow-lg hover:shadow-xl rounded-xl transition-all duration-300">
               <Link to="/contact">
@@ -92,7 +92,7 @@ export const Hero: React.FC = () => {
             </Button>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={showButtons ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.6, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}

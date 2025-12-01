@@ -132,7 +132,7 @@ export const Services: React.FC = () => {
     target: sectionRef,
     offset: ["start end", "end start"]
   });
-  
+
   const headerY = useTransform(scrollYProgress, [0, 1], [40, -40]);
   const gridY = useTransform(scrollYProgress, [0, 1], [60, -30]);
 
@@ -140,7 +140,7 @@ export const Services: React.FC = () => {
     <div className="max-w-7xl mx-auto px-6">
 
       {/* Header Section - RIGHT aligned */}
-      <motion.div style={{ y: headerY }} className="text-right mb-16 md:mb-20 max-w-3xl ml-auto">
+      <motion.div style={{ y: headerY }} className="text-left md:text-right mb-16 md:mb-20 max-w-3xl md:ml-auto">
         <motion.span
           initial={{ opacity: 0, scale: 0.96, y: 6 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
