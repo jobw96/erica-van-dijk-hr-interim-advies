@@ -1,6 +1,36 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { z } from 'zod';
+import { useToast } from '@/hooks/use-toast';
+
+// Validation schema
+const contactSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, { message: "Naam is verplicht" })
+    .max(100, { message: "Naam mag maximaal 100 tekens zijn" }),
+  phone: z.string()
+    .trim()
+    .max(20, { message: "Telefoonnummer mag maximaal 20 tekens zijn" })
+    .refine(
+      (val) => val === '' || /^[0-9\s\-\+\(\)]+$/.test(val),
+      { message: "Ongeldig telefoonnummer formaat" }
+    )
+    .optional()
+    .or(z.literal('')),
+  email: z.string()
+    .trim()
+    .min(1, { message: "E-mail is verplicht" })
+    .email({ message: "Ongeldig e-mailadres" })
+    .max(255, { message: "E-mail mag maximaal 255 tekens zijn" }),
+  message: z.string()
+    .trim()
+    .min(1, { message: "Bericht is verplicht" })
+    .max(2000, { message: "Bericht mag maximaal 2000 tekens zijn" })
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
 
 const iconBgVariants = {
   rest: { backgroundColor: 'rgb(249 250 251)' },
@@ -13,12 +43,15 @@ const contactTextVariants = {
 };
 
 export const Contact: React.FC = () => {
-  const [formState, setFormState] = useState({
+  const [formState, setFormState] = useState<ContactFormData>({
     name: '',
     phone: '',
     email: '',
     message: ''
   });
+  const [errors, setErrors] = useState<Partial<Record<keyof ContactFormData, string>>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -29,10 +62,46 @@ export const Contact: React.FC = () => {
   const leftY = useTransform(scrollYProgress, [0, 1], [40, -40]);
   const rightY = useTransform(scrollYProgress, [0, 1], [60, -30]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formState);
-    alert('Bedankt voor uw bericht! Ik neem zo spoedig mogelijk contact op.');
+    setErrors({});
+    
+    // Validate form data
+    const result = contactSchema.safeParse(formState);
+    
+    if (!result.success) {
+      const fieldErrors: Partial<Record<keyof ContactFormData, string>> = {};
+      result.error.errors.forEach((error) => {
+        const field = error.path[0] as keyof ContactFormData;
+        if (!fieldErrors[field]) {
+          fieldErrors[field] = error.message;
+        }
+      });
+      setErrors(fieldErrors);
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // For now, show success message since email backend is not configured
+      // TODO: Implement email sending via Edge Function with RESEND_API_KEY
+      toast({
+        title: "Bericht ontvangen",
+        description: "Bedankt voor uw bericht! Ik neem zo spoedig mogelijk contact op.",
+      });
+      
+      // Reset form
+      setFormState({ name: '', phone: '', email: '', message: '' });
+    } catch {
+      toast({
+        variant: "destructive",
+        title: "Fout",
+        description: "Er is iets misgegaan. Probeer het later opnieuw.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -112,26 +181,35 @@ export const Contact: React.FC = () => {
             style={{ y: rightY }}
             className="rounded-2xl p-8 md:p-12"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="text-sm font-satoshi-medium text-gray-700 ml-1 tracking-wide">Naam *</label>
                   <input
                     type="text"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-100 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular"
+                    maxLength={100}
+                    className={`w-full px-4 py-3 rounded-xl border text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular ${errors.name ? 'border-red-500' : 'border-gray-100'}`}
                     value={formState.name}
-                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
+                    onChange={(e) => {
+                      setFormState({ ...formState, name: e.target.value });
+                      if (errors.name) setErrors({ ...errors, name: undefined });
+                    }}
                   />
+                  {errors.name && <p className="text-red-500 text-sm ml-1">{errors.name}</p>}
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-satoshi-medium text-gray-700 ml-1 tracking-wide">Telefoon</label>
                   <input
                     type="tel"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-100 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular"
+                    maxLength={20}
+                    className={`w-full px-4 py-3 rounded-xl border text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular ${errors.phone ? 'border-red-500' : 'border-gray-100'}`}
                     value={formState.phone}
-                    onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
+                    onChange={(e) => {
+                      setFormState({ ...formState, phone: e.target.value });
+                      if (errors.phone) setErrors({ ...errors, phone: undefined });
+                    }}
                   />
+                  {errors.phone && <p className="text-red-500 text-sm ml-1">{errors.phone}</p>}
                 </div>
               </div>
 
@@ -139,31 +217,40 @@ export const Contact: React.FC = () => {
                 <label className="text-sm font-satoshi-medium text-gray-700 ml-1 tracking-wide">E-mail *</label>
                 <input
                   type="email"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-100 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular"
+                  maxLength={255}
+                  className={`w-full px-4 py-3 rounded-xl border text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none bg-white font-satoshi-regular ${errors.email ? 'border-red-500' : 'border-gray-100'}`}
                   value={formState.email}
-                  onChange={(e) => setFormState({ ...formState, email: e.target.value })}
+                  onChange={(e) => {
+                    setFormState({ ...formState, email: e.target.value });
+                    if (errors.email) setErrors({ ...errors, email: undefined });
+                  }}
                 />
+                {errors.email && <p className="text-red-500 text-sm ml-1">{errors.email}</p>}
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-satoshi-medium text-gray-700 ml-1 tracking-wide">Bericht *</label>
                 <textarea
-                  required
                   rows={5}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-100 text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none resize-none bg-white font-satoshi-regular"
+                  maxLength={2000}
+                  className={`w-full px-4 py-3 rounded-xl border text-gray-900 focus:border-[#8E170B] focus:ring-4 focus:ring-[#8E170B]/10 outline-none resize-none bg-white font-satoshi-regular ${errors.message ? 'border-red-500' : 'border-gray-100'}`}
                   value={formState.message}
-                  onChange={(e) => setFormState({ ...formState, message: e.target.value })}
+                  onChange={(e) => {
+                    setFormState({ ...formState, message: e.target.value });
+                    if (errors.message) setErrors({ ...errors, message: undefined });
+                  }}
                 />
+                {errors.message && <p className="text-red-500 text-sm ml-1">{errors.message}</p>}
               </div>
 
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02, backgroundColor: '#701209' }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-[#8E170B] text-white font-satoshi-bold text-lg py-4 rounded-xl shadow-lg tracking-wide"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02, backgroundColor: '#701209' }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className={`w-full bg-[#8E170B] text-white font-satoshi-bold text-lg py-4 rounded-xl shadow-lg tracking-wide ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                Verstuur Bericht
+                {isSubmitting ? 'Verzenden...' : 'Verstuur Bericht'}
               </motion.button>
             </form>
           </motion.div>
