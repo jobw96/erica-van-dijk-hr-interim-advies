@@ -15,11 +15,14 @@ export const About: React.FC<AboutProps> = ({ className }) => {
   
   const imageY = useTransform(scrollYProgress, [0, 1], [50, -50]);
   const contentY = useTransform(scrollYProgress, [0, 1], [30, -30]);
-  const decorY = useTransform(scrollYProgress, [0, 1], [80, -80]);
 
   return (
-    <section ref={sectionRef} id="about" className={`py-20 md:py-32 bg-white overflow-hidden relative ${className || ''}`}>
-
+    <section 
+      ref={sectionRef} 
+      id="about" 
+      aria-labelledby="about-heading"
+      className={`py-20 md:py-32 bg-white overflow-hidden relative ${className || ''}`}
+    >
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header Section - LEFT aligned */}
         <div className="text-left mb-16 md:mb-24">
@@ -33,6 +36,7 @@ export const About: React.FC<AboutProps> = ({ className }) => {
             Over Mij
           </motion.span>
           <motion.h2
+            id="about-heading"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -60,10 +64,11 @@ export const About: React.FC<AboutProps> = ({ className }) => {
             >
               <img
                 src="/lovable-uploads/41e526fc-1f51-4c6d-a670-41b8434d6d1d.png"
-                alt="Erica van Dijk"
+                alt="Erica van Dijk - Ervaren HR Interim Manager met meer dan 20 jaar ervaring"
                 className="w-full h-auto object-cover"
+                loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500" aria-hidden="true" />
             </motion.div>
 
             {/* Decorative backdrop */}
@@ -72,12 +77,14 @@ export const About: React.FC<AboutProps> = ({ className }) => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
               className="absolute -top-6 -left-6 w-full h-full border border-[#8E170B]/20 rounded-2xl -z-10"
+              aria-hidden="true"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
               className="absolute -bottom-6 -right-6 w-full h-full bg-[#8E170B]/5 rounded-2xl -z-10"
+              aria-hidden="true"
             />
           </motion.div>
 
@@ -115,8 +122,9 @@ export const About: React.FC<AboutProps> = ({ className }) => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 px-6 py-3 bg-[#8E170B] text-white rounded-xl font-satoshi-medium shadow-lg shadow-red-900/20 transition-colors hover:bg-[#701209] tracking-wide"
+                aria-label="Bekijk Erica van Dijk op LinkedIn (opent in nieuw tabblad)"
               >
-                <Linkedin size={20} />
+                <Linkedin size={20} aria-hidden="true" />
                 Connect op LinkedIn
               </motion.a>
 
@@ -125,8 +133,9 @@ export const About: React.FC<AboutProps> = ({ className }) => {
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-xl font-satoshi-medium hover:border-[#8E170B] hover:text-[#8E170B] transition-colors tracking-wide"
+                aria-label="Ga naar contactformulier"
               >
-                <Mail size={20} />
+                <Mail size={20} aria-hidden="true" />
                 Stuur een bericht
               </motion.a>
             </div>
