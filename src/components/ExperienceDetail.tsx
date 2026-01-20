@@ -1,165 +1,194 @@
 import React, { useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { experiences } from '../data/experiences';
 import { Contact } from './Contact';
+import { SEO } from './SEO';
+
 const arrowVariants = {
-  rest: {
-    x: 0
-  },
-  hover: {
-    x: -4
-  }
+  rest: { x: 0 },
+  hover: { x: -4 }
 };
+
 export const ExperienceDetail: React.FC = () => {
-  const {
-    id
-  } = useParams<{
-    id: string;
-  }>();
-  const navigate = useNavigate();
-  const experience = experiences.find(e => e.id === id);
+  const { id } = useParams<{ id: string }>();
+  const experience = experiences.find((e) => e.id === id);
   const MotionLink = motion(Link);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
   if (!experience) {
-    return <div className="min-h-screen flex flex-col items-center justify-center bg-white">
-      <div className="text-center">
-        <h2 className="text-3xl font-satoshi-black text-gray-800 mb-4 tracking-tight">Ervaring niet gevonden</h2>
-        <MotionLink to="/experience" className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-6 py-3 rounded-lg font-satoshi-bold tracking-wide" whileHover={{
-          backgroundColor: '#701209'
-        }}>
-          <ArrowLeft size={20} /> Terug naar overzicht
-        </MotionLink>
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-white">
+        <SEO title="Ervaring niet gevonden" description="De opgevraagde HR-ervaring kon niet worden gevonden." />
+        <div className="text-center">
+          <h1 className="text-3xl font-satoshi-black text-gray-800 mb-4 tracking-tight">
+            Ervaring niet gevonden
+          </h1>
+          <MotionLink
+            to="/experience"
+            className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-6 py-3 rounded-lg font-satoshi-bold tracking-wide"
+            whileHover={{ backgroundColor: '#701209' }}
+            aria-label="Ga terug naar het overzicht van alle ervaringen"
+          >
+            <ArrowLeft size={20} aria-hidden="true" /> Terug naar overzicht
+          </MotionLink>
+        </div>
       </div>
-    </div>;
+    );
   }
-  return <div className="bg-white min-h-screen">
-    {/* Hero Section - connects directly to header */}
-    <div className="relative h-[400px] md:h-[500px] mb-16">
-      <div className="absolute inset-0">
-        <img src={experience.image} alt={experience.title} className="w-full h-full object-cover object-top" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-      </div>
 
-      <div className="relative h-full flex items-end">
-        <div className="max-w-7xl mx-auto px-6 pb-12 md:pb-16 w-full">
-          <motion.div initial={{
-            opacity: 0,
-            y: 30
-          }} animate={{
-            opacity: 1,
-            y: 0
-          }} transition={{
-            duration: 0.8
-          }}>
-            <motion.span initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} className="section-label inline-block bg-[#8E170B] text-white px-4 py-2 rounded-full mb-4">
-              {experience.period}
-            </motion.span>
-            <motion.h1 initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              delay: 0.1
-            }} className="text-4xl md:text-6xl font-satoshi-black text-white mb-3 tracking-tighter">
-              {experience.title}
-            </motion.h1>
-            <motion.p initial={{
-              opacity: 0,
-              y: 20
-            }} animate={{
-              opacity: 1,
-              y: 0
-            }} transition={{
-              delay: 0.2
-            }} className="text-xl md:text-2xl text-gray-200 font-satoshi-medium tracking-wide">
-              {experience.role}
-            </motion.p>
-          </motion.div>
+  return (
+    <article className="bg-white min-h-screen">
+      <SEO
+        title={experience.title}
+        description={`${experience.role} - ${experience.shortDescription}`}
+        article={true}
+      />
+
+      {/* Hero Section */}
+      <header className="relative h-[400px] md:h-[500px] mb-16">
+        <div className="absolute inset-0">
+          <img
+            src={experience.image}
+            alt={`${experience.title} - ${experience.role}`}
+            className="w-full h-full object-cover object-top"
+            loading="eager"
+            fetchPriority="high"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" aria-hidden="true" />
         </div>
-      </div>
-    </div>
 
-    {/* Content Section */}
-    <div className="max-w-4xl mx-auto px-6 pb-20">
-      <motion.div initial={{
-        opacity: 0,
-        y: 30
-      }} animate={{
-        opacity: 1,
-        y: 0
-      }} transition={{
-        delay: 0.3
-      }} className="space-y-8">
-
-        {/* Main Content with Clear Sections */}
-        <div className="bg-white rounded-2xl border border-gray-200 p-8 md:p-12">
-          <h2 className="text-2xl md:text-3xl font-satoshi-black text-gray-900 mb-8 pb-4 border-b border-gray-200 tracking-tight">
-            Over deze opdracht
-          </h2>
-
-          <div className="space-y-6">
-            {experience.fullDescription.map((paragraph, index) => {
-              const isBoldHeading = paragraph.startsWith('**') && paragraph.includes('**', 2);
-              if (isBoldHeading) {
-                const headingMatch = paragraph.match(/\*\*(.*?)\*\*/);
-                const heading = headingMatch ? headingMatch[1] : '';
-                const content = paragraph.replace(/\*\*.*?\*\*/, '').trim();
-                return <div key={index} className="space-y-3">
-                  <h3 className="text-lg font-satoshi-bold text-[#8E170B] tracking-tight">
-                    {heading}
-                  </h3>
-                  {content && <p className="text-gray-700 leading-relaxed font-satoshi-regular tracking-wide">
-                    {content}
-                  </p>}
-                </div>;
-              }
-
-              if (paragraph.trim() === '') {
-                return <div key={index} className="h-2"></div>;
-              }
-
-              return <p key={index} className="text-gray-700 leading-relaxed text-lg font-satoshi-regular tracking-wide">
-                {paragraph}
-              </p>;
-            })}
+        <div className="relative h-full flex items-end">
+          <div className="max-w-7xl mx-auto px-6 pb-12 md:pb-16 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="section-label inline-block bg-[#8E170B] text-white px-4 py-2 rounded-full mb-4"
+              >
+                <time>{experience.period}</time>
+              </motion.span>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-4xl md:text-6xl font-satoshi-black text-white mb-3 tracking-tighter"
+              >
+                {experience.title}
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-xl md:text-2xl text-gray-200 font-satoshi-medium tracking-wide"
+              >
+                {experience.role}
+              </motion.p>
+            </motion.div>
           </div>
         </div>
+      </header>
 
-        {/* Related Projects */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-satoshi-black text-gray-900 mb-8 tracking-tight">Andere projecten</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {experiences.filter(e => e.id !== id).map(exp => <Link key={exp.id} to={`/experience/${exp.id}`}>
-              <motion.div whileHover={{
-                y: -4
-              }} className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <div className="h-48 overflow-hidden">
-                  <img src={exp.image} alt={exp.title} className="w-full h-full object-cover" />
-                </div>
-                <div className="p-6">
-                  <span className="section-label text-[#8E170B]">{exp.period}</span>
-                  <h4 className="font-satoshi-bold text-lg text-gray-900 mb-2 mt-2 tracking-tight">{exp.title}</h4>
-                  <p className="text-sm text-gray-600 font-satoshi-regular tracking-wide">{exp.role}</p>
-                </div>
-              </motion.div>
-            </Link>)}
-          </div>
-        </div>
-      </motion.div>
-    </div>
+      {/* Content Section */}
+      <div className="max-w-4xl mx-auto px-6 pb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="space-y-8"
+        >
+          {/* Main Content */}
+          <section className="bg-white rounded-2xl border border-gray-200 p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl font-satoshi-black text-gray-900 mb-8 pb-4 border-b border-gray-200 tracking-tight">
+              Over deze opdracht
+            </h2>
 
-    <Contact />
-  </div>;
+            <div className="space-y-6">
+              {experience.fullDescription.map((paragraph, index) => {
+                const isBoldHeading = paragraph.startsWith('**') && paragraph.includes('**', 2);
+                if (isBoldHeading) {
+                  const headingMatch = paragraph.match(/\*\*(.*?)\*\*/);
+                  const heading = headingMatch ? headingMatch[1] : '';
+                  const content = paragraph.replace(/\*\*.*?\*\*/, '').trim();
+                  return (
+                    <div key={index} className="space-y-3">
+                      <h3 className="text-lg font-satoshi-bold text-[#8E170B] tracking-tight">
+                        {heading}
+                      </h3>
+                      {content && (
+                        <p className="text-gray-700 leading-relaxed font-satoshi-regular tracking-wide">
+                          {content}
+                        </p>
+                      )}
+                    </div>
+                  );
+                }
+
+                if (paragraph.trim() === '') {
+                  return <div key={index} className="h-2" aria-hidden="true" />;
+                }
+
+                return (
+                  <p key={index} className="text-gray-700 leading-relaxed text-lg font-satoshi-regular tracking-wide">
+                    {paragraph}
+                  </p>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Related Projects */}
+          <aside className="mt-16">
+            <h2 className="text-2xl font-satoshi-black text-gray-900 mb-8 tracking-tight">
+              Andere projecten
+            </h2>
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0" role="list">
+              {experiences
+                .filter((e) => e.id !== id)
+                .map((exp) => (
+                  <li key={exp.id}>
+                    <Link to={`/experience/${exp.id}`} aria-label={`Lees meer over ${exp.title}`}>
+                      <motion.article
+                        whileHover={{ y: -4 }}
+                        className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                      >
+                        <div className="h-48 overflow-hidden">
+                          <img
+                            src={exp.image}
+                            alt={`${exp.title} - ${exp.role}`}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="p-6">
+                          <span className="section-label text-[#8E170B]">
+                            <time>{exp.period}</time>
+                          </span>
+                          <h3 className="font-satoshi-bold text-lg text-gray-900 mb-2 mt-2 tracking-tight">
+                            {exp.title}
+                          </h3>
+                          <p className="text-sm text-gray-600 font-satoshi-regular tracking-wide">
+                            {exp.role}
+                          </p>
+                        </div>
+                      </motion.article>
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+          </aside>
+        </motion.div>
+      </div>
+
+      <Contact />
+    </article>
+  );
 };
