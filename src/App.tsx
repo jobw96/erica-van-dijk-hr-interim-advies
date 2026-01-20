@@ -16,20 +16,19 @@ import { Breadcrumbs } from './components/Breadcrumbs';
 import { ContactPage } from './components/ContactPage';
 import { BackToTopButton } from './components/BackToTopButton';
 import { ScrollProgress } from './components/ui/scroll-progress';
+import { SEO } from './components/SEO';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from 'framer-motion';
 import { PageTransition } from './components/PageTransition';
+
 const queryClient = new QueryClient();
 
 // Component to handle scrolling to top on route change and anchor tags
 const ScrollHandler = () => {
-  const {
-    pathname,
-    hash
-  } = useLocation();
+  const { pathname, hash } = useLocation();
 
   // Use useLayoutEffect to scroll BEFORE the browser paints
   useLayoutEffect(() => {
@@ -53,80 +52,119 @@ const ScrollHandler = () => {
   }, [hash]);
   return null;
 };
+
 const HomePage: React.FC = () => {
-  return <PageTransition>
-      <Hero />
-      <About />
-      <ClientLogos className="py-[40px] pb-[41px] pt-[11px] bg-white" />
-      <Services />
-      <Portfolio />
-      <ExperienceSection />
-      <Reviews />
-      <FAQ />
-      <Contact />
-    </PageTransition>;
+  return (
+    <PageTransition>
+      <SEO />
+      <main id="main-content">
+        <Hero />
+        <About />
+        <ClientLogos className="py-[40px] pb-[41px] pt-[11px] bg-white" />
+        <Services />
+        <Portfolio />
+        <ExperienceSection />
+        <Reviews />
+        <FAQ />
+        <Contact />
+      </main>
+    </PageTransition>
+  );
 };
 
 // For the standalone experience page
 const ExperiencePage: React.FC = () => {
-  return <PageTransition>
-      <div className="pt-20">
+  return (
+    <PageTransition>
+      <SEO 
+        title="Ervaring & Projecten"
+        description="Bekijk mijn gerealiseerde HR-projecten en interim opdrachten bij toonaangevende organisaties als Heineken, KLM en Bunge."
+      />
+      <main id="main-content" className="pt-20">
         <ExperienceSection />
         <Contact />
-      </div>
-    </PageTransition>;
+      </main>
+    </PageTransition>
+  );
 };
+
 const ExperienceDetailPage: React.FC = () => {
-  return <PageTransition>
-      <ExperienceDetail />
-    </PageTransition>;
+  return (
+    <PageTransition>
+      <main id="main-content">
+        <ExperienceDetail />
+      </main>
+    </PageTransition>
+  );
 };
+
 const ContactPageWrapper: React.FC = () => {
-  return <PageTransition>
-      <ContactPage />
-    </PageTransition>;
+  return (
+    <PageTransition>
+      <SEO 
+        title="Contact"
+        description="Neem contact op met Erica van Dijk voor vrijblijvend advies over HR interim management en organisatieontwikkeling."
+      />
+      <main id="main-content">
+        <ContactPage />
+      </main>
+    </PageTransition>
+  );
 };
+
 const AppRoutes: React.FC = () => {
   const location = useLocation();
-  return <AnimatePresence mode="wait" onExitComplete={() => {
-    // Scroll to top DURING the fade-out (when opacity is 0)
-    // This is invisible to the user
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'instant'
-    });
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  }}>
+  return (
+    <AnimatePresence mode="wait" onExitComplete={() => {
+      // Scroll to top DURING the fade-out (when opacity is 0)
+      // This is invisible to the user
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+      });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }}>
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<HomePage />} />
         <Route path="/experience" element={<ExperiencePage />} />
         <Route path="/experience/:id" element={<ExperienceDetailPage />} />
         <Route path="/contact" element={<ContactPageWrapper />} />
       </Routes>
-    </AnimatePresence>;
+    </AnimatePresence>
+  );
 };
+
 const AppContent: React.FC = () => {
-  return <>
-    <ScrollHandler />
-    <Navbar />
-    <ScrollProgress />
-    <Breadcrumbs />
-    <AppRoutes />
-    <Footer />
-    <BackToTopButton />
-  </>;
+  return (
+    <>
+      <ScrollHandler />
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded">
+        Skip naar hoofdinhoud
+      </a>
+      <Navbar />
+      <ScrollProgress />
+      <Breadcrumbs />
+      <AppRoutes />
+      <Footer />
+      <BackToTopButton />
+    </>
+  );
 };
+
 const App: React.FC = () => {
-  return <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
 };
+
 export default App;
