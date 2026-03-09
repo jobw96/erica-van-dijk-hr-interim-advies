@@ -1,14 +1,51 @@
+# Googlebot
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*?ref=
+Disallow: /*?utm_*
 
+# Bingbot
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*?ref=
+Disallow: /*?utm_*
 
+# Twitterbot
 User-agent: Twitterbot
 Allow: /
 
+# Facebook
 User-agent: facebookexternalhit
 Allow: /
 
+# Block AI training bots
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+# All other bots
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*?ref=
+Disallow: /*?utm_*
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://ericavandijk.nl/sitemap.xml
