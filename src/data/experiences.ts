@@ -1,9 +1,9 @@
-import bungeLodersImg from '@/assets/Erica_Bunge_Loders.png';
-import heinekenHns2025Img from '@/assets/heineken_hns_2025.jpg';
-import klmExperienceImg from '@/assets/klm_experience.jpg';
-import heinekenPackaging2022Img from '@/assets/heineken_packaging_2022.jpg';
-import pensioenfondsImg from '@/assets/pensioenfonds_experience.jpg';
-import dirkDistributionImg from '@/assets/dirk_distribution_experience.jpg';
+import bungeLodersImg from '@/assets/Erica_Bunge_Loders.webp';
+import heinekenHns2025Img from '@/assets/heineken_hns_2025.webp';
+import klmExperienceImg from '@/assets/klm_experience.webp';
+import heinekenPackaging2022Img from '@/assets/heineken_packaging_2022.webp';
+import pensioenfondsImg from '@/assets/pensioenfonds_experience.webp';
+import dirkDistributionImg from '@/assets/dirk_distribution_experience.webp';
 
 export interface ExperienceData {
   id: string;
