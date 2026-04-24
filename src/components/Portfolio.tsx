@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { VideoItem } from '../types';
-import bungeLodersImg from '@/assets/Erica_Bunge_Loders.png';
-import proMotorImg from '@/assets/Erica_Pro_motor_winnaar.jpg';
+import bungeLodersImg from '@/assets/Erica_Bunge_Loders.webp';
+import proMotorImg from '@/assets/Erica_Pro_motor_winnaar.webp';
 
 const videos: VideoItem[] = [
   {

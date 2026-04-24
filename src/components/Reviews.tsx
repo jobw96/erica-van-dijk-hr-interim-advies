@@ -111,7 +111,7 @@ export const Reviews: React.FC = () => {
               className="h-full w-full rounded-2xl overflow-hidden relative"
             >
               <img
-                src="/review-photo-new.jpg"
+                src="/review-photo-new.webp"
                 alt="Professionele samenwerking in een HR-omgeving"
                 className="w-full h-full object-cover"
                 loading="lazy"

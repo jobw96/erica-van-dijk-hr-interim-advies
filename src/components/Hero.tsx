@@ -29,9 +29,9 @@ export const Hero: React.FC = () => {
         className="absolute inset-0 z-0 will-change-transform"
       >
         <picture>
-          <source media="(min-width: 768px)" srcSet="/hero-desktop-new.png" />
+          <source media="(min-width: 768px)" srcSet="/hero-desktop-new.webp" type="image/webp" />
           <img 
-            src="/hero-mobile-new.png" 
+            src="/hero-mobile-new.webp" 
             alt="Erica van Dijk - Ervaren HR Interim Manager en adviseur" 
             className="w-full h-full object-cover object-center"
             loading="eager"
