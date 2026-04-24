@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import { experiences } from '../data/experiences';
 import { Contact } from './Contact';
 import { SEO } from './SEO';
+import { articleSchema, breadcrumbSchema } from '@/lib/schema';
 
 const arrowVariants = {
   rest: { x: 0 },
@@ -46,7 +47,19 @@ export const ExperienceDetail: React.FC = () => {
       <SEO
         title={experience.title}
         description={`${experience.role} - ${experience.shortDescription}`}
-        article={true}
+        ogType="article"
+        jsonLd={[
+          articleSchema({
+            title: experience.title,
+            description: experience.shortDescription,
+            url: `/experience/${experience.id}`,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Ervaring', url: '/experience' },
+            { name: experience.title, url: `/experience/${experience.id}` },
+          ]),
+        ]}
       />
 
       {/* Hero Section */}
