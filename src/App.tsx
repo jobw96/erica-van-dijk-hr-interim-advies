@@ -1,19 +1,10 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { Suspense, lazy, useEffect, useLayoutEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { ClientLogos } from './components/ClientLogos';
-import { Services } from './components/Services';
-import { Portfolio } from './components/Portfolio';
-import { Experience as ExperienceSection } from './components/Experience';
 import { About } from './components/About';
-import { Reviews } from './components/Reviews';
-import { FAQ } from './components/FAQ';
-import { Contact } from './components/Contact';
-import { ExperienceDetail } from './components/ExperienceDetail';
 import { Footer } from './components/Footer';
 import { Breadcrumbs } from './components/Breadcrumbs';
-import { ContactPage } from './components/ContactPage';
 import { BackToTopButton } from './components/BackToTopButton';
 import { ScrollProgress } from './components/ui/scroll-progress';
 import { SEO } from './components/SEO';
@@ -31,6 +22,21 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from 'framer-motion';
 import { PageTransition } from './components/PageTransition';
+
+// Lazy-loaded components (code splitting)
+const ClientLogos = lazy(() => import('./components/ClientLogos').then(m => ({ default: m.ClientLogos })));
+const Services = lazy(() => import('./components/Services').then(m => ({ default: m.Services })));
+const Portfolio = lazy(() => import('./components/Portfolio').then(m => ({ default: m.Portfolio })));
+const ExperienceSection = lazy(() => import('./components/Experience').then(m => ({ default: m.Experience })));
+const Reviews = lazy(() => import('./components/Reviews').then(m => ({ default: m.Reviews })));
+const FAQ = lazy(() => import('./components/FAQ').then(m => ({ default: m.FAQ })));
+const Contact = lazy(() => import('./components/Contact').then(m => ({ default: m.Contact })));
+const ExperienceDetail = lazy(() => import('./components/ExperienceDetail').then(m => ({ default: m.ExperienceDetail })));
+const ContactPage = lazy(() => import('./components/ContactPage').then(m => ({ default: m.ContactPage })));
+
+const RouteFallback: React.FC = () => (
+  <div className="min-h-[40vh] flex items-center justify-center" aria-hidden="true" />
+);
 
 const queryClient = new QueryClient();
 
@@ -75,13 +81,15 @@ const HomePage: React.FC = () => {
       <main id="main-content">
         <Hero />
         <About />
-        <ClientLogos className="py-[40px] pb-[41px] pt-[11px] bg-white" />
-        <Services />
-        <Portfolio />
-        <ExperienceSection />
-        <Reviews />
-        <FAQ />
-        <Contact />
+        <Suspense fallback={<RouteFallback />}>
+          <ClientLogos className="py-[40px] pb-[41px] pt-[11px] bg-white" />
+          <Services />
+          <Portfolio />
+          <ExperienceSection />
+          <Reviews />
+          <FAQ />
+          <Contact />
+        </Suspense>
       </main>
     </PageTransition>
   );
@@ -100,8 +108,10 @@ const ExperiencePage: React.FC = () => {
         ])}
       />
       <main id="main-content" className="pt-20">
-        <ExperienceSection />
-        <Contact />
+        <Suspense fallback={<RouteFallback />}>
+          <ExperienceSection />
+          <Contact />
+        </Suspense>
       </main>
     </PageTransition>
   );
@@ -111,7 +121,9 @@ const ExperienceDetailPage: React.FC = () => {
   return (
     <PageTransition>
       <main id="main-content">
-        <ExperienceDetail />
+        <Suspense fallback={<RouteFallback />}>
+          <ExperienceDetail />
+        </Suspense>
       </main>
     </PageTransition>
   );
@@ -129,7 +141,9 @@ const ContactPageWrapper: React.FC = () => {
         ])}
       />
       <main id="main-content">
-        <ContactPage />
+        <Suspense fallback={<RouteFallback />}>
+          <ContactPage />
+        </Suspense>
       </main>
     </PageTransition>
   );
