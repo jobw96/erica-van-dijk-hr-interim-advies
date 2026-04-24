@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { Plus } from 'lucide-react';
 
-const faqs = [
+export const faqs = [
   {
     question: "Wat is interim HR?",
     answer: "Interim HR is de tijdelijke inzet van een HR-professional om capaciteitsproblemen op te lossen, specifieke projecten te leiden of veranderingen door te voeren binnen een organisatie. Dit biedt flexibiliteit en directe expertise."

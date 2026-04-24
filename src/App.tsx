@@ -17,6 +17,14 @@ import { ContactPage } from './components/ContactPage';
 import { BackToTopButton } from './components/BackToTopButton';
 import { ScrollProgress } from './components/ui/scroll-progress';
 import { SEO } from './components/SEO';
+import { faqs } from './components/FAQ';
+import {
+  websiteSchema,
+  localBusinessSchema,
+  faqSchema,
+  personSchema,
+  breadcrumbSchema,
+} from './lib/schema';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -56,7 +64,14 @@ const ScrollHandler = () => {
 const HomePage: React.FC = () => {
   return (
     <PageTransition>
-      <SEO />
+      <SEO
+        jsonLd={[
+          websiteSchema,
+          localBusinessSchema,
+          personSchema,
+          faqSchema(faqs),
+        ]}
+      />
       <main id="main-content">
         <Hero />
         <About />
@@ -79,6 +94,10 @@ const ExperiencePage: React.FC = () => {
       <SEO 
         title="Ervaring & Projecten"
         description="Bekijk mijn gerealiseerde HR-projecten en interim opdrachten bij toonaangevende organisaties als Heineken, KLM en Bunge."
+        jsonLd={breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Ervaring', url: '/experience' },
+        ])}
       />
       <main id="main-content" className="pt-20">
         <ExperienceSection />
@@ -104,6 +123,10 @@ const ContactPageWrapper: React.FC = () => {
       <SEO 
         title="Contact"
         description="Neem contact op met Erica van Dijk voor vrijblijvend advies over HR interim management en organisatieontwikkeling."
+        jsonLd={breadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Contact', url: '/contact' },
+        ])}
       />
       <main id="main-content">
         <ContactPage />
