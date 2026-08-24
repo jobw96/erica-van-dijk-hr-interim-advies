@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Plus } from 'lucide-react';
 
 export const faqs = [
@@ -67,23 +67,21 @@ const FAQItem: React.FC<{ faq: typeof faqs[0]; index: number }> = ({ faq, index 
           </motion.div>
         </button>
       </h3>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            id={contentId}
-            role="region"
-            aria-labelledby={headingId}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-          >
-            <p className="pb-6 text-gray-600 leading-relaxed pr-12 font-satoshi-regular tracking-wide">
-              {faq.answer}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Antwoord staat altijd in de DOM (ook server-rendered); open/dicht
+          wordt puur visueel geregeld via max-height + overflow */}
+      <div
+        id={contentId}
+        role="region"
+        aria-labelledby={headingId}
+        aria-hidden={!isOpen}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <p className="pb-6 text-gray-600 leading-relaxed pr-12 font-satoshi-regular tracking-wide">
+          {faq.answer}
+        </p>
+      </div>
     </motion.div>
   );
 };

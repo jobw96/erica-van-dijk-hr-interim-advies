@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTransition } from "@/components/PageTransition";
 import { breadcrumbSchema } from "@/lib/schema";
-import { composeTitle, SITE_URL } from "@/components/SEO";
+import { SITE_URL } from "@/components/SEO";
 
 const ExperienceSection = lazy(() => import("@/components/Experience").then(m => ({ default: m.Experience })));
 const Contact = lazy(() => import("@/components/Contact").then(m => ({ default: m.Contact })));
@@ -13,7 +13,7 @@ const RouteFallback = () => (
 
 const DESCRIPTION =
   "Bekijk mijn gerealiseerde HR-projecten en interim opdrachten bij toonaangevende organisaties als Heineken, KLM en Bunge.";
-const TITLE = composeTitle("Ervaring & Projecten");
+const TITLE = "Ervaring & Projecten | Erica van Dijk";
 const URL = `${SITE_URL}/experience`;
 
 function ExperiencePage() {

@@ -19,10 +19,12 @@ import NotFound from "@/pages/NotFound";
 import { useLocation } from "@/lib/router-compat";
 import { reportLovableError } from "@/lib/lovable-error-reporting";
 import {
+  composeTitle,
   DEFAULT_DESCRIPTION,
   DEFAULT_IMAGE,
   SITE_NAME,
 } from "@/components/SEO";
+import { professionalServiceSchema } from "@/lib/schema";
 import appCss from "../styles.css?url";
 
 // Scroll to top on route change and smooth-scroll hash anchors
@@ -93,7 +95,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-      { title: SITE_NAME },
+      { title: composeTitle() },
       { name: "description", content: DEFAULT_DESCRIPTION },
       { name: "author", content: "Erica van Dijk" },
       { name: "robots", content: "index, follow" },
@@ -140,6 +142,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         as: "font",
         type: "font/woff2",
         crossOrigin: "anonymous",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(professionalServiceSchema),
       },
     ],
   }),
