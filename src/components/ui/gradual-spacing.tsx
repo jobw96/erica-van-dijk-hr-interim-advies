@@ -36,7 +36,7 @@ function GradualSpacing({
             exit="hidden"
             variants={framerProps}
             transition={{ duration, delay: i * delayMultiple }}
-            onAnimationComplete={i === lastCharIndex ? onComplete : undefined}
+            {...(i === lastCharIndex && onComplete ? { onAnimationComplete: onComplete } : {})}
             className={cn("drop-shadow-xs", className)}
           >
             {char === " " ? <span>&nbsp;</span> : char}

@@ -133,7 +133,7 @@ export const Reviews: React.FC = () => {
               className="h-full bg-[#E0E7FF] rounded-2xl p-8 md:p-12 flex flex-col justify-between relative"
             >
               <p className="text-gray-800 font-satoshi-regular text-lg leading-relaxed mb-8">
-                "{reviews[currentIndex].text}"
+                "{reviews[currentIndex]?.text}"
               </p>
 
               <footer className="flex items-center gap-4 mt-auto">
@@ -145,10 +145,10 @@ export const Reviews: React.FC = () => {
                 </div>
                 <div>
                   <cite className="font-satoshi-bold text-gray-900 text-base not-italic block">
-                    {reviews[currentIndex].author}
+                    {reviews[currentIndex]?.author}
                   </cite>
                   <span className="text-sm text-gray-500 font-satoshi-regular">
-                    {reviews[currentIndex].role}
+                    {reviews[currentIndex]?.role}
                   </span>
                 </div>
               </footer>
