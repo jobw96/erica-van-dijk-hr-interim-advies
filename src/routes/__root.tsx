@@ -144,6 +144,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         crossOrigin: "anonymous",
       },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(professionalServiceSchema),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
