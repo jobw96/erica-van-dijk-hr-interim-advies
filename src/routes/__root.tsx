@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
   createRootRouteWithContext,
+  useRouter,
 } from "@tanstack/react-router";
 import { QueryClientProvider, type QueryClient } from "@tanstack/react-query";
 import { Navbar } from "@/components/Navbar";
@@ -22,6 +23,7 @@ import {
   DEFAULT_IMAGE,
   SITE_NAME,
 } from "@/components/SEO";
+import appCss from "../styles.css?url";
 
 // Scroll to top on route change and smooth-scroll hash anchors
 // (ported from App.tsx ScrollHandler)
@@ -47,9 +49,11 @@ function ScrollHandler() {
   return null;
 }
 
-function RootErrorComponent({ error }: { error: unknown }) {
+function RootErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
+  const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "__root" });
+    console.error(error);
+    reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-6">
@@ -61,12 +65,24 @@ function RootErrorComponent({ error }: { error: unknown }) {
           Deze pagina kon niet worden geladen. Ververs de pagina of probeer het
           later opnieuw.
         </p>
-        <a
-          href="/"
-          className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-6 py-3 rounded-lg font-satoshi-bold tracking-wide"
-        >
-          Terug naar home
-        </a>
+        <div className="flex items-center justify-center gap-4">
+          <button
+            type="button"
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="inline-flex items-center gap-2 bg-[#8E170B] text-white px-6 py-3 rounded-lg font-satoshi-bold tracking-wide"
+          >
+            Probeer opnieuw
+          </button>
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-satoshi-bold tracking-wide border border-gray-200 text-gray-700"
+          >
+            Terug naar home
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -89,6 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: DEFAULT_IMAGE },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon.png" },
       { rel: "shortcut icon", href: "/favicon.ico" },
       {
@@ -126,10 +143,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
+  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFound,
   errorComponent: RootErrorComponent,
 });
+
+function RootShell({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="nl" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <HeadContent />
+      </head>
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
@@ -143,32 +175,24 @@ function RootComponent() {
   }, []);
 
   return (
-    <html lang="nl" className="scroll-smooth">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner />
-            <ScrollHandler />
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded"
-            >
-              Skip naar hoofdinhoud
-            </a>
-            <Navbar />
-            <ScrollProgress />
-            <Breadcrumbs />
-            <Outlet />
-            <Footer />
-            <BackToTopButton />
-          </TooltipProvider>
-        </QueryClientProvider>
-        <Scripts />
-      </body>
-    </html>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <ScrollHandler />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:px-4 focus:py-2 focus:rounded"
+        >
+          Skip naar hoofdinhoud
+        </a>
+        <Navbar />
+        <ScrollProgress />
+        <Breadcrumbs />
+        <Outlet />
+        <Footer />
+        <BackToTopButton />
+      </TooltipProvider>
+    </QueryClientProvider>
   );
 }
