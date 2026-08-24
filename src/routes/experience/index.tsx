@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { PageTransition } from "@/components/PageTransition";
 import { breadcrumbSchema } from "@/lib/schema";
-import { composeTitle, SITE_URL } from "@/components/SEO";
+import { SITE_URL } from "@/components/SEO";
 
 const ExperienceSection = lazy(() => import("@/components/Experience").then(m => ({ default: m.Experience })));
 const Contact = lazy(() => import("@/components/Contact").then(m => ({ default: m.Contact })));
