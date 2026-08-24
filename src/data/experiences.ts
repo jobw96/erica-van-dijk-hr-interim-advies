@@ -12,6 +12,8 @@ export interface ExperienceData {
   period: string;
   image: string;
   shortDescription: string;
+  /** Unieke meta description voor SEO (max ~155 tekens). */
+  metaDescription: string;
   fullDescription: string[];
 }
 
@@ -23,6 +25,7 @@ export const experiences: ExperienceData[] = [
     period: "Februari 2025 - December 2025",
     image: heinekenHns2025Img,
     shortDescription: "People Business Partner Projects ad interim bij Heineken Netherlands Supply.",
+    metaDescription: "People Business Partner Projects ad interim bij Heineken Netherlands Supply: transformatieprojecten, productiviteitsverhoging en OR-trajecten.",
     fullDescription: [
       "**People Business Partner Projects ad interim**",
       "Diverse projecten gericht op transformatie en verhoging productiviteit (ook Robotics pilots) incluis de daar bijbehorende OR-adviesaanvraag trajecten in zowel Packaging, Brewing als Customers Service. Tevens betrokken bij HR IT project Mytime, implementatie global Time & Rosterplanning system binnen HNS."
@@ -35,6 +38,7 @@ export const experiences: ExperienceData[] = [
     period: "Oktober 2021 - December 2024",
     image: klmExperienceImg,
     shortDescription: "Diverse HR functies binnen KLM Royal Dutch Airlines gedurende meerdere perioden.",
+    metaDescription: "Diverse interim HR-functies bij KLM Royal Dutch Airlines, waaronder senior projectmanager sourcing en HR business partner bij Engineering & Maintenance.",
     fullDescription: [
       "**Engineering & Maintenance**",
       "December 2023 - December 2024",
@@ -60,6 +64,7 @@ export const experiences: ExperienceData[] = [
     period: "Mei 2022 - Maart 2023",
     image: heinekenPackaging2022Img,
     shortDescription: "People business partner packaging ad interim",
+    metaDescription: "People Business Partner Packaging ad interim bij Heineken Netherlands Supply: reorganisatie, nieuwe roosters en cao-overleg met de OR.",
     fullDescription: [
       "**People business partner packaging ad interim**",
       "PBP voor de 4 Packaging Managers en de Line Leads, relatiebeheerder richting Ondernemingsraad, liaison voor lijnmanagers richting People Operations, Recruitment en L&D en BPO voor outsourcing (flexibele schil via Adecco (9 miljoen euro).Evaluatie en borging van reorganisatie (Transformatie en Techniek in de Lijn). Projectleider voor de nieuwe roosters (35 instemmingsaanvragen) van 2023 op basis van AP2023 en forecast van volume, incluis onderhandeling met de OR. Onderdeel van de paritaire werkgroep (FNV) over de interpretatie van cao-artikelen, de afbouw ploegentoeslaag regeling en flexibel roosteren."
@@ -72,6 +77,7 @@ export const experiences: ExperienceData[] = [
     period: "2008 - 2022",
     image: pensioenfondsImg,
     shortDescription: "Voorzitter van het bestuur van ondernemingspensionfonds.",
+    metaDescription: "Voorzitter van het bestuur van Stichting Pensioenfonds de Fracties, het ondernemingspensioenfonds van Bunge Loders Croklaan, tot liquidatie in 2022.",
     fullDescription: [
       "**Voorzitter**",
       "Voorzitter van het bestuur van ondernemingspensionfonds van Bunge Loders Croklaan met ruim 200 miljoen euro vermogen. Vanwege de schaalgrootte en het toekomstige nieuwe pensioenstelsel en de opzegging van de uitvoeringsovereenkomst door de werkgever is het pensioenfonds eind 2022 geliquideerd en overgedragen naar Pensioenfonds PGB met een indexatie van ruim 5%."
@@ -84,6 +90,7 @@ export const experiences: ExperienceData[] = [
     period: "Maart 2002 - Juli 2021",
     image: bungeLodersImg,
     shortDescription: "Diverse HR functies bij Bunge Loders Croklaan gedurende 19 jaar.",
+    metaDescription: "Negentien jaar in diverse HR-functies bij Bunge Loders Croklaan, waaronder HR Manager Europe, cao-onderhandelingen en reorganisaties.",
     fullDescription: [
       "**HR Manager Europe**",
       "Ervaren Senior HR-manager bij een internationale B2B-producent van plantaardige oliën en vetten; met 130 jaar geschiedenis en overnames door Unilever (30 jaar), IOI Group (2002-2018) en Bunge (2018, 32.000 medewerkers, 40 landen).",
@@ -111,6 +118,7 @@ export const experiences: ExperienceData[] = [
     period: "Februari 1995 - Februari 2002",
     image: dirkDistributionImg,
     shortDescription: "Diverse HR functies bij Dirk van den Broek bedrijven.",
+    metaDescription: "Diverse HR-functies bij de Dirk van den Broek bedrijven, van HR manager supply chain tot HR IT projectmanager voor de millenniumtransitie.",
     fullDescription: [
       "**HR manager supply chain**",
       "Groei van 2 naar 5 distributiecentra (150 naar 750 medewerkers), incluis de inrichting van de HR-afdeling.",

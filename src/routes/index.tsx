@@ -10,11 +10,8 @@ import {
   faqSchema,
   personSchema,
 } from "@/lib/schema";
-import {
-  composeTitle,
-  DEFAULT_DESCRIPTION,
-  SITE_URL,
-} from "@/components/SEO";
+import { buildHead } from "@/lib/head";
+import { composeTitle } from "@/components/SEO";
 
 // Lazy-loaded components (code splitting)
 const ClientLogos = lazy(() => import("@/components/ClientLogos").then(m => ({ default: m.ClientLogos })));
@@ -50,25 +47,11 @@ function HomePage() {
 }
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: composeTitle() },
-      { name: "title", content: composeTitle() },
-      { name: "description", content: DEFAULT_DESCRIPTION },
-      { property: "og:url", content: `${SITE_URL}/` },
-      { property: "og:title", content: composeTitle() },
-      { property: "og:description", content: DEFAULT_DESCRIPTION },
-      { name: "twitter:url", content: `${SITE_URL}/` },
-      { name: "twitter:title", content: composeTitle() },
-      { name: "twitter:description", content: DEFAULT_DESCRIPTION },
-    ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
-    scripts: [websiteSchema, localBusinessSchema, personSchema, faqSchema(faqs)].map(
-      (schema) => ({
-        type: "application/ld+json",
-        children: JSON.stringify(schema),
-      }),
-    ),
-  }),
+  head: () =>
+    buildHead({
+      title: composeTitle(),
+      path: "/",
+      schemas: [websiteSchema, localBusinessSchema, personSchema, faqSchema(faqs)],
+    }),
   component: HomePage,
 });

@@ -3,7 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageTransition } from "@/components/PageTransition";
 import { experiences } from "@/data/experiences";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
-import { composeTitle, SITE_URL } from "@/components/SEO";
+import { buildHead } from "@/lib/head";
+import { composeTitle } from "@/components/SEO";
 
 const ExperienceDetail = lazy(() => import("@/components/ExperienceDetail").then(m => ({ default: m.ExperienceDetail })));
 
@@ -27,38 +28,20 @@ export const Route = createFileRoute("/experience/$id")({
   head: ({ params }) => {
     const experience = experiences.find((e) => e.id === params.id);
     if (!experience) {
-      const title = composeTitle("Ervaring niet gevonden");
-      return {
-        meta: [
-          { title },
-          { name: "title", content: title },
-          {
-            name: "description",
-            content: "De opgevraagde HR-ervaring kon niet worden gevonden.",
-          },
-        ],
-      };
+      return buildHead({
+        title: composeTitle("Ervaring niet gevonden"),
+        description: "De opgevraagde HR-ervaring kon niet worden gevonden.",
+        path: `/experience/${params.id}`,
+        noIndex: true,
+      });
     }
 
-    const title = composeTitle(experience.title);
-    const description = `${experience.role} - ${experience.shortDescription}`;
-    const url = `${SITE_URL}/experience/${experience.id}`;
-
-    return {
-      meta: [
-        { title },
-        { name: "title", content: title },
-        { name: "description", content: description },
-        { property: "og:type", content: "article" },
-        { property: "og:url", content: url },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-        { name: "twitter:url", content: url },
-        { name: "twitter:title", content: title },
-        { name: "twitter:description", content: description },
-      ],
-      links: [{ rel: "canonical", href: url }],
-      scripts: [
+    return buildHead({
+      title: composeTitle(experience.title),
+      description: experience.metaDescription,
+      path: `/experience/${experience.id}`,
+      ogType: "article",
+      schemas: [
         articleSchema({
           title: experience.title,
           description: experience.shortDescription,
@@ -69,11 +52,8 @@ export const Route = createFileRoute("/experience/$id")({
           { name: "Ervaring", url: "/experience" },
           { name: experience.title, url: `/experience/${experience.id}` },
         ]),
-      ].map((schema) => ({
-        type: "application/ld+json",
-        children: JSON.stringify(schema),
-      })),
-    };
+      ],
+    });
   },
   component: ExperienceDetailPage,
 });
