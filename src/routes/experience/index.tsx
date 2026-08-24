@@ -13,7 +13,7 @@ const RouteFallback = () => (
 
 const DESCRIPTION =
   "Bekijk mijn gerealiseerde HR-projecten en interim opdrachten bij toonaangevende organisaties als Heineken, KLM en Bunge.";
-const TITLE = composeTitle("Ervaring & Projecten");
+const TITLE = "Ervaring & Projecten | Erica van Dijk";
 const URL = `${SITE_URL}/experience`;
 
 function ExperiencePage() {

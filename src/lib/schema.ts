@@ -1,7 +1,22 @@
 const SITE_URL = 'https://ericavandijk.nl';
 const SITE_NAME = 'Erica van Dijk - HR Interim & Advies';
 const PERSON_NAME = 'Erica van Dijk';
-const DEFAULT_IMAGE = 'https://storage.googleapis.com/gpt-engineer-file-uploads/8J9ts0tlIuZAwHTFHhaFZxeANjn1/social-images/social-1764600536479-Erica%20herosectie%20foto.png';
+const DEFAULT_IMAGE = 'https://ericavandijk.nl/og-image.jpg';
+const LINKEDIN_URL = 'https://nl.linkedin.com/in/erica-van-dijk-a713506';
+
+export const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${SITE_URL}/#service`,
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo-dark.png`,
+  image: DEFAULT_IMAGE,
+  email: 'info@ericavandijk.nl',
+  telephone: '+31625317680',
+  areaServed: 'NL',
+  sameAs: [LINKEDIN_URL],
+};
 
 export const websiteSchema = {
   '@context': 'https://schema.org',
@@ -36,7 +51,7 @@ export const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: PERSON_NAME,
-  jobTitle: 'HR Interim Manager & Adviseur',
+  jobTitle: 'HR Interim Manager',
   url: SITE_URL,
   image: DEFAULT_IMAGE,
   worksFor: {
