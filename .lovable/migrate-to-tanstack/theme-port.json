@@ -1,0 +1,28 @@
+{
+  "customizations": [
+    { "token": "@font-face Satoshi (400/500/700/900 woff2)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--background (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--foreground (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--card / --card-foreground (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--popover / --popover-foreground (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--primary hsl(7 78% 31%) / --primary-foreground (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--secondary / --secondary-foreground (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--muted / --muted-foreground (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--accent / --accent-foreground (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--destructive / --destructive-foreground (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--border / --input / --ring (light+dark)", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "--radius: 0.75rem + sm/md/lg derivations", "source": "src/index.css + tailwind.config.ts", "reappliedIn": "src/styles.css" },
+    { "token": "--radius-xl/2xl/3xl/4xl static v3 values (0.75/1/1.5/2rem)", "source": "tailwind.config.ts (v3 static defaults)", "reappliedIn": "src/styles.css" },
+    { "token": "--font-satoshi / --font-heading / --font-body", "source": "tailwind.config.ts fontFamily", "reappliedIn": "src/styles.css" },
+    { "token": "--tracking-tighter/tight/normal/wide/wider/widest", "source": "tailwind.config.ts letterSpacing", "reappliedIn": "src/styles.css" },
+    { "token": "--animate-accordion-down / --animate-accordion-up + keyframes", "source": "tailwind.config.ts keyframes/animation", "reappliedIn": "src/styles.css" },
+    { "token": "body font-family/weight + antialiasing", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "h1-h6 font-family/weight", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "html scroll-behavior: smooth", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "custom scrollbar styles", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "font-satoshi-regular utility", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "font-satoshi-medium utility", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "font-satoshi-bold utility", "source": "src/index.css", "reappliedIn": "src/styles.css" },
+    { "token": "font-satoshi-black utility", "source": "src/index.css", "reappliedIn": "src/styles.css" }
+  ]
+}

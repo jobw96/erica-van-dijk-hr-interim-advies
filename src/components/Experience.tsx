@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Calendar } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 import { experiences } from '../data/experiences';
 
 const containerVariants = {
@@ -124,7 +124,7 @@ export const Experience: React.FC = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 flex flex-col flex-grow">
+                  <div className="p-5 flex flex-col grow">
                     <div className="flex items-center gap-2 text-[#8E170B] text-sm font-satoshi-medium mb-3 tracking-wide">
                       <Calendar size={16} aria-hidden="true" />
                       <time>{item.period}</time>
@@ -132,7 +132,7 @@ export const Experience: React.FC = () => {
                     <h3 className="text-xl font-satoshi-bold text-gray-900 mb-2 line-clamp-2 tracking-tight">
                       {item.title}
                     </h3>
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2 flex-grow font-satoshi-regular tracking-wide">
+                    <p className="text-gray-600 text-sm mb-3 line-clamp-2 grow font-satoshi-regular tracking-wide">
                       {item.shortDescription}
                     </p>
                     <div className="flex items-center gap-2 text-[#8E170B] font-satoshi-medium text-sm mt-auto tracking-wide">
