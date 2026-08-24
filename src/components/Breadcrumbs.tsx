@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from '@/lib/router-compat';
 import { ChevronRight, Home } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { experiences } from '../data/experiences';
@@ -22,7 +22,7 @@ export const Breadcrumbs: React.FC = () => {
     contact: 'Contact'
   };
   
-  return <div className="bg-white border-b border-gray-100 sticky top-[60px] z-40 backdrop-blur-sm">
+  return <div className="bg-white border-b border-gray-100 sticky top-[60px] z-40 backdrop-blur-xs">
       <div className="max-w-7xl mx-auto px-6 py-3">
         <nav className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm flex-wrap">
           <MotionLink to="/" className="flex items-center text-gray-500 hover:text-[#8E170B] transition-colors" whileHover={{
@@ -49,7 +49,7 @@ export const Breadcrumbs: React.FC = () => {
             displayName = value.charAt(0).toUpperCase() + value.slice(1);
           }
           return <React.Fragment key={to}>
-                <ChevronRight size={14} className="md:w-4 md:h-4 text-gray-300 flex-shrink-0" />
+                <ChevronRight size={14} className="md:w-4 md:h-4 text-gray-300 shrink-0" />
                 {isLast ? <span className="font-medium text-[#8E170B]">
                     {displayName}
                   </span> : <MotionLink to={to} className="text-gray-600 hover:text-[#8E170B] transition-colors font-normal" whileHover={{

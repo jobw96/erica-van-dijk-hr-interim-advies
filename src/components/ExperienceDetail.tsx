@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link } from '@/lib/router-compat';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
 import { experiences } from '../data/experiences';
@@ -171,7 +171,7 @@ export const ExperienceDetail: React.FC = () => {
                     <Link to={`/experience/${exp.id}`} aria-label={`Lees meer over ${exp.title}`}>
                       <motion.article
                         whileHover={{ y: -4 }}
-                        className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                        className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-xs hover:shadow-md transition-shadow"
                       >
                         <div className="h-48 overflow-hidden">
                           <img

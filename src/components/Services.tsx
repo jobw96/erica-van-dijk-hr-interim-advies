@@ -187,7 +187,7 @@ export const Services: React.FC = () => {
                   >
                     {service.title}
                   </motion.h3>
-                  <p className="text-gray-600 leading-relaxed flex-grow relative z-10">
+                  <p className="text-gray-600 leading-relaxed grow relative z-10">
                     {service.description}
                   </p>
 

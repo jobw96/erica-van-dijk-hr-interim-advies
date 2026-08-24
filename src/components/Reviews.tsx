@@ -66,7 +66,7 @@ export const Reviews: React.FC = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-block bg-[#8E170B] text-white font-satoshi-bold text-xs uppercase px-8 py-4 rounded-lg tracking-wider mb-12 hover:bg-[#701209] transition-colors shadow-sm"
+                className="inline-block bg-[#8E170B] text-white font-satoshi-bold text-xs uppercase px-8 py-4 rounded-lg tracking-wider mb-12 hover:bg-[#701209] transition-colors shadow-xs"
                 aria-label="Bekijk alle aanbevelingen op LinkedIn (opent in nieuw tabblad)"
               >
                 Bekijk
@@ -138,7 +138,7 @@ export const Reviews: React.FC = () => {
 
               <footer className="flex items-center gap-4 mt-auto">
                 <div
-                  className="w-12 h-12 rounded-full bg-[#0077b5] flex items-center justify-center flex-shrink-0 text-white"
+                  className="w-12 h-12 rounded-full bg-[#0077b5] flex items-center justify-center shrink-0 text-white"
                   aria-hidden="true"
                 >
                   <Linkedin size={24} fill="currentColor" strokeWidth={0} />

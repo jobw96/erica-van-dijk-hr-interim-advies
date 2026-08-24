@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link } from '@/lib/router-compat';
 import { Button } from '@/components/ui/button';
 import { GradualSpacing } from '@/components/ui/gradual-spacing';
 
@@ -104,7 +104,7 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.22, ease: [0.22, 1, 0.36, 1] }}
               whileHover={{ y: -3 }}
             >
-              <Button asChild variant="outline" className="h-11 px-7 text-base border border-white/80 text-white hover:bg-white/10 hover:text-white backdrop-blur-sm bg-transparent rounded-xl transition-all duration-300">
+              <Button asChild variant="outline" className="h-11 px-7 text-base border border-white/80 text-white hover:bg-white/10 hover:text-white backdrop-blur-xs bg-transparent rounded-xl transition-all duration-300">
                 <Link to="/experience" aria-label="Bekijk mijn HR ervaringen en projecten">
                   Ervaringen
                 </Link>

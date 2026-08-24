@@ -37,7 +37,7 @@ function GradualSpacing({
             variants={framerProps}
             transition={{ duration, delay: i * delayMultiple }}
             onAnimationComplete={i === lastCharIndex ? onComplete : undefined}
-            className={cn("drop-shadow-sm", className)}
+            className={cn("drop-shadow-xs", className)}
           >
             {char === " " ? <span>&nbsp;</span> : char}
           </motion.span>
