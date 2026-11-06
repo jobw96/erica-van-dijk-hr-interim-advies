@@ -121,6 +121,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar: Legal & Copyright */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center pt-6 border-t border-gray-200 text-gray-500 text-xs gap-3 text-left font-satoshi-regular tracking-wide">
           <p>© {new Date().getFullYear()} Erica van Dijk. Alle rechten voorbehouden.</p>
+          <p>Website gemaakt door <a href="https://nieuwblik.com" target="_blank" rel="noopener" className="underline-offset-4 hover:underline">nieuwblik.com</a></p>
           <nav aria-label="Juridische links" className="flex items-center gap-4">
             <MotionLink to="/privacy" whileHover={{ color: '#8E170B' }}>
               Privacyverklaring
